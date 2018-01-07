@@ -1,0 +1,233 @@
+﻿/* ======== SQLGridSelectedView V5 Custom Styles ======== */
+
+/* changes */
+/* V5.4 added .SGSV5_ExportLink and .SGSV5_T_ExportLink */
+/* V5.4 added .SGSV5_T_LowerDetail - was missing */
+/* V5.6 added .SGSV5_Directions - was missing */
+/* V5.6 added .SGSV5_T_Directions - was missing */
+
+.SGSV5_pnlDisplay { 
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal; 
+}
+
+.SGSV5_Grid { 
+    border-width: 2px;
+    border-style: Solid;
+    border-collapse: collapse;
+    margin: 2px;
+    width: 99%
+}	
+/* 
+.SGSV5_Grid td { border: solid 3px green; padding: 3px; }
+.SGSV5_Grid th { border: solid 3px green; padding: 3px; }
+*/
+ 
+.SGSV5_GridItem {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    background-color:white;
+    /** background-color:pink; **/
+
+}
+.SGSV5_GridAlternateItem {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal; 
+    background-color:#E8E8E8;
+}
+.SGSV5_GridHeader {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    font-weight:normal;
+    background-color: #6699FF;
+    /* background-color: #0a3c91; ****/
+}
+
+TH.SGSV5_GridHeader  {
+    vertical-align: baseline;
+    font-family: Tahoma, Arial, Helvetica;
+    color: white;
+}
+.SGSV5_GridFooter { }
+
+.SGSV5_GridColumn {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal
+}
+.SGSV5_GridPager {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #E8E8E8;
+}
+
+.SGSV5_Header {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_Directions {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_Footer {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_Prompt {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_LowerDetail 
+{
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    margin: 2px;
+    text-align: center;
+    width: 99%
+}
+.SGSV5_ExportLink {
+    margin: 2px;
+    text-align: center;
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    width: 99%
+}
+.SGSV5_SelectionTable {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    
+}
+.SGSV5_Button {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+
+/* additional styles */
+
+.SGSV5_Normal {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+}
+.SGSV5_NormalBold {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: bold
+}
+.SGSV5_SQLTextbox {
+    font-family: Lucida Console, Arial, Helvetica;
+    font-size: 12px;
+}
+
+
+/* ====== SQLGridSelectedView Template Custom Styles ========== */
+.SGSV5_T_Grid { 
+    background-color: White;
+    border-color:  Gray;
+    border-width: 1px;
+    border-style: Solid;
+    border-collapse: collapse;
+    margin: 2px;
+}	
+.SGSV5_T_GridItem {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    background-color:pink;
+    margin: 2px;
+    padding: 2px;
+}
+.SGSV5_T_GridAlternateItem {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal; 
+    background-color:#E8E8E8;
+    margin: 2px;
+    padding: 2px;
+}
+.SGSV5_T_GridHeader {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold;
+}
+.SGSV5_T_GridFooter {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_T_GridColumn {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+}
+.SGSV5_T_GridPages {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_T_Header {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_T_Directions {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_T_Footer {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_T_Prompt {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_T_LowerDetail {
+    margin: 2px;
+    text-align: center;
+    width: 99%
+}
+.SGSV5_T_ExportLink {
+    margin: 2px;
+    text-align: center;
+    font-weight: bold;
+    width: 99%
+}
+.SGSV5_T_SelectionTable {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+.SGSV5_T_Button {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+/* additional styles */
+
+.SGSV5_T_Normal {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+}
+.SGSV5_T_NormalBold {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+
