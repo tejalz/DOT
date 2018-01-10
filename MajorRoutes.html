@@ -31,22 +31,27 @@
     border-width: 2px;
     border-style: Solid;
     border-collapse: collapse;
+    font-size: 13px;
     margin: 2px;
     width: 99%;
 }
         .SGSV5_GridItem {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: normal;
     background-color: white;
 }
         .SGSV5_GridAlternateItem {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: normal;
     background-color: #E8E8E8;
 }
+        .GridHeader{
+            background-color: white;
+        }
     </style>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -157,7 +162,7 @@
                 resultItems.push("<th class='GridHeader' scope='col'>Direction</th>");
                 resultItems.push("<th class='GridHeader' scope='col'>Exit Location</th>");
                 resultItems.push("</tr></thead>");
-                resultItems.push("<colgroup><col span=\"1\" style=\"width: 30%;\"><col span=\"1\" style=\"width: 30%;\"><col span=\"1\" style=\"width: 40%;\"></colgroup><tbody>");
+                resultItems.push("<colgroup><col span=\"1\" style=\"width: 10%;\"><col span=\"1\" style=\"width: 10%;\"><col span=\"1\" style=\"width: 80%;\"></colgroup><tbody>");
                 $.each(routeData, function (i, value) {
                     // alert(value.Number);
                     // alert(value.Direction);
