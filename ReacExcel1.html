@@ -16,7 +16,7 @@
 		    req.onload = function (e) {
 		        alert("call1");
 		        var data = new Uint8Array(req.response);
-		        alert(data);
+		        alert("data" + data);
 		        var workbook = XLSX.read(data, { type: "array" });
 
 		        /* DO SOMETHING WITH workbook HERE */
