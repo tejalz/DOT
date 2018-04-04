@@ -8,15 +8,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
 	<script>
 		$(document).ready(function () {
-		    alert("call");
+		    //alert("call");
 		    var excelUrl = "https://massgov.github.io/DOT/Chapter90.xlsx";
 		    var req = new XMLHttpRequest();
 		    req.open("GET", excelUrl, true);
 		    req.responseType = "arraybuffer";
 		    req.onload = function (e) {
-		        alert("call1");
+		        //alert("call1");
 		        var data = new Uint8Array(req.response);
-		        alert("data" + data);
+		        alert("data");
 		        var workbook = XLSX.read(data, { type: "array" });
 
 		        /* DO SOMETHING WITH workbook HERE */
