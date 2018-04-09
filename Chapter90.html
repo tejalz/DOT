@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
     <title>Excel to JSON Demo</title>
@@ -7,11 +7,16 @@
     <style type="text/css">
         .tdclass {
             height: 25px;
+            text-align:center; 
         }
 
         .GridHeader {
             height: 25px;
             background-color: #bfbfbf;
+        }
+        .TotalAmt
+        {
+            padding-top: 680px
         }
     </style>
 
@@ -56,7 +61,7 @@
                 var i = $("#TownsList option:selected").val();
                 $('#townName').html($("#TownsList option:selected").text());
                 $('#DistCode').html("Highway District " + exceljson[i].DistrictCode);
-                $('#totalAmt').html("Total amount apportioned for fiscal years 2000 to 2019: " + exceljson[i].FY2000_2019);
+                $('#totalAmt').html("Total amount apportioned for fiscal years 2000 to 2019: " + "<strong>" + exceljson[i].FY2000_2019 + "</strong>");
                 if (exceljson.length > 0) {
                     BindTable(exceljson);
                     //$('#person-list').append(JSON.stringify(exceljson));
@@ -69,655 +74,431 @@
             var resultItems = [];
             var i = $("#TownsList option:selected").val();
            // alert(i);
-            resultItems.push("<thead><tr class='GridHeader'>");
-            resultItems.push("<th class='GridHeader'>Fiscal Year</th>");
-            resultItems.push("<th class='GridHeader'>Apportionment Amount</th>");
-            resultItems.push("</tr></thead>");
-            resultItems.push("<tbody>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2019");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY19);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2018");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY18);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2017");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY17);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2016");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY16);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2015");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2015);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2014");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2014);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2013");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2013);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2012");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2012);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2011");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2011);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2010");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2010);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2009");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2009);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2008");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY_2008);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2008");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2008);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2007");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2007);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2006");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY_2006);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2006");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2006);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2005");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2005);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2004");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2004);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2003");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2003);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2002");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY_2002);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2002");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2002);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2001");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2001);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-            resultItems.push("<tr class='SGSV5_GridItem'>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push("2000");
-            resultItems.push("</td>");
-            resultItems.push("<td class='tdclass'>");
-            resultItems.push(jsondata[i].FY2000);
-            resultItems.push("</td>");
-            resultItems.push("</tr>");
-
-
+            resultItems.push("<thead><tr class='GridHeader'>"); resultItems.push("<th class='GridHeader'>Fiscal Year</th>"); resultItems.push("<th class='GridHeader'>Apportionment Amount</th>"); resultItems.push("</tr></thead>"); resultItems.push("<colgroup><col span=\"1\" style=\"width: 3%;\"><col span=\"1\" style=\"width: 7%;\"></colgroup><tbody>"); //resultItems.push("<tbody>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2019"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY19); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2018"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY18); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2017"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY17); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2016"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY16); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2015"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2015); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2014"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2014); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2013"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2013); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2012"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2012); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2011"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2011); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2010"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2010); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2009"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2009); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2008"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY_2008); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2008"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2008); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2007"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2007); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2006"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY_2006); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2006"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2006); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2005"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2005); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2004"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2004); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2003"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2003); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2002"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY_2002); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2002"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2002); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2001"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2001); resultItems.push("</td>"); resultItems.push("</tr>");
+            resultItems.push("<tr class='SGSV5_GridItem'>"); resultItems.push("<td class='tdclass'>"); resultItems.push("2000"); resultItems.push("</td>"); resultItems.push("<td class='tdclass'>"); resultItems.push(jsondata[i].FY2000); resultItems.push("</td>"); resultItems.push("</tr>");
             resultItems.push("</tbody>");
             document.getElementById("myTableNode").innerHTML = resultItems.join("");
 
         }
     </script>
     <!--<div id="person-list"></div>-->
-    <table id="dnn_ctr7383_SGSVMain_SGSV_SelectionTable" class="SGSV5_SelectionTable"
-           cellspacing="2" cellpadding="2">
-        <tr>
-            <td>
-                <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1" class="SGSV5_Prompt">
-                    <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select Town</label>
-                </span>
-            </td>
-            <td>
-                <select id="TownsList" class="SGSV5_InputControl">
-                    <option selected value="0">ABINGTON</option>
-                    <option value="1">ACTON</option>
-                    <option value="2">ACUSHNET</option>
-                    <option value="3">ADAMS</option>
-                    <option value="4">AGAWAM</option>
-                    <option value="5">ALFORD</option>
-                    <option value="6">AMESBURY</option>
-                    <option value="7">AMHERST</option>
-                    <option value="8">ANDOVER</option>
-                    <option value="9">AQUINNAH</option>
-                    <option value="10">ARLINGTON</option>
-                    <option value="11">ASHBURNHAM</option>
-                    <option value="12">ASHBY</option>
-                    <option value="13">ASHFIELD</option>
-                    <option value="14">ASHLAND</option>
-                    <option value="15">ATHOL</option>
-                    <option value="16">ATTLEBORO</option>
-                    <option value="17">AUBURN</option>
-                    <option value="18">AVON</option>
-                    <option value="19">AYER</option>
-                    <option value="20">BARNSTABLE</option>
-                    <option value="21">BARRE</option>
-                    <option value="22">BECKET</option>
-                    <option value="23">BEDFORD</option>
-                    <option value="24">BELCHERTOWN</option>
-                    <option value="25">BELLINGHAM</option>
-                    <option value="26">BELMONT</option>
-                    <option value="27">BERKLEY</option>
-                    <option value="28">BERLIN</option>
-                    <option value="29">BERNARDSTON</option>
-                    <option value="30">BEVERLY</option>
-                    <option value="31">BILLERICA</option>
-                    <option value="32">BLACKSTONE</option>
-                    <option value="33">BLANDFORD</option>
-                    <option value="34">BOLTON</option>
-                    <option value="35">BOSTON</option>
-                    <option value="36">BOURNE</option>
-                    <option value="37">BOXBOROUGH</option>
-                    <option value="38">BOXFORD</option>
-                    <option value="39">BOYLSTON</option>
-                    <option value="40">BRAINTREE</option>
-                    <option value="41">BREWSTER</option>
-                    <option value="42">BRIDGEWATER</option>
-                    <option value="43">BRIMFIELD</option>
-                    <option value="44">BROCKTON</option>
-                    <option value="45">BROOKFIELD</option>
-                    <option value="46">BROOKLINE</option>
-                    <option value="47">BUCKLAND</option>
-                    <option value="48">BURLINGTON</option>
-                    <option value="49">CAMBRIDGE</option>
-                    <option value="50">CANTON</option>
-                    <option value="51">CARLISLE</option>
-                    <option value="52">CARVER</option>
-                    <option value="53">CHARLEMONT</option>
-                    <option value="54">CHARLTON</option>
-                    <option value="55">CHATHAM</option>
-                    <option value="56">CHELMSFORD</option>
-                    <option value="57">CHELSEA</option>
-                    <option value="58">CHESHIRE</option>
-                    <option value="59">CHESTER</option>
-                    <option value="60">CHESTERFIELD</option>
-                    <option value="61">CHICOPEE</option>
-                    <option value="62">CHILMARK</option>
-                    <option value="63">CLARKSBURG</option>
-                    <option value="64">CLINTON</option>
-                    <option value="65">COHASSET</option>
-                    <option value="66">COLRAIN</option>
-                    <option value="67">CONCORD</option>
-                    <option value="68">CONWAY</option>
-                    <option value="69">CUMMINGTON</option>
-                    <option value="70">DALTON</option>
-                    <option value="71">DANVERS</option>
-                    <option value="72">DARTMOUTH</option>
-                    <option value="73">DEDHAM</option>
-                    <option value="74">DEERFIELD</option>
-                    <option value="75">DENNIS</option>
-                    <option value="76">DIGHTON</option>
-                    <option value="77">DOUGLAS</option>
-                    <option value="78">DOVER</option>
-                    <option value="79">DRACUT</option>
-                    <option value="80">DUDLEY</option>
-                    <option value="81">DUNSTABLE</option>
-                    <option value="82">DUXBURY</option>
-                    <option value="83">EAST BRIDGEWATER</option>
-                    <option value="84">EAST BROOKFIELD</option>
-                    <option value="85">EAST LONGMEADOW</option>
-                    <option value="86">EASTHAM</option>
-                    <option value="87">EASTHAMPTON</option>
-                    <option value="88">EASTON</option>
-                    <option value="89">EDGARTOWN</option>
-                    <option value="90">EGREMONT</option>
-                    <option value="91">ERVING</option>
-                    <option value="92">ESSEX</option>
-                    <option value="93">EVERETT</option>
-                    <option value="94">FAIRHAVEN</option>
-                    <option value="95">FALL RIVER</option>
-                    <option value="96">FALMOUTH</option>
-                    <option value="97">FITCHBURG</option>
-                    <option value="98">FLORIDA</option>
-                    <option value="99">FOXBOROUGH</option>
-                    <option value="100">FRAMINGHAM</option>
-                    <option value="101">FRANKLIN</option>
-                    <option value="102">FREETOWN</option>
-                    <option value="103">GARDNER</option>
-                    <option value="104">GEORGETOWN</option>
-                    <option value="105">GILL</option>
-                    <option value="106">GLOUCESTER</option>
-                    <option value="107">GOSHEN</option>
-                    <option value="108">GOSNOLD</option>
-                    <option value="109">GRAFTON</option>
-                    <option value="110">GRANBY</option>
-                    <option value="111">GRANVILLE</option>
-                    <option value="112">GREAT BARRINGTON</option>
-                    <option value="113">GREENFIELD</option>
-                    <option value="114">GROTON</option>
-                    <option value="115">GROVELAND</option>
-                    <option value="116">HADLEY</option>
-                    <option value="117">HALIFAX</option>
-                    <option value="118">HAMILTON</option>
-                    <option value="119">HAMPDEN</option>
-                    <option value="120">HANCOCK</option>
-                    <option value="121">HANOVER</option>
-                    <option value="122">HANSON</option>
-                    <option value="123">HARDWICK</option>
-                    <option value="124">HARVARD</option>
-                    <option value="125">HARWICH</option>
-                    <option value="126">HATFIELD</option>
-                    <option value="127">HAVERHILL</option>
-                    <option value="128">HAWLEY</option>
-                    <option value="129">HEATH</option>
-                    <option value="130">HINGHAM</option>
-                    <option value="131">HINSDALE</option>
-                    <option value="132">HOLBROOK</option>
-                    <option value="133">HOLDEN</option>
-                    <option value="134">HOLLAND</option>
-                    <option value="135">HOLLISTON</option>
-                    <option value="136">HOLYOKE</option>
-                    <option value="137">HOPEDALE</option>
-                    <option value="138">HOPKINTON</option>
-                    <option value="139">HUBBARDSTON</option>
-                    <option value="140">HUDSON</option>
-                    <option value="141">HULL</option>
-                    <option value="142">HUNTINGTON</option>
-                    <option value="143">IPSWICH</option>
-                    <option value="144">KINGSTON</option>
-                    <option value="145">LAKEVILLE</option>
-                    <option value="146">LANCASTER</option>
-                    <option value="147">LANESBOROUGH</option>
-                    <option value="148">LAWRENCE</option>
-                    <option value="149">LEE</option>
-                    <option value="150">LEICESTER</option>
-                    <option value="151">LENOX</option>
-                    <option value="152">LEOMINSTER</option>
-                    <option value="153">LEVERETT</option>
-                    <option value="154">LEXINGTON</option>
-                    <option value="155">LEYDEN</option>
-                    <option value="156">LINCOLN</option>
-                    <option value="157">LITTLETON</option>
-                    <option value="158">LONGMEADOW</option>
-                    <option value="159">LOWELL</option>
-                    <option value="160">LUDLOW</option>
-                    <option value="161">LUNENBURG</option>
-                    <option value="162">LYNN</option>
-                    <option value="163">LYNNFIELD</option>
-                    <option value="164">MALDEN</option>
-                    <option value="165">MANCHESTER</option>
-                    <option value="166">MANSFIELD</option>
-                    <option value="167">MARBLEHEAD</option>
-                    <option value="168">MARION</option>
-                    <option value="169">MARLBOROUGH</option>
-                    <option value="170">MARSHFIELD</option>
-                    <option value="171">MASHPEE</option>
-                    <option value="172">MATTAPOISETT</option>
-                    <option value="173">MAYNARD</option>
-                    <option value="174">MEDFIELD</option>
-                    <option value="175">MEDFORD</option>
-                    <option value="176">MEDWAY</option>
-                    <option value="177">MELROSE</option>
-                    <option value="178">MENDON</option>
-                    <option value="179">MERRIMAC</option>
-                    <option value="180">METHUEN</option>
-                    <option value="181">MIDDLEBOROUGH</option>
-                    <option value="182">MIDDLEFIELD</option>
-                    <option value="183">MIDDLETON</option>
-                    <option value="184">MILFORD</option>
-                    <option value="185">MILLBURY</option>
-                    <option value="186">MILLIS</option>
-                    <option value="187">MILLVILLE</option>
-                    <option value="188">MILTON</option>
-                    <option value="189">MONROE</option>
-                    <option value="190">MONSON</option>
-                    <option value="191">MONTAGUE</option>
-                    <option value="192">MONTEREY</option>
-                    <option value="193">MONTGOMERY</option>
-                    <option value="194">MOUNT WASHINGTON</option>
-                    <option value="195">NAHANT</option>
-                    <option value="196">NANTUCKET</option>
-                    <option value="197">NATICK</option>
-                    <option value="198">NEEDHAM</option>
-                    <option value="199">NEW ASHFORD</option>
-                    <option value="200">NEW BEDFORD</option>
-                    <option value="201">NEW BRAINTREE</option>
-                    <option value="202">NEW MARLBOROUGH</option>
-                    <option value="203">NEW SALEM</option>
-                    <option value="204">NEWBURY</option>
-                    <option value="205">NEWBURYPORT</option>
-                    <option value="206">NEWTON</option>
-                    <option value="207">NORFOLK</option>
-                    <option value="208">NORTH ADAMS</option>
-                    <option value="209">NORTH ANDOVER</option>
-                    <option value="210">NORTH ATTLEBOROUGH</option>
-                    <option value="211">NORTH BROOKFIELD</option>
-                    <option value="212">NORTH READING</option>
-                    <option value="213">NORTHAMPTON</option>
-                    <option value="214">NORTHBOROUGH</option>
-                    <option value="215">NORTHBRIDGE</option>
-                    <option value="216">NORTHFIELD</option>
-                    <option value="217">NORTON</option>
-                    <option value="218">NORWELL</option>
-                    <option value="219">NORWOOD</option>
-                    <option value="220">OAK BLUFFS</option>
-                    <option value="221">OAKHAM</option>
-                    <option value="222">ORANGE</option>
-                    <option value="223">ORLEANS</option>
-                    <option value="224">OTIS</option>
-                    <option value="225">OXFORD</option>
-                    <option value="226">PALMER</option>
-                    <option value="227">PAXTON</option>
-                    <option value="228">PEABODY</option>
-                    <option value="229">PELHAM</option>
-                    <option value="230">PEMBROKE</option>
-                    <option value="231">PEPPERELL</option>
-                    <option value="232">PERU</option>
-                    <option value="233">PETERSHAM</option>
-                    <option value="234">PHILLIPSTON</option>
-                    <option value="235">PITTSFIELD</option>
-                    <option value="236">PLAINFIELD</option>
-                    <option value="237">PLAINVILLE</option>
-                    <option value="238">PLYMOUTH</option>
-                    <option value="239">PLYMPTON</option>
-                    <option value="240">PRINCETON</option>
-                    <option value="241">PROVINCETOWN</option>
-                    <option value="242">QUINCY</option>
-                    <option value="243">RANDOLPH</option>
-                    <option value="244">RAYNHAM</option>
-                    <option value="245">READING</option>
-                    <option value="246">REHOBOTH</option>
-                    <option value="247">REVERE</option>
-                    <option value="248">RICHMOND</option>
-                    <option value="249">ROCHESTER</option>
-                    <option value="250">ROCKLAND</option>
-                    <option value="251">ROCKPORT</option>
-                    <option value="252">ROWE</option>
-                    <option value="253">ROWLEY</option>
-                    <option value="254">ROYALSTON</option>
-                    <option value="255">RUSSELL</option>
-                    <option value="256">RUTLAND</option>
-                    <option value="257">SALEM</option>
-                    <option value="258">SALISBURY</option>
-                    <option value="259">SANDISFIELD</option>
-                    <option value="260">SANDWICH</option>
-                    <option value="261">SAUGUS</option>
-                    <option value="262">SAVOY</option>
-                    <option value="263">SCITUATE</option>
-                    <option value="264">SEEKONK</option>
-                    <option value="265">SHARON</option>
-                    <option value="266">SHEFFIELD</option>
-                    <option value="267">SHELBURNE</option>
-                    <option value="268">SHERBORN</option>
-                    <option value="269">SHIRLEY</option>
-                    <option value="270">SHREWSBURY</option>
-                    <option value="271">SHUTESBURY</option>
-                    <option value="272">SOMERSET</option>
-                    <option value="273">SOMERVILLE</option>
-                    <option value="274">SOUTH HADLEY</option>
-                    <option value="275">SOUTHAMPTON</option>
-                    <option value="276">SOUTHBOROUGH</option>
-                    <option value="277">SOUTHBRIDGE</option>
-                    <option value="278">SOUTHWICK</option>
-                    <option value="279">SPENCER</option>
-                    <option value="280">SPRINGFIELD</option>
-                    <option value="281">STERLING</option>
-                    <option value="282">STOCKBRIDGE</option>
-                    <option value="283">STONEHAM</option>
-                    <option value="284">STOUGHTON</option>
-                    <option value="285">STOW</option>
-                    <option value="286">STURBRIDGE</option>
-                    <option value="287">SUDBURY</option>
-                    <option value="288">SUNDERLAND</option>
-                    <option value="289">SUTTON</option>
-                    <option value="290">SWAMPSCOTT</option>
-                    <option value="291">SWANSEA</option>
-                    <option value="292">TAUNTON</option>
-                    <option value="293">TEMPLETON</option>
-                    <option value="294">TEWKSBURY</option>
-                    <option value="295">TISBURY</option>
-                    <option value="296">TOLLAND</option>
-                    <option value="297">TOPSFIELD</option>
-                    <option value="298">TOWNSEND</option>
-                    <option value="299">TRURO</option>
-                    <option value="300">TYNGSBOROUGH</option>
-                    <option value="301">TYRINGHAM</option>
-                    <option value="302">UPTON</option>
-                    <option value="303">UXBRIDGE</option>
-                    <option value="304">WAKEFIELD</option>
-                    <option value="305">WALES</option>
-                    <option value="306">WALPOLE</option>
-                    <option value="307">WALTHAM</option>
-                    <option value="308">WARE</option>
-                    <option value="309">WAREHAM</option>
-                    <option value="310">WARREN</option>
-                    <option value="311">WARWICK</option>
-                    <option value="312">WASHINGTON</option>
-                    <option value="313">WATERTOWN</option>
-                    <option value="314">WAYLAND</option>
-                    <option value="315">WEBSTER</option>
-                    <option value="316">WELLESLEY</option>
-                    <option value="317">WELLFLEET</option>
-                    <option value="318">WENDELL</option>
-                    <option value="319">WENHAM</option>
-                    <option value="320">WEST BOYLSTON</option>
-                    <option value="321">WEST BRIDGEWATER</option>
-                    <option value="322">WEST BROOKFIELD</option>
-                    <option value="323">WEST NEWBURY</option>
-                    <option value="324">WEST SPRINGFIELD</option>
-                    <option value="325">WEST STOCKBRIDGE</option>
-                    <option value="326">WEST TISBURY</option>
-                    <option value="327">WESTBOROUGH</option>
-                    <option value="328">WESTFIELD</option>
-                    <option value="329">WESTFORD</option>
-                    <option value="330">WESTHAMPTON</option>
-                    <option value="331">WESTMINSTER</option>
-                    <option value="332">WESTON</option>
-                    <option value="333">WESTPORT</option>
-                    <option value="334">WESTWOOD</option>
-                    <option value="335">WEYMOUTH</option>
-                    <option value="336">WHATELY</option>
-                    <option value="337">WHITMAN</option>
-                    <option value="338">WILBRAHAM</option>
-                    <option value="339">WILLIAMSBURG</option>
-                    <option value="340">WILLIAMSTOWN</option>
-                    <option value="341">WILMINGTON</option>
-                    <option value="342">WINCHENDON</option>
-                    <option value="343">WINCHESTER</option>
-                    <option value="344">WINDSOR</option>
-                    <option value="345">WINTHROP</option>
-                    <option value="346">WOBURN</option>
-                    <option value="347">WORCESTER</option>
-                    <option value="348">WORTHINGTON</option>
-                    <option value="349">WRENTHAM</option>
-                    <option value="350">YARMOUTH</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" value="Display" id="execute"
-                       class="SGSV5_Button" />
-            </td>
-        </tr>
-    </table>
-    <div id="dnn_ctr7383_SGSVMain_pnlDisplay" class="SGSV5_pnlDisplay">
+    <div>
+        <table id="dnn_ctr7383_SGSVMain_SGSV_SelectionTable" class="SGSV5_SelectionTable"
+               cellspacing="2" cellpadding="2">
+            <tr>
+                <td>
+                    <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1" class="SGSV5_Prompt">
+                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select Town</label>
+                    </span>
+                </td>
+                <td>
+                    <select id="TownsList" class="SGSV5_InputControl">
+                        <option selected value="0">ABINGTON</option>
+                        <option value="1">ACTON</option>
+                        <option value="2">ACUSHNET</option>
+                        <option value="3">ADAMS</option>
+                        <option value="4">AGAWAM</option>
+                        <option value="5">ALFORD</option>
+                        <option value="6">AMESBURY</option>
+                        <option value="7">AMHERST</option>
+                        <option value="8">ANDOVER</option>
+                        <option value="9">AQUINNAH</option>
+                        <option value="10">ARLINGTON</option>
+                        <option value="11">ASHBURNHAM</option>
+                        <option value="12">ASHBY</option>
+                        <option value="13">ASHFIELD</option>
+                        <option value="14">ASHLAND</option>
+                        <option value="15">ATHOL</option>
+                        <option value="16">ATTLEBORO</option>
+                        <option value="17">AUBURN</option>
+                        <option value="18">AVON</option>
+                        <option value="19">AYER</option>
+                        <option value="20">BARNSTABLE</option>
+                        <option value="21">BARRE</option>
+                        <option value="22">BECKET</option>
+                        <option value="23">BEDFORD</option>
+                        <option value="24">BELCHERTOWN</option>
+                        <option value="25">BELLINGHAM</option>
+                        <option value="26">BELMONT</option>
+                        <option value="27">BERKLEY</option>
+                        <option value="28">BERLIN</option>
+                        <option value="29">BERNARDSTON</option>
+                        <option value="30">BEVERLY</option>
+                        <option value="31">BILLERICA</option>
+                        <option value="32">BLACKSTONE</option>
+                        <option value="33">BLANDFORD</option>
+                        <option value="34">BOLTON</option>
+                        <option value="35">BOSTON</option>
+                        <option value="36">BOURNE</option>
+                        <option value="37">BOXBOROUGH</option>
+                        <option value="38">BOXFORD</option>
+                        <option value="39">BOYLSTON</option>
+                        <option value="40">BRAINTREE</option>
+                        <option value="41">BREWSTER</option>
+                        <option value="42">BRIDGEWATER</option>
+                        <option value="43">BRIMFIELD</option>
+                        <option value="44">BROCKTON</option>
+                        <option value="45">BROOKFIELD</option>
+                        <option value="46">BROOKLINE</option>
+                        <option value="47">BUCKLAND</option>
+                        <option value="48">BURLINGTON</option>
+                        <option value="49">CAMBRIDGE</option>
+                        <option value="50">CANTON</option>
+                        <option value="51">CARLISLE</option>
+                        <option value="52">CARVER</option>
+                        <option value="53">CHARLEMONT</option>
+                        <option value="54">CHARLTON</option>
+                        <option value="55">CHATHAM</option>
+                        <option value="56">CHELMSFORD</option>
+                        <option value="57">CHELSEA</option>
+                        <option value="58">CHESHIRE</option>
+                        <option value="59">CHESTER</option>
+                        <option value="60">CHESTERFIELD</option>
+                        <option value="61">CHICOPEE</option>
+                        <option value="62">CHILMARK</option>
+                        <option value="63">CLARKSBURG</option>
+                        <option value="64">CLINTON</option>
+                        <option value="65">COHASSET</option>
+                        <option value="66">COLRAIN</option>
+                        <option value="67">CONCORD</option>
+                        <option value="68">CONWAY</option>
+                        <option value="69">CUMMINGTON</option>
+                        <option value="70">DALTON</option>
+                        <option value="71">DANVERS</option>
+                        <option value="72">DARTMOUTH</option>
+                        <option value="73">DEDHAM</option>
+                        <option value="74">DEERFIELD</option>
+                        <option value="75">DENNIS</option>
+                        <option value="76">DIGHTON</option>
+                        <option value="77">DOUGLAS</option>
+                        <option value="78">DOVER</option>
+                        <option value="79">DRACUT</option>
+                        <option value="80">DUDLEY</option>
+                        <option value="81">DUNSTABLE</option>
+                        <option value="82">DUXBURY</option>
+                        <option value="83">EAST BRIDGEWATER</option>
+                        <option value="84">EAST BROOKFIELD</option>
+                        <option value="85">EAST LONGMEADOW</option>
+                        <option value="86">EASTHAM</option>
+                        <option value="87">EASTHAMPTON</option>
+                        <option value="88">EASTON</option>
+                        <option value="89">EDGARTOWN</option>
+                        <option value="90">EGREMONT</option>
+                        <option value="91">ERVING</option>
+                        <option value="92">ESSEX</option>
+                        <option value="93">EVERETT</option>
+                        <option value="94">FAIRHAVEN</option>
+                        <option value="95">FALL RIVER</option>
+                        <option value="96">FALMOUTH</option>
+                        <option value="97">FITCHBURG</option>
+                        <option value="98">FLORIDA</option>
+                        <option value="99">FOXBOROUGH</option>
+                        <option value="100">FRAMINGHAM</option>
+                        <option value="101">FRANKLIN</option>
+                        <option value="102">FREETOWN</option>
+                        <option value="103">GARDNER</option>
+                        <option value="104">GEORGETOWN</option>
+                        <option value="105">GILL</option>
+                        <option value="106">GLOUCESTER</option>
+                        <option value="107">GOSHEN</option>
+                        <option value="108">GOSNOLD</option>
+                        <option value="109">GRAFTON</option>
+                        <option value="110">GRANBY</option>
+                        <option value="111">GRANVILLE</option>
+                        <option value="112">GREAT BARRINGTON</option>
+                        <option value="113">GREENFIELD</option>
+                        <option value="114">GROTON</option>
+                        <option value="115">GROVELAND</option>
+                        <option value="116">HADLEY</option>
+                        <option value="117">HALIFAX</option>
+                        <option value="118">HAMILTON</option>
+                        <option value="119">HAMPDEN</option>
+                        <option value="120">HANCOCK</option>
+                        <option value="121">HANOVER</option>
+                        <option value="122">HANSON</option>
+                        <option value="123">HARDWICK</option>
+                        <option value="124">HARVARD</option>
+                        <option value="125">HARWICH</option>
+                        <option value="126">HATFIELD</option>
+                        <option value="127">HAVERHILL</option>
+                        <option value="128">HAWLEY</option>
+                        <option value="129">HEATH</option>
+                        <option value="130">HINGHAM</option>
+                        <option value="131">HINSDALE</option>
+                        <option value="132">HOLBROOK</option>
+                        <option value="133">HOLDEN</option>
+                        <option value="134">HOLLAND</option>
+                        <option value="135">HOLLISTON</option>
+                        <option value="136">HOLYOKE</option>
+                        <option value="137">HOPEDALE</option>
+                        <option value="138">HOPKINTON</option>
+                        <option value="139">HUBBARDSTON</option>
+                        <option value="140">HUDSON</option>
+                        <option value="141">HULL</option>
+                        <option value="142">HUNTINGTON</option>
+                        <option value="143">IPSWICH</option>
+                        <option value="144">KINGSTON</option>
+                        <option value="145">LAKEVILLE</option>
+                        <option value="146">LANCASTER</option>
+                        <option value="147">LANESBOROUGH</option>
+                        <option value="148">LAWRENCE</option>
+                        <option value="149">LEE</option>
+                        <option value="150">LEICESTER</option>
+                        <option value="151">LENOX</option>
+                        <option value="152">LEOMINSTER</option>
+                        <option value="153">LEVERETT</option>
+                        <option value="154">LEXINGTON</option>
+                        <option value="155">LEYDEN</option>
+                        <option value="156">LINCOLN</option>
+                        <option value="157">LITTLETON</option>
+                        <option value="158">LONGMEADOW</option>
+                        <option value="159">LOWELL</option>
+                        <option value="160">LUDLOW</option>
+                        <option value="161">LUNENBURG</option>
+                        <option value="162">LYNN</option>
+                        <option value="163">LYNNFIELD</option>
+                        <option value="164">MALDEN</option>
+                        <option value="165">MANCHESTER</option>
+                        <option value="166">MANSFIELD</option>
+                        <option value="167">MARBLEHEAD</option>
+                        <option value="168">MARION</option>
+                        <option value="169">MARLBOROUGH</option>
+                        <option value="170">MARSHFIELD</option>
+                        <option value="171">MASHPEE</option>
+                        <option value="172">MATTAPOISETT</option>
+                        <option value="173">MAYNARD</option>
+                        <option value="174">MEDFIELD</option>
+                        <option value="175">MEDFORD</option>
+                        <option value="176">MEDWAY</option>
+                        <option value="177">MELROSE</option>
+                        <option value="178">MENDON</option>
+                        <option value="179">MERRIMAC</option>
+                        <option value="180">METHUEN</option>
+                        <option value="181">MIDDLEBOROUGH</option>
+                        <option value="182">MIDDLEFIELD</option>
+                        <option value="183">MIDDLETON</option>
+                        <option value="184">MILFORD</option>
+                        <option value="185">MILLBURY</option>
+                        <option value="186">MILLIS</option>
+                        <option value="187">MILLVILLE</option>
+                        <option value="188">MILTON</option>
+                        <option value="189">MONROE</option>
+                        <option value="190">MONSON</option>
+                        <option value="191">MONTAGUE</option>
+                        <option value="192">MONTEREY</option>
+                        <option value="193">MONTGOMERY</option>
+                        <option value="194">MOUNT WASHINGTON</option>
+                        <option value="195">NAHANT</option>
+                        <option value="196">NANTUCKET</option>
+                        <option value="197">NATICK</option>
+                        <option value="198">NEEDHAM</option>
+                        <option value="199">NEW ASHFORD</option>
+                        <option value="200">NEW BEDFORD</option>
+                        <option value="201">NEW BRAINTREE</option>
+                        <option value="202">NEW MARLBOROUGH</option>
+                        <option value="203">NEW SALEM</option>
+                        <option value="204">NEWBURY</option>
+                        <option value="205">NEWBURYPORT</option>
+                        <option value="206">NEWTON</option>
+                        <option value="207">NORFOLK</option>
+                        <option value="208">NORTH ADAMS</option>
+                        <option value="209">NORTH ANDOVER</option>
+                        <option value="210">NORTH ATTLEBOROUGH</option>
+                        <option value="211">NORTH BROOKFIELD</option>
+                        <option value="212">NORTH READING</option>
+                        <option value="213">NORTHAMPTON</option>
+                        <option value="214">NORTHBOROUGH</option>
+                        <option value="215">NORTHBRIDGE</option>
+                        <option value="216">NORTHFIELD</option>
+                        <option value="217">NORTON</option>
+                        <option value="218">NORWELL</option>
+                        <option value="219">NORWOOD</option>
+                        <option value="220">OAK BLUFFS</option>
+                        <option value="221">OAKHAM</option>
+                        <option value="222">ORANGE</option>
+                        <option value="223">ORLEANS</option>
+                        <option value="224">OTIS</option>
+                        <option value="225">OXFORD</option>
+                        <option value="226">PALMER</option>
+                        <option value="227">PAXTON</option>
+                        <option value="228">PEABODY</option>
+                        <option value="229">PELHAM</option>
+                        <option value="230">PEMBROKE</option>
+                        <option value="231">PEPPERELL</option>
+                        <option value="232">PERU</option>
+                        <option value="233">PETERSHAM</option>
+                        <option value="234">PHILLIPSTON</option>
+                        <option value="235">PITTSFIELD</option>
+                        <option value="236">PLAINFIELD</option>
+                        <option value="237">PLAINVILLE</option>
+                        <option value="238">PLYMOUTH</option>
+                        <option value="239">PLYMPTON</option>
+                        <option value="240">PRINCETON</option>
+                        <option value="241">PROVINCETOWN</option>
+                        <option value="242">QUINCY</option>
+                        <option value="243">RANDOLPH</option>
+                        <option value="244">RAYNHAM</option>
+                        <option value="245">READING</option>
+                        <option value="246">REHOBOTH</option>
+                        <option value="247">REVERE</option>
+                        <option value="248">RICHMOND</option>
+                        <option value="249">ROCHESTER</option>
+                        <option value="250">ROCKLAND</option>
+                        <option value="251">ROCKPORT</option>
+                        <option value="252">ROWE</option>
+                        <option value="253">ROWLEY</option>
+                        <option value="254">ROYALSTON</option>
+                        <option value="255">RUSSELL</option>
+                        <option value="256">RUTLAND</option>
+                        <option value="257">SALEM</option>
+                        <option value="258">SALISBURY</option>
+                        <option value="259">SANDISFIELD</option>
+                        <option value="260">SANDWICH</option>
+                        <option value="261">SAUGUS</option>
+                        <option value="262">SAVOY</option>
+                        <option value="263">SCITUATE</option>
+                        <option value="264">SEEKONK</option>
+                        <option value="265">SHARON</option>
+                        <option value="266">SHEFFIELD</option>
+                        <option value="267">SHELBURNE</option>
+                        <option value="268">SHERBORN</option>
+                        <option value="269">SHIRLEY</option>
+                        <option value="270">SHREWSBURY</option>
+                        <option value="271">SHUTESBURY</option>
+                        <option value="272">SOMERSET</option>
+                        <option value="273">SOMERVILLE</option>
+                        <option value="274">SOUTH HADLEY</option>
+                        <option value="275">SOUTHAMPTON</option>
+                        <option value="276">SOUTHBOROUGH</option>
+                        <option value="277">SOUTHBRIDGE</option>
+                        <option value="278">SOUTHWICK</option>
+                        <option value="279">SPENCER</option>
+                        <option value="280">SPRINGFIELD</option>
+                        <option value="281">STERLING</option>
+                        <option value="282">STOCKBRIDGE</option>
+                        <option value="283">STONEHAM</option>
+                        <option value="284">STOUGHTON</option>
+                        <option value="285">STOW</option>
+                        <option value="286">STURBRIDGE</option>
+                        <option value="287">SUDBURY</option>
+                        <option value="288">SUNDERLAND</option>
+                        <option value="289">SUTTON</option>
+                        <option value="290">SWAMPSCOTT</option>
+                        <option value="291">SWANSEA</option>
+                        <option value="292">TAUNTON</option>
+                        <option value="293">TEMPLETON</option>
+                        <option value="294">TEWKSBURY</option>
+                        <option value="295">TISBURY</option>
+                        <option value="296">TOLLAND</option>
+                        <option value="297">TOPSFIELD</option>
+                        <option value="298">TOWNSEND</option>
+                        <option value="299">TRURO</option>
+                        <option value="300">TYNGSBOROUGH</option>
+                        <option value="301">TYRINGHAM</option>
+                        <option value="302">UPTON</option>
+                        <option value="303">UXBRIDGE</option>
+                        <option value="304">WAKEFIELD</option>
+                        <option value="305">WALES</option>
+                        <option value="306">WALPOLE</option>
+                        <option value="307">WALTHAM</option>
+                        <option value="308">WARE</option>
+                        <option value="309">WAREHAM</option>
+                        <option value="310">WARREN</option>
+                        <option value="311">WARWICK</option>
+                        <option value="312">WASHINGTON</option>
+                        <option value="313">WATERTOWN</option>
+                        <option value="314">WAYLAND</option>
+                        <option value="315">WEBSTER</option>
+                        <option value="316">WELLESLEY</option>
+                        <option value="317">WELLFLEET</option>
+                        <option value="318">WENDELL</option>
+                        <option value="319">WENHAM</option>
+                        <option value="320">WEST BOYLSTON</option>
+                        <option value="321">WEST BRIDGEWATER</option>
+                        <option value="322">WEST BROOKFIELD</option>
+                        <option value="323">WEST NEWBURY</option>
+                        <option value="324">WEST SPRINGFIELD</option>
+                        <option value="325">WEST STOCKBRIDGE</option>
+                        <option value="326">WEST TISBURY</option>
+                        <option value="327">WESTBOROUGH</option>
+                        <option value="328">WESTFIELD</option>
+                        <option value="329">WESTFORD</option>
+                        <option value="330">WESTHAMPTON</option>
+                        <option value="331">WESTMINSTER</option>
+                        <option value="332">WESTON</option>
+                        <option value="333">WESTPORT</option>
+                        <option value="334">WESTWOOD</option>
+                        <option value="335">WEYMOUTH</option>
+                        <option value="336">WHATELY</option>
+                        <option value="337">WHITMAN</option>
+                        <option value="338">WILBRAHAM</option>
+                        <option value="339">WILLIAMSBURG</option>
+                        <option value="340">WILLIAMSTOWN</option>
+                        <option value="341">WILMINGTON</option>
+                        <option value="342">WINCHENDON</option>
+                        <option value="343">WINCHESTER</option>
+                        <option value="344">WINDSOR</option>
+                        <option value="345">WINTHROP</option>
+                        <option value="346">WOBURN</option>
+                        <option value="347">WORCESTER</option>
+                        <option value="348">WORTHINGTON</option>
+                        <option value="349">WRENTHAM</option>
+                        <option value="350">YARMOUTH</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Display" id="execute"
+                           class="SGSV5_Button" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="dnn_ctr7383_SGSVMain_pnlDisplay">
         <p></p>
         <p id="townName" style="font-size:16px; font-family:Tahoma, Arial, Helvetica; font-weight:bold"></p>
         <p id="DistCode"></p>
         <div>
             <table class="tblclass" rules="all" align="left"
                    border="1" id="myTableNode"
-                   style="border-color:black;border-collapse:collapse;"></table>
+                   style="border-color:black;border-collapse:collapse;width:20%;"></table>
         </div>
     </div>
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <table>
-        <tr>
-            <td>
-                <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1" class="SGSV5_Prompt">
-                    <p id="totalAmt"></p>
-                </span>
-            </td>
-        </tr>
+    <div class="TotalAmt">
+        <table>
+            <tr>
+                <td>
+                    <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1">
+                        <p id="totalAmt"></p>
+                    </span>
+                </td>
+            </tr>
 
-</table>
+        </table>
+    </div>
 </body>
 </html>
