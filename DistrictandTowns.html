@@ -18,6 +18,7 @@
         .TotalAmt {
             padding-top: 680px;
         }
+
         body {
             color: #535353;
             font-family: "Texta","Helvetica","Arial","sans-serif";
@@ -56,8 +57,8 @@
             var worksheet = workbook.Sheets[first_sheet_name];
             exceljson = XLSX.utils.sheet_to_json(worksheet);
             //console.log(XLSX.utils.sheet_to_json(worksheet, { raw: true }));
-           // alert("exceljson1" + JSON.stringify(exceljson))
-           // $('#TownCode').html(JSON.stringify(exceljson));
+            // alert("exceljson1" + JSON.stringify(exceljson))
+            // $('#TownCode').html(JSON.stringify(exceljson));
 
         }
 
@@ -65,7 +66,7 @@
 
         // Button Click event
         $(document).ready(function () {
-           // alert(JSON.stringify(exceljson));
+            // alert(JSON.stringify(exceljson));
             $('#executeTown').click(function () {
                 var i = $("#TownsList option:selected").val();
                 $('#DistCode').html("Your town is served by <a href='" + exceljson[i].URL + "'> District " + exceljson[i].DistrictCode + "</a>");
@@ -91,23 +92,23 @@
                         resultItems.push("</td>");
                         resultItems.push("</tr>");
                     }
-                    
+
                 });
                 resultItems.push("</tbody>");
                 document.getElementById("myTableNode").innerHTML = resultItems.join("");
             });
         });
-       
+
     </script>
     <!--<div id="person-list"></div>-->
-    
+
     <div>
-        
+
         <table id="dnn_ctr7383_SGSVMain_SGSV_SelectionTable" class="SGSV5_SelectionTable"
                cellspacing="2" cellpadding="2">
             <tr>
                 <td>
-                    <p>Find your District Office</p>
+                    <h2>Find your District Office</h2>
                 </td>
             </tr>
             <tr>
@@ -484,12 +485,12 @@
         <p id="DistCode"></p>
     </div>
     <div>
-        
+
         <table id="dnn_ctr7383_SGSVMain_SGSV_SelectionTable" class="SGSV5_SelectionTable"
                cellspacing="2" cellpadding="2">
             <tr>
                 <td>
-                    <p>List of towns by District Office location</p>
+                    <h2>List of towns by District Office location</h2>
                 </td>
             </tr>
             <tr>
@@ -500,12 +501,12 @@
                 </td>
                 <td>
                     <select id="SelectDistrict" class="SGSV5_InputControl">
-                        <option selected="selected" value="1">District 1</option>
-                        <option value="2">District 2</option>
-                        <option value="3">District 3</option>
-                        <option value="4">District 4</option>
-                        <option value="5">District 5</option>
-                        <option value="6">District 6</option>
+                        <option selected="selected" value="1">District 1 (Lenox)</option>
+                        <option value="2">District 2 (Northampton)</option>
+                        <option value="3">District 3 (Worcester)</option>
+                        <option value="4">District 4 (Arlington)</option>
+                        <option value="5">District 5 (Taunton)</option>
+                        <option value="6">District 6 (Boston)</option>
                     </select>
                 </td>
             </tr>
