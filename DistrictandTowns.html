@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
     <title>Excel to JSON Demo</title>
@@ -63,7 +63,7 @@
            // alert(JSON.stringify(exceljson));
             $('#executeTown').click(function () {
                 var i = $("#TownsList option:selected").val();
-                $('#DistCode').html("<a href='" + exceljson[i].URL + "'> District " + exceljson[i].DistrictCode + "</a>");
+                $('#DistCode').html("Your town is served by <a href='" + exceljson[i].URL + "'> District " + exceljson[i].DistrictCode + "</a>");
             });
             $('#executeDist').click(function () {
                 var DistValue = $("#SelectDistrict option:selected").val();
@@ -102,13 +102,13 @@
                cellspacing="2" cellpadding="2">
             <tr>
                 <td>
-                    <p>Find Your District</p>
+                    <p>Find your District Office</p>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1" class="SGSV5_Prompt">
-                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select Town</label>
+                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select the town:</label>
                     </span>
                 </td>
                 <td>
@@ -484,13 +484,13 @@
                cellspacing="2" cellpadding="2">
             <tr>
                 <td>
-                    <p>List of towns by District</p>
+                    <p>List of towns by District Office location</p>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1" class="SGSV5_Prompt">
-                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select District</label>
+                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select the District to see a list of towns served by that office:</label>
                     </span>
                 </td>
                 <td>
