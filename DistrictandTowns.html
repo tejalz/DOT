@@ -69,7 +69,7 @@
             // alert(JSON.stringify(exceljson));
             $('#executeTown').click(function () {
                 var i = $("#TownsList option:selected").val();
-                $('#DistCode').html("Your town is served by <a target='_blank' href='" + exceljson[i].URL + "'> District " + exceljson[i].DistrictCode + "</a>");
+                $('#DistCode').html("Your town is served by <a target='_parent' href='" + exceljson[i].URL + "'> District " + exceljson[i].DistrictCode + "</a>");
             });
             $('#executeDist').click(function () {
                 var DistValue = $("#SelectDistrict option:selected").val();
