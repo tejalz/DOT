@@ -60,15 +60,18 @@
             // alert("exceljson1" + JSON.stringify(exceljson))
             // $('#TownCode').html(JSON.stringify(exceljson));
 
-        } 
+        }
 
         oReq.send();
 
         // Button Click event
         $(document).ready(function () {
-            // alert(JSON.stringify(exceljson));
+             
             $('#executeTown').click(function () {
+                //alert(JSON.stringify(exceljson));
+                //alert(exceljson[35].TOWN + exceljson[35].DistrictCode);
                 var i = $("#TownsList option:selected").val();
+                //alert(i);
                 $('#DistCode').html("Your town is served by <a target='_parent' href='" + exceljson[i].URL + "'> District " + exceljson[i].DistrictCode + "</a>");
             });
             $('#executeDist').click(function () {
@@ -114,13 +117,12 @@
             <tr>
                 <td>
                     <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1" class="SGSV5_Prompt">
-                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select the town:</label>
+                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Cities and Towns</label>
                     </span>
                 </td>
                 <td>
                     <select id="TownsList" class="SGSV5_InputControl">
-                        <select id="TownsList" class="SGSV5_InputControl">
-                        <option selected value="0">Abington</option>
+                        <option value="0" selected>Abington</option>
                         <option value="1">Acton</option>
                         <option value="2">Acushnet</option>
                         <option value="3">Adams</option>
@@ -471,7 +473,6 @@
                         <option value="348">Worthington</option>
                         <option value="349">Wrentham</option>
                         <option value="350">Yarmouth</option>
-                    </select>
                     </select>
                 </td>
             </tr>
