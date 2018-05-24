@@ -69,7 +69,7 @@
              
             $('#executeTown').click(function () {
                 //alert(JSON.stringify(exceljson));
-                //alert(exceljson[35].TOWN + exceljson[35].DistrictCode);
+                //alert(exceljson[i].DistrictCode);
                 var i = $("#TownsList option:selected").val();
                 //alert(i);
                 $('#DistCode').html("Your town is served by <a target='_parent' href='" + exceljson[i].URL + "'> District " + exceljson[i].DistrictCode + "</a>");
@@ -82,7 +82,7 @@
                 //$('#TownCode').html(JSON.stringify(exceljson));
                 var resultItems = [];
                 resultItems.push("<thead><tr class='GridHeader'>");
-                resultItems.push("<th class='GridHeader'>Towns</th>");
+                resultItems.push("<th class='GridHeader'>Cities/Towns</th>");
                 resultItems.push("</tr></thead>");
                 resultItems.push("<colgroup><col span=\"1\" style=\"width: 3%;\"></colgroup><tbody>");
                 $.each(exceljson, function (i, value) {
@@ -117,12 +117,12 @@
             <tr>
                 <td>
                     <span id="dnn_ctr7383_SGSVMain_SGSV_lbl_Filter1" class="SGSV5_Prompt">
-                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Cities and Towns</label>
+                        <label for="dnn_ctr7383_SGSVMain_SGSV_ddl_Filter1">Select the city or town:</label>
                     </span>
                 </td>
                 <td>
                     <select id="TownsList" class="SGSV5_InputControl">
-                        <option value="0" selected>Abington</option>
+                        <option selected value="0">Abington</option>
                         <option value="1">Acton</option>
                         <option value="2">Acushnet</option>
                         <option value="3">Adams</option>
@@ -149,42 +149,42 @@
                         <option value="24">Belchertown</option>
                         <option value="25">Bellingham</option>
                         <option value="26">Belmont</option>
-                        <option value="27">Chelsea</option>
-                        <option value="28">Chester</option>
-                        <option value="29">Chesterfield</option>
-                        <option value="30">Chicopee</option>
-                        <option value="31">Chilmark</option>
-                        <option value="32">Berkley</option>
-                        <option value="33">Berlin</option>
-                        <option value="34">Bernardston</option>
-                        <option value="35">Beverly</option>
-                        <option value="36">Billerica</option>
-                        <option value="37">Blackstone</option>
-                        <option value="38">Blandford</option>
-                        <option value="39">Bolton</option>
-                        <option value="40">Boston</option>
-                        <option value="41">Bourne</option>
-                        <option value="42">Boxborough</option>
-                        <option value="43">Boxford</option>
-                        <option value="44">Boylston</option>
-                        <option value="45">Braintree</option>
-                        <option value="46">Brewster</option>
-                        <option value="47">Bridgewater</option>
-                        <option value="48">Brimfield</option>
-                        <option value="49">Brockton</option>
-                        <option value="50">Brookfield</option>
-                        <option value="51">Brookline</option>
-                        <option value="52">Buckland</option>
-                        <option value="53">Burlington</option>
-                        <option value="54">Cambridge</option>
-                        <option value="55">Canton</option>
-                        <option value="56">Carlisle</option>
-                        <option value="57">Carver</option>
-                        <option value="58">Charlemont</option>
-                        <option value="59">Charlton</option>
-                        <option value="60">Chatham</option>
-                        <option value="61">Chelmsford</option>
-                        <option value="62">Cheshire</option>
+                        <option value="27">Berkley</option>
+                        <option value="28">Berlin</option>
+                        <option value="29">Bernardston</option>
+                        <option value="30">Beverly</option>
+                        <option value="31">Billerica</option>
+                        <option value="32">Blackstone</option>
+                        <option value="33">Blandford</option>
+                        <option value="34">Bolton</option>
+                        <option value="35">Boston</option>
+                        <option value="36">Bourne</option>
+                        <option value="37">Boxborough</option>
+                        <option value="38">Boxford</option>
+                        <option value="39">Boylston</option>
+                        <option value="40">Braintree</option>
+                        <option value="41">Brewster</option>
+                        <option value="42">Bridgewater</option>
+                        <option value="43">Brimfield</option>
+                        <option value="44">Brockton</option>
+                        <option value="45">Brookfield</option>
+                        <option value="46">Brookline</option>
+                        <option value="47">Buckland</option>
+                        <option value="48">Burlington</option>
+                        <option value="49">Cambridge</option>
+                        <option value="50">Canton</option>
+                        <option value="51">Carlisle</option>
+                        <option value="52">Carver</option>
+                        <option value="53">Charlemont</option>
+                        <option value="54">Charlton</option>
+                        <option value="55">Chatham</option>
+                        <option value="56">Chelmsford</option>
+                        <option value="57">Chelsea</option>
+                        <option value="58">Cheshire</option>
+                        <option value="59">Chester</option>
+                        <option value="60">Chesterfield</option>
+                        <option value="61">Chicopee</option>
+                        <option value="62">Chilmark</option>
                         <option value="63">Clarksburg</option>
                         <option value="64">Clinton</option>
                         <option value="65">Cohasset</option>
@@ -321,10 +321,10 @@
                         <option value="196">Nantucket</option>
                         <option value="197">Natick</option>
                         <option value="198">Needham</option>
-                        <option value="199">New Bedford</option>
-                        <option value="200">New Braintree</option>
-                        <option value="201">New Marlborough</option>
-                        <option value="202">New Ashford</option>
+                        <option value="199">New Ashford</option>
+                        <option value="200">New Bedford</option>
+                        <option value="201">New Braintree</option>
+                        <option value="202">New Marlborough</option>
                         <option value="203">New Salem</option>
                         <option value="204">Newbury</option>
                         <option value="205">Newburyport</option>
@@ -432,13 +432,13 @@
                         <option value="307">Waltham</option>
                         <option value="308">Ware</option>
                         <option value="309">Wareham</option>
-                        <option value="310">Warwick</option>
-                        <option value="311">Watertown</option>
-                        <option value="312">Wayland</option>
-                        <option value="313">Webster</option>
-                        <option value="314">Wellesley</option>
-                        <option value="315">Warren</option>
-                        <option value="316">Washington</option>
+                        <option value="310">Warren</option>
+                        <option value="311">Warwick</option>
+                        <option value="312">Washington</option>
+                        <option value="313">Watertown</option>
+                        <option value="314">Wayland</option>
+                        <option value="315">Webster</option>
+                        <option value="316">Wellesley</option>
                         <option value="317">Wellfleet</option>
                         <option value="318">Wendell</option>
                         <option value="319">Wenham</option>
