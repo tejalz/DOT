@@ -6,7 +6,7 @@
 
     <script>
         $(document).ready(function () {
-            var PROJECT_NO = GetParameterValues('PROJECT_NO');
+            var PROJECT_NO = GetParameterValues('num');
             $('#myframe').attr("src", "https://hwy.massdot.state.ma.us/projectinfo/?ACTION=ViewProject&amp;PROJECT_NO=" + PROJECT_NO);
             function GetParameterValues(param) {
                 var url = window.location.href.slice(window.location.href.indexOf('?')).split('=');
