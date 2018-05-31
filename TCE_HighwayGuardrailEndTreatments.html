@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="xlsx.full.min.js"></script>
+    <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        var exceljson;
+        /* set up XMLHttpRequest */
+        var url = "http://samplewebservice/HighwayGuardrailEndTreatments2.xlsx";
+        var oReq = new XMLHttpRequest();
+        oReq.open("GET", url, true);
+        oReq.responseType = "arraybuffer";
+
+        oReq.onload = function (e) {
+            var arraybuffer = oReq.response;
+
+            /* convert data to binary string */
+            var data = new Uint8Array(arraybuffer);
+            var arr = new Array();
+            for (var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+            var bstr = arr.join("");
+
+            /* Call XLSX */
+            var workbook = XLSX.read(bstr, { type: "binary" });
+
+            /* DO SOMETHING WITH workbook HERE */
+            //var first_sheet_name = workbook.SheetNames[0];
+            /* Get worksheet */
+            var worksheet = workbook.Sheets["HighwayGuardrailEndTreatments"];
+            exceljson = XLSX.utils.sheet_to_json(worksheet);
+            //console.log(XLSX.utils.sheet_to_json(worksheet, { raw: true }));
+            //alert("exceljson1" + JSON.stringify(exceljson))
+            BindTable(exceljson, '#exceltable');
+        }
+
+        oReq.send();
+
+        $(document).ready(function () {
+            //$('#execute').click(function () {
+            if (exceljson.length > 0) {
+                BindTable(exceljson, '#exceltable');
+            }
+            //});
+        });
+        function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
+            //alert("data" + JSON.stringify(jsondata));
+            var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
+
+            for (var i = 0; i < jsondata.length; i++) {
+                if (i == 4) {
+                    var row$ = $('<tr/>');
+                    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                        var cellValue = jsondata[i][columns[colIndex]];
+                        if (cellValue == null)
+                            cellValue = "";
+                        row$.append($('<td/>').html(cellValue));
+                    }
+
+                    $(tableid).append(row$).append('<tr><td colspan="8" style="text-align: center;"><strong><em>&nbsp;Products that conform to the NCHRP 350 testing criteria</em></strong></td></tr>');
+                }
+                else {
+                    var row$ = $('<tr/>');
+                    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                        var cellValue = jsondata[i][columns[colIndex]];
+                        if (cellValue == null)
+                            cellValue = "";
+                        row$.append($('<td/>').html(cellValue));
+                    }
+
+                    $(tableid).append(row$);
+                }
+
+            }
+
+        }
+
+
+        function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/
+            var columnSet = [];
+            var headerTr$ = $('<tr/>');
+            for (var i = 0; i < jsondata.length; i++) {
+                var rowHash = jsondata[i];
+                for (var key in rowHash) {
+                    //alert("key" + key);
+                    if (rowHash.hasOwnProperty(key)) {
+                        if ($.inArray(key, columnSet) == -1) {/*Adding each unique column names to a variable array*/
+                            columnSet.push(key);
+                            headerTr$.append($('<th/>').html(key));
+                        }
+                    }
+                }
+            }
+            //headerTr$.append('<tr><td colspan="8" style="text-align: center;"><strong><em>Products that conform to the </em>Manual for Assessing Safety Hardware<em> (MASH) testing criteria</em></strong></td></tr>');
+            $(tableid).append(headerTr$).append('<tr><td colspan="8" style="text-align: center;"><strong><em>Products that conform to the </em>Manual for Assessing Safety Hardware<em> (MASH) testing criteria</em></strong></td></tr>');
+            //$(tableid).append(headerTr$);
+            return columnSet;
+        }
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <table id="exceltable" cellpadding="0" cellspacing="0" width="100%" style="border: 1px;" rules="none"></table>
+</body>
+</html>
