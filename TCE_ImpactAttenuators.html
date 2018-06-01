@@ -66,7 +66,18 @@
                         var cellValue = jsondata[i][columns[colIndex]];
                         if (cellValue == null)
                             cellValue = "";
-                        row$.append($('<td/>').html(cellValue));
+                        if (colIndex == 1 || colIndex == 2) {
+                            if (cellValue.indexOf("(") >= 0) {
+                                row$.append($('<td/>').html('<a href="' + cellValue.match(/\((.*)\)/).pop() + '">' + cellValue.replace(/\s*\(.*?\)\s*/g, '') + '</a>'));
+                            }
+                            else {
+                                row$.append($('<td/>').html(cellValue));
+                            }
+
+                        }
+                        else {
+                            row$.append($('<td/>').html(cellValue));
+                        }
                     }
 
                     $(tableid).append(row$);
