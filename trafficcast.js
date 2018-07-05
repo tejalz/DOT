@@ -23,11 +23,6 @@ mdot["maps"]["plugins"]["trafficcast"]["TCLine"] = mdot["maps"]["plugins"]["traf
             + this.color
             + ";width:20px; height:10px;'></div></td></tr><tr><td style='white-space:nowrap;'>Travel Time:</td><td style='white-space:nowrap;'>"
             + this.travelTime //+ "&nbsp;PairID=" + this.number + ";&nbsp;Index=" + this.index
-            + "</td></tr><tr><td style='white-space:nowrap;'>Route:</td><td style='white-space:nowrap;'>"
-            + this.origin.split("(")[0]
-            + " to </td></tr>"
-            + "<tr><td style='white-space:nowrap;'></td><td style='white-space:nowrap;'>"
-            + this.destination.split("(")[0]
             + "</td></tr><tr><td style='white-space:nowrap;'>Last&nbsp;Updated:</td><td style='white-space:nowrap;'>"
             + options["lastUpdated"]
             + "</td></tr></table>"
