@@ -106,6 +106,36 @@
 				alert(err.statusText);
 			}
 		});
+		$.ajax({
+		    url: 'https://dotfeeds.state.ma.us/api/ERS?type=json',
+			type: "GET",
+			data: {},
+			dataType: "json",
+			async: false,
+			success: function (data) {
+				ERSdata = data;
+				//alert(JSON.stringify(data));
+				//$(".result").html(data);
+			},
+			error: function (err) {
+				alert(err.statusText);
+			}
+		});
+		$.ajax({
+		    url: 'https://dotfeeds.state.ma.us/api/trafficland1?type=json',
+			type: "GET",
+			data: {},
+			dataType: "json",
+			async: false,
+			success: function (data) {
+				TrafficLanddata = data;
+				//alert(JSON.stringify(data));
+				//$(".result").html(data);
+			},
+			error: function (err) {
+				alert(err.statusText);
+			}
+		});
 		//alert(jsondata);
 		window.mdot["mapImagesURL"] = "";
 		window.mdot["maps"]["map12968"] = {};
