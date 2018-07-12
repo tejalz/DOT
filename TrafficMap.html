@@ -91,21 +91,7 @@
 		var TrafficCastData;
 		var TrafficLanddata;
 		var ERSdata;
-		$.ajax({
-		    url: 'https://dotfeeds.state.ma.us/api/TrafficCast?type=json',
-			type: "GET",
-			data: {},
-			dataType: "json",
-			async: false,
-			success: function (data) {
-			    TrafficCastData = data;
-				//alert(JSON.stringify(data));
-				//$(".result").html(data);
-			},
-			error: function (err) {
-				alert(err.statusText);
-			}
-		});
+		
 		$.ajax({
 		    url: 'https://dotfeeds.state.ma.us/api/ERS?type=json',
 			type: "GET",
