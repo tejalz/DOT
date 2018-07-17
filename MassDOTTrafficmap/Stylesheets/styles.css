@@ -1,0 +1,157 @@
+.gm-style-iw { overflow: visible !important; }
+
+.halfImg {
+    height: 120px;
+    width: 176px;
+}
+
+.fullImg {
+    height: 240px;
+    width: 352px;
+}
+
+.mapKey {
+    margin-top: 0px;
+    text-align: left;
+    width: 100%;
+}
+
+.mapTable th {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.outerDiv > div + div { margin-left: 10px; }
+
+.outerDiv > div {
+    background-color: white;
+    float: left;
+    margin-left:10px;
+}
+
+.outerDiv {
+    width:100%;
+    background-color: white;
+    padding: 10px 0px 10px 0px;
+}
+
+.mapTable {
+    border-spacing: 0px !important;
+    /*border: 2px solid #000000;*/
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.mapError{background-color:yellow;}
+.mapError p{margin:0 !important}
+
+.mapTable td {
+    border: none !important;
+    color: black !important;
+    vertical-align: top !important;
+}
+
+/*CJM START ACCESSIBLE CONTROLS STUFF HERE*/
+
+.map {
+    border: 0;
+    margin-bottom: 2.0em;
+    position: relative;
+}
+
+.map .map_canvas {
+    /* CJM - was 5px*/
+    border: 0px solid #FFF;
+}
+
+.map .map_canvas:focus { border-color: #2574B0; }
+
+.map h3 {
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+.map ul {
+    list-style: none;
+    margin: 1.0em 0;
+    overflow: auto;
+    padding: 0;
+}
+
+.map .result {
+    float: left;
+    margin-bottom: 2.0em;
+    overflow: auto;
+    width: 33%;
+}
+
+.map .result h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.map .result img {
+    float: left;
+    margin: 0 0.5em 2.0em 0;
+}
+
+.map .result ul { margin-top: 0; }
+
+.map .result p { margin: 0; }
+
+.large-map .map_canvas { height: 400px; }
+
+.small-map .map_canvas { height: 250px; }
+
+.map_canvas button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner {
+    border: 0 none !important;
+    padding: 0 !important;
+}
+
+.map_canvas button {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.map_canvas button:hover,
+.map_canvas button:focus,
+.map_toggle_fullscreen:hover,
+.map_toggle_fullscreen:focus { background: #F00; }
+
+.map_canvas button.pan-up,
+.map_canvas button.pan-down { }
+
+.map_canvas div.pan {
+    padding-left: 15px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.map_canvas div.zoom {
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+.map_canvas .map_toggle_fullscreen {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.map_canvas button.zoom-in {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.map_canvas button.zoom-out { display: block; }
