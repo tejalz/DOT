@@ -159,7 +159,7 @@ function toggleFullScreen(map) {
                 // Create the controls
                 $mapCanvas.attr("tabIndex", 0);
                 // Pan controls
-                $controlsUp.append("<img src="https://massgov.github.io/DOT/MassDOTTrafficmap/Images/pan-up.png" alt=\"Pan map up\">");
+                $controlsUp.append("<img src='https://massgov.github.io/DOT/MassDOTTrafficmap/Images/pan-up.png' alt=\"Pan map up\">");
                 $controlsLeft.append("<img src=\"MassDOTTrafficmap/Images/pan-left.png\" alt=\"Pan map left\">");
                 $controlsCenter.append("<img src=\"center.png\" alt=\"Center map\">");
                 $controlsRight.append("<img src=\"pan-right.png\" alt=\"Pan map right\">");
