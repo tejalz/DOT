@@ -149,9 +149,9 @@ function toggleFullScreen(map) {
                             e.preventDefault();
                             toggleFullScreen(map);
                             if (map.fullscreen == true) {
-                                $(this).find("img").attr("alt", "Exit full screen").attr("src", window.mdot["mapImagesURL"] + "fsExit.png");
+                                $(this).find("img").attr("alt", "Exit full screen").attr("src", window.mdot["mapImagesURL"] + "Images/fsExit.png");
                             } else {
-                                $(this).find("img").attr("alt", "Viewe full screen").attr("src", window.mdot["mapImagesURL"] + "fsEnter.png");
+                                $(this).find("img").attr("alt", "Viewe full screen").attr("src", window.mdot["mapImagesURL"] + "Images/fsEnter.png");
                             }
                         }
                     });
@@ -161,16 +161,16 @@ function toggleFullScreen(map) {
                 // Pan controls
                 $controlsUp.append("<img src=\"Images/pan-up.png\" alt=\"Pan map up\">");
                 $controlsLeft.append("<img src=\"Images/pan-left.png\" alt=\"Pan map left\">");
-                $controlsCenter.append("<img src=\"center.png\" alt=\"Center map\">");
-                $controlsRight.append("<img src=\"pan-right.png\" alt=\"Pan map right\">");
-                $controlsDown.append("<img src=\"pan-down.png\" alt=\"Pan map down\">");
+                $controlsCenter.append("<img src=\"Images/center.png\" alt=\"Center map\">");
+                $controlsRight.append("<img src=\"Images/pan-right.png\" alt=\"Pan map right\">");
+                $controlsDown.append("<img src=\"Images/pan-down.png\" alt=\"Pan map down\">");
                 //alert(window.mdot["mapImagesURL"]);
                 $controlsSpan.append($controlsLeft, $controlsCenter, $controlsRight);
                 $controlsPan.append($controlsUp, $controlsSpan, $controlsDown);
 
                 // Zoom controls
-                $controlsIn.append("<img src=\"zoom-in.png\" alt=\"Zoom in on map\">");
-                $controlsOut.append("<img src=\"zoom-out.png\" alt=\"Zoom out of map\">");
+                $controlsIn.append("<img src=\"Images/zoom-in.png\" alt=\"Zoom in on map\">");
+                $controlsOut.append("<img src=\"Images/zoom-out.png\" alt=\"Zoom out of map\">");
 
                 //Full Screen control
                 $controlsFullScreen.append("<img src=\"fsEnter.png\" alt=\"View full screen\">");
