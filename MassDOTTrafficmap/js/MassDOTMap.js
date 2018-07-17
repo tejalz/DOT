@@ -173,7 +173,7 @@ function toggleFullScreen(map) {
                 $controlsOut.append("<img src=\"Images/zoom-out.png\" alt=\"Zoom out of map\">");
 
                 //Full Screen control
-                $controlsFullScreen.append("<img src=\"fsEnter.png\" alt=\"View full screen\">");
+                $controlsFullScreen.append("<img src=\"Images/fsEnter.png\" alt=\"View full screen\">");
 
                 $controlsZoom.append($controlsFullScreen, $controlsIn, $controlsOut);
 
