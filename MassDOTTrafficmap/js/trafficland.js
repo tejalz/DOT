@@ -66,7 +66,7 @@ mdot.maps.plugins.trafficland.Cameras = mdot.maps.plugins.trafficland.Cameras ||
                 if (e.owner != a || a.activeCamera != this)
                     e.owner = a,
                 a.activeCamera = this, e.setContent(""),
-                e.setContent('<div style="width:354px;height:240px;display:table-cell;vertical-align:middle;text-align:center;"><img id="camFullImg" alt="' + this.camName + '" src="loading.gif"></div><div>' +
+                e.setContent('<div style="width:354px;height:240px;display:table-cell;vertical-align:middle;text-align:center;"><img id="camFullImg" alt="' + this.camName + '" src="Images/loading.gif"></div><div>' +
             this.camName + "</div>"),
                         p = this.camFullImage,
                         e.open(this.map, this),
