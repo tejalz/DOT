@@ -50,7 +50,7 @@ mdot.maps.plugins.trafficland.Cameras = mdot.maps.plugins.trafficland.Cameras ||
                 height: 24,
                 width: 24,
                 //camFullImage: "/DesktopModules/MassDOT/MapPlugins/TrafficLand/TLImageHandler.ashx?mdotId=" + c.mdotId,
-                camFullImage: "http://testapi/TLImageHandler.ashx?mdotId=" + c.mdotId + "&fullJpeg=" + c.content.fullJpeg,
+                camFullImage: "https://dotfeeds.state.ma.us/TLImageHandler.ashx?mdotId=" + c.mdotId + "&fullJpeg=" + c.content.fullJpeg,
                 //camFullImage: "http://wwwt1.massdot.state.ma.us/DesktopModules/MassDOT/MapPlugins/TrafficLand/TLImageHandler.ashx?mdotId=n6CAwfdQarwg0JXLLXYz4RmyTZtwNb5WgZW8U9BXH6tzR17qhG",
                 camName: c.name,
                 index: b, anchor: new google.maps.Point(12, 12), refreshRate: c.policy.refreshRate, infoWindow: e
