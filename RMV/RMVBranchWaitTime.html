@@ -53,7 +53,8 @@
                     resultItems.push("<th class='GridHeader'>Licensing wait time</th>");
                     resultItems.push("<th class='GridHeader'>Registration wait time</th>");
                     resultItems.push("</tr></thead>");
-                    resultItems.push("<tbody>");
+                    //resultItems.push("<tbody>");
+                    resultItems.push("<colgroup><col span=\"1\" style=\"width: 33%;\"><col span=\"1\" style=\"width: 33%;\"><col span=\"1\" style=\"width: 34%;\"></colgroup><tbody>");
                     // For each loop
                     $.each(routeData, function (i, Org) {
                         resultItems.push("<tr><td style=\"text-align:left;font-weight:400;line-height:18px;\" colspan=\"3\"><h2>" + Org.organization + "</h2></td></tr>");
@@ -188,6 +189,6 @@
     </script>
     <table class="tblclass" rules="all" align="left"
            border="1" id="myTableNode"
-           style="border-color:black;border-collapse:collapse;width:20%;"></table>
+           style="border-color:black;border-collapse:collapse;width:100%;"></table>
 </body>
 </html>
