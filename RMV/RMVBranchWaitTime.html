@@ -53,6 +53,10 @@
                 dataType: "json",
                 async: false,
                 success: function (RMVBranchhWaitTimeData) {
+                     //For wait 5 seconds
+                    setTimeout(function () {
+                        location.reload();  //Refresh page
+                    }, 5000);
                     var resultItems = [];
                     resultItems.push("<thead><tr class='GridHeader'>");
                     resultItems.push("<th class='GridHeader'>Town</th>");
