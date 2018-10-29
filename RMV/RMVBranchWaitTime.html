@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="xlsx.full.min.js"></script>
+    <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="moment.js"></script>
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>-->
+    <meta charset="utf-8" />
+    <style type="text/css">
+        .tdclass {
+            height: 25px;
+            text-align: center;
+        }
+
+        .GridHeader {
+            height: 25px;
+            background-color: #bfbfbf;
+        }
+
+        .TotalAmt {
+            padding-top: 680px;
+        }
+
+        body {
+            color: #535353;
+            font-family: "Texta","Helvetica","Arial","sans-serif";
+            font-weight: 400;
+        }
+
+        @media (min-width: 621px) .main-content--two .page-content>* {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <script id="mapinit" type="text/javascript">
+        $(document).ready(function () {
+            var routeoptions;
+            var routeData;
+            var route2Json = '{"organizations": [{"organization": "Greater Boston","towns": ["Boston", "Revere", "Roslindale", "Watertown"]},{"organization": "Northeast Massachusetts","towns": ["Haverhill", "Lowell", "Natick", "Wilmington"]},{"organization": "Southeast Massachusetts","towns": ["Attleboro", "Braintree", "Brockton", "Fall River", "Marthas Vineyard", "Nantucket", "New Bedford", "Plymouth", "Yarmouth", "Taunton"]},{"organization": "Central Massachusetts","towns": ["Leominster", "Milford", "Brockton", "Southbridge", "Worcester"]},{"organization": "Western Massachusetts","towns": ["Chicopee", "East Hampton", "Greenfield", "N Adams", "Pittsfield", "Springfield"]}]}';
+            routeoptions = JSON.parse(route2Json);
+            routeData = routeoptions["organizations"];
+            //alert(JSON.stringify(routeData));
+            $.ajax({
+                url: 'http://testapi/api/RMVBranchWaitTimeJSON?type=json',
+                type: "GET",
+                data: {},
+                dataType: "json",
+                async: false,
+                success: function (RMVBranchhWaitTimeData) {
+                    var resultItems = [];
+                    resultItems.push("<thead><tr class='GridHeader'>");
+                    resultItems.push("<th class='GridHeader'>Town</th>");
+                    resultItems.push("<th class='GridHeader'>Licensing wait time</th>");
+                    resultItems.push("<th class='GridHeader'>Registration wait time</th>");
+                    resultItems.push("</tr></thead>");
+                    resultItems.push("<tbody>");
+                    // For each loop
+                    $.each(routeData, function (i, Org) {
+                        resultItems.push("<tr><td style=\"text-align:left;font-weight:400;line-height:18px;\" colspan=\"3\"><h2>" + Org.organization + "</h2></td></tr>");
+                        $.each(Org.towns, function (j, town) {
+                             //var DisTime1 = transformTime('00:16:20');
+                            //alert("DisTime1 " + DisTime1);
+                            //var DisplayLicenseTime = displayTime('00:12:00');
+                            var DisplayLicenseTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).LicensingTime);
+                            var DisplayRegisTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).RegistrationTime);
+                            //alert("DisplayLicenseTime " + DisplayLicenseTime);
+                            resultItems.push("<tr><td>" + town + "</td>");
+                            //resultItems.push("<td style=\"text-align:left\">" + RMVBranchhWaitTimeData.find(x => x.TownName === town).LicensingTime + "</td>");
+                            resultItems.push("<td style=\"text-align:left\">" + DisplayLicenseTime + "</td>");
+                            //resultItems.push("<td style=\"text-align:left\">" + RMVBranchhWaitTimeData.find(x => x.TownName === town).RegistrationTime + "</td>");
+                            resultItems.push("<td style=\"text-align:left\">" + DisplayRegisTime + "</td>");
+                            resultItems.push("</tr>");
+                        });
+                    });
+                    resultItems.push("</tbody>");
+                    document.getElementById("myTableNode").innerHTML = resultItems.join("");
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        });
+
+        var displayTime = function (waitTime) {
+            var NowMoment = moment();
+            //alert(NowMoment);
+            //alert(NowMoment.format('YYYY-M-D'));
+            var waitTimeUnavailableString = 'Wait time unavailable'; // Used more than once.
+            // Default to unavailable.
+            var displayTime = waitTimeUnavailableString;
+
+            // Closed = 'Closed'.
+            if (waitTime === 'Closed') {
+                displayTime = 'Closed';
+                return displayTime;
+            }
+
+            // 0 = 'No wait time'.
+            if (waitTime === '00:00:00') {
+                displayTime = 'No wait time';
+                return displayTime;
+            }
+
+            // < 1 minute = 'Less than a minute'.
+            if (waitTime.startsWith('00:00:')) {
+                displayTime = 'Less than a minute';
+                return displayTime;
+            }
+
+            // Everything else: format the time string.
+
+            // Make sure moment js can work with the waitTime string.
+            // moment.duration accepts 'HH:MM:SS'
+            // see: https://momentjs.com/docs/#/durations/
+            var durationRegex = /^(\d{2}):(\d{2}):(\d{2})$/;
+            var waitTimeIsDuration = durationRegex.test(waitTime);
+
+            if (!waitTimeIsDuration) {
+                return displayTime; // Wait time unavailable
+                // throw new Error('The wait time is not duration string following "HH:MM:SS".');
+            }
+
+            // Create a moment duration with the waitTime string.
+            var m = moment.duration(waitTime);
+           // alert(m);
+           // alert(m.minutes());
+
+            // Declare moment formatter template partials.
+            var hourTemplate = '';
+            var minuteTemplate = '';
+
+            // Round minutes up to nearest 15 if there is 1+ hour.
+            if (m.hours() >= 1) {
+                //alert("h1");
+                if (m.minutes() !== 0) { // Do not round 0 minutes up to 15.
+                   // alert("m1");
+                    var remainder = 15 - m.minutes() % 15;
+                    //alert(remainder);
+                    m = moment.duration(m).add(remainder, 'minutes');
+                }
+            }
+            else {
+                if (m.minutes() >= 1) {
+                    //alert("m2");
+                    // Round up a minute if there are 20+ seconds (and at least 1 minute).
+                    if (m.seconds() >= 20) {
+                      //  alert("s2");
+                        m = moment.duration(m).add(1, 'minutes');
+                    }
+                }
+            }
+            //alert(m);
+            //alert(m.hours());
+            //alert(m.minutes());
+            // Set hour template partial.
+            if (m.hours() > 1) {
+                hourTemplate = 'hours';
+            }
+            if (m.hours() === 1) {
+                hourTemplate = 'hour';
+            }
+
+            // Set minute template partial.
+            if (m.minutes() === 1) {
+                minuteTemplate = 'minute';
+            }
+            if (m.minutes() > 1) {
+                minuteTemplate = 'minutes';
+            }
+           // alert(hourTemplate);
+            //alert(minuteTemplate);
+            if ((hourTemplate != 0) && (minuteTemplate != 0)) {
+                //alert("both has value");
+                displayTime = m.hours() + hourTemplate + ", " + m.minutes() + minuteTemplate;
+            }
+            else if ((hourTemplate !=0) && (minuteTemplate == 0)){
+                //alert("minuteTemplate does not have value");
+                displayTime = m.hours() + hourTemplate;
+            }
+            else if ((hourTemplate == 0) && (minuteTemplate != 0)) {
+                //alert("hourTemplate does not have value");
+                displayTime = m.minutes() + minuteTemplate;
+            }
+          
+            return displayTime;
+        };
+
+    </script>
+    <table class="tblclass" rules="all" align="left"
+           border="1" id="myTableNode"
+           style="border-color:black;border-collapse:collapse;width:20%;"></table>
+</body>
+</html>
