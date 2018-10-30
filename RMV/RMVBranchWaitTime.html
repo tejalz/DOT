@@ -160,13 +160,13 @@
                 minuteTemplate = 'minutes';
             }
             if ((hourTemplate != 0) && (minuteTemplate != 0)) {
-                displayTime = m.hours() + hourTemplate + ", " + m.minutes() + minuteTemplate;
+                displayTime = m.hours() + " " + hourTemplate + ", " + m.minutes() + " " + minuteTemplate;
             }
             else if ((hourTemplate !=0) && (minuteTemplate == 0)){
-                displayTime = m.hours() + hourTemplate;
+                displayTime = m.hours() + " " + hourTemplate;
             }
             else if ((hourTemplate == 0) && (minuteTemplate != 0)) {
-                displayTime = m.minutes() + minuteTemplate;
+                displayTime = m.minutes() + " " + minuteTemplate;
             }
           
             return displayTime;
