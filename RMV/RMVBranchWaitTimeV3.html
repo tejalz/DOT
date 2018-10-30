@@ -2,8 +2,8 @@
 <html>
 <head>
     <title></title>
-    <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="moment.js"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/moment.js"></script>
     <meta charset="utf-8" />
     <style type="text/css">
         .tdclass {
@@ -47,7 +47,7 @@
             //routeData = routeoptions["organizations"];
             //alert(JSON.stringify(routeData));
             $.ajax({
-                url: 'http://testapi/api/RMVBranchWaitTimeJSON?type=json',
+                url: 'https://dotfeeds.state.ma.us/api/RMVBranchWaitTimeJSON?type=json',
                 type: "GET",
                 data: {},
                 dataType: "json",
