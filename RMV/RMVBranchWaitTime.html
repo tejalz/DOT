@@ -102,8 +102,7 @@
                                 hyperLink = "https://www.mass.gov/locations/" + town + "-rmv-service-center";
                             }
                             //alert(hyperLink);
-                            resultItems.push("<tr><td><a href='" + hyperLink + "'>" + town + "</td>");
-                            //resultItems.push("<tr><td>" +  town +  "</td>");
+                             resultItems.push("<tr><td><a target=\"_parent\" href='" + hyperLink + "'>" + town + "</td>");
                             resultItems.push("<td>" + DisplayLicenseTime + "</td>");
                             resultItems.push("<td>" + DisplayRegisTime + "</td>");
                             resultItems.push("</tr>");
