@@ -75,7 +75,35 @@
                         $.each(Org.towns, function (j, town) {
                             var DisplayLicenseTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).LicensingTime);
                             var DisplayRegisTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).RegistrationTime);
-                            resultItems.push("<tr><td>" +  town +  "</td>");
+                              if (town == "Boston") {
+                                //alert("hjgfjhjkhgjkfghkfgjdfkBoston");
+                                hyperLink = "https://www.mass.gov/locations/boston-haymarket-rmv-service-center";
+                            }
+                            else if (town == "Fall River") {
+                                hyperLink = "https://www.mass.gov/locations/fall-river-rmv-service-center";
+                            }
+                            else if (town == "Marthas Vineyard") {
+                                hyperLink = "https://www.mass.gov/locations/marthas-vineyard-rmv-service-center";
+                            }
+                            else if (town == "New Bedford") {
+                                hyperLink = "https://www.mass.gov/locations/new-bedford-rmv-service-center";
+                            }
+                            else if (town == "Yarmouth") {
+                                hyperLink = "https://www.mass.gov/locations/south-yarmouth-rmv-service-center";
+                            }
+                            else if (town == "East Hampton") {
+                                hyperLink = "https://www.mass.gov/locations/easthampton-rmv-service-center";
+                            }
+                            else if (town == "N Adams") {
+                                hyperLink = "https://www.mass.gov/locations/north-adams-rmv-service-center";
+                            }
+                            else {
+                                //alert("ndfhjdhg");
+                                hyperLink = "https://www.mass.gov/locations/" + town + "-rmv-service-center";
+                            }
+                            //alert(hyperLink);
+                            resultItems.push("<tr><td><a href='" + hyperLink + "'>" + town + "</td>");
+                            //resultItems.push("<tr><td>" +  town +  "</td>");
                             resultItems.push("<td>" + DisplayLicenseTime + "</td>");
                             resultItems.push("<td>" + DisplayRegisTime + "</td>");
                             resultItems.push("</tr>");
