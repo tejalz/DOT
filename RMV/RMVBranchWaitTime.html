@@ -58,15 +58,20 @@
                         location.reload();  //Refresh page
                     }, 60000);
                     var resultItems = [];
-                    resultItems.push("<thead><tr class='GridHeader'>");
-                    resultItems.push("<th class='GridHeader'>Town</th>");
-                    resultItems.push("<th class='GridHeader'>Licensing wait time</th>");
-                    resultItems.push("<th class='GridHeader'>Registration wait time</th>");
-                    resultItems.push("</tr></thead>");
+                   // resultItems.push("<thead><tr class='GridHeader'>");
+                   // resultItems.push("<th class='GridHeader'>Town</th>");
+                   // resultItems.push("<th class='GridHeader'>Licensing wait time</th>");
+                   // resultItems.push("<th class='GridHeader'>Registration wait time</th>");
+                   // resultItems.push("</tr></thead>");
                     resultItems.push("<colgroup><col span=\"1\" style=\"width: 33%;\"><col span=\"1\" style=\"width: 33%;\"><col span=\"1\" style=\"width: 34%;\"></colgroup><tbody>");
                     // For each loop
                     $.each(routeData, function (i, Org) {
                         resultItems.push("<tr><td class=\"Org\" colspan=\"3\"><h2>" + Org.organization + "</h2></td></tr>");
+                        resultItems.push("<tr class='GridHeader'>");
+                        resultItems.push("<th class='GridHeader'>Town</th>");
+                        resultItems.push("<th class='GridHeader'>Licensing wait time</th>");
+                        resultItems.push("<th class='GridHeader'>Registration wait time</th>");
+                        resultItems.push("</tr>");
                         $.each(Org.towns, function (j, town) {
                             var DisplayLicenseTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).LicensingTime);
                             var DisplayRegisTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).RegistrationTime);
