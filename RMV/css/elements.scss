@@ -1,0 +1,20 @@
+﻿
+
+body {
+  @include ma-font(400);
+  color: $c-font-base;
+}
+
+a {
+  font-weight: 700;
+  color: $c-font-link;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $c-font-heading;
+  font-weight: 700;
+}
+
+b, strong {
+  font-weight: 700;
+}
