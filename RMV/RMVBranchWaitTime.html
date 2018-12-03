@@ -2,28 +2,63 @@
 <html>
 <head>
     <title></title>
-   <script src="https://massgov.github.io/DOT/RMV/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="https://massgov.github.io/DOT/RMV/js/moment.js"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/vendor/modernizr.js"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/env.js"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/vendor-generated.js"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/index-generated.js"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/ieShim.js"></script>
+    <script src="https://massgov.github.io/DOT/RMV/js/bundle.js"></script>
+
+    <link href="https://massgov.github.io/DOT/RMV/css/wait-time.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/ma-container.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/elements.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/typography.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/box-sizing.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/normalize.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/border-decorative.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/svg-loc-icons.scss" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/index-generated.css" rel="stylesheet" />
+    <link href="https://massgov.github.io/DOT/RMV/css/base-theme-generated.css" rel="stylesheet" />
     <meta charset="utf-8" />
     <style type="text/css">
         .tdclass {
             height: 25px;
             text-align: center;
         }
-        .Org{
-            color:rgb(83, 83, 83);
-            font-family:Texta, Helvetica, Arial, sans-serif;
-            font-size:24px;
-            font-weight:700;
+
+        h2 {
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+
+        .Org {
+            color: rgb(83, 83, 83);
+            font-family: Texta, Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
         }
 
         .GridHeader {
             height: 25px;
-            background-color: #bfbfbf;
+            background-color: #e9e9e9;
+            border-bottom: solid 1px #c1c1c1;
+            text-align: left;
+            padding: 5px;
+            color: #000;
+        }
+
+        td {
+            border-bottom: solid 1px #c1c1c1;
+            padding: 5px;
+            color: #000;
+            font-weight: bold;
+            font-size: 28px;
         }
 
         .TotalAmt {
-            padding-top: 680px; 
+            padding-top: 680px;
         }
 
         body {
@@ -32,10 +67,15 @@
             font-weight: 400;
         }
 
-        @media (min-width: 621px) .main-content--two .page-content>* {
-            margin-top: 0px;
+        table {
+            border: solid 0px #fff;
+        }
+
+        a {
+            font-size: 24px;
         }
     </style>
+
 </head>
 <body>
     <script id="mapinit" type="text/javascript">
@@ -47,7 +87,7 @@
             routeData = routeoptions["organizations"];
             //alert(JSON.stringify(routeData));
             $.ajax({
-                url: 'https://dotfeeds.state.ma.us/api/RMVBranchWaitTimeJSON?type=json',
+                url: 'http://dotfeedapi/api/RMVBranchWaitTimeJSON?type=json',
                 type: "GET",
                 data: {},
                 dataType: "json",
@@ -58,15 +98,10 @@
                         location.reload();  //Refresh page
                     }, 60000);
                     var resultItems = [];
-                   // resultItems.push("<thead><tr class='GridHeader'>");
-                   // resultItems.push("<th class='GridHeader'>Town</th>");
-                   // resultItems.push("<th class='GridHeader'>Licensing wait time</th>");
-                   // resultItems.push("<th class='GridHeader'>Registration wait time</th>");
-                   // resultItems.push("</tr></thead>");
                     resultItems.push("<colgroup><col span=\"1\" style=\"width: 33%;\"><col span=\"1\" style=\"width: 33%;\"><col span=\"1\" style=\"width: 34%;\"></colgroup><tbody>");
                     // For each loop
                     $.each(routeData, function (i, Org) {
-                        resultItems.push("<tr><td class=\"Org\" colspan=\"3\"><h2>" + Org.organization + "</h2></td></tr>");
+                        resultItems.push("<tr><td class=\"Org\" colspan=\"3\"><h2>" + Org.organization + "</h2><h2 class=\"ma__wait-time__title\"><svg focusable=\"false\" role=\"presentation\" class=\"svg-wait-time\"><use xlink:href=\"https://massgov.github.io/RMV/images/svg-sprite.svg#wait-time\">#shadow-root (closed)<svg id=\"wait-time\" viewBox=\"0 0 40 40\" width=\"100%\" height=\"100%\"><title>icon</title><desc>Created with Avocode.</desc><path id=\"SvgjsPath1019\" d=\"M1089 363C1089 374.045 1080.04 383 1068.99 383C1067.19 383 1065.45 382.74 1063.79 382.295L1064.8999999999999 379.13800000000003C1066.2099999999998 379.47 1067.58 379.66700000000003 1068.9899999999998 379.66700000000003C1078.1899999999998 379.66700000000003 1085.6699999999998 372.19000000000005 1085.6699999999998 363C1085.6699999999998 353.81 1078.1899999999998 346.33299999999997 1068.9899999999998 346.33299999999997C1065.2699999999998 346.33299999999997 1061.8399999999997 347.573 1059.0599999999997 349.64899999999994L1062.4799999999998 353.06299999999993L1050.7899999999997 355.31999999999994L1053.0499999999997 343.63199999999995L1056.6799999999998 347.2699999999999C1060.08 344.6069999999999 1064.34 342.99999999999994 1068.9899999999998 342.99999999999994C1080.0399999999997 342.99999999999994 1088.9999999999998 351.9549999999999 1088.9999999999998 362.99999999999994ZM1070.67 353L1070.67 363L1079 363L1079 366.333L1067.33 366.333L1067.33 353ZM1054.78 371.667C1055.34 372.577 1055.98 373.428 1056.69 374.21299999999997L1054.3500000000001 376.602C1053.38 375.55499999999995 1052.5200000000002 374.407 1051.7900000000002 373.17199999999997ZM1056.82 378.848L1059.1799999999998 376.44300000000004C1059.9899999999998 377.03700000000003 1060.86 377.557 1061.7699999999998 377.99800000000005L1060.6599999999999 381.16300000000007C1059.29 380.5350000000001 1057.9999999999998 379.75700000000006 1056.82 378.84800000000007ZM1053.33 368.662L1050.34 370.17199999999997C1049.83 368.86499999999995 1049.47 367.493 1049.25 366.07099999999997L1052.58 365.80699999999996C1052.74 366.78999999999996 1053 367.74299999999994 1053.33 368.662ZM1049 362.748L1052.36 362.48C1052.3999999999999 361.308 1052.57 360.17 1052.84 359.06800000000004L1049.3799999999999 359.06800000000004C1049.1399999999999 360.25800000000004 1049.02 361.49000000000007 1048.9999999999998 362.74800000000005Z \" fill-opacity=\"1\" transform=\"matrix(1,0,0,1,-1049,-343)\"></path></svg></use></svg><span>Wait Time</span></h2></td></tr>");
                         resultItems.push("<tr class='GridHeader'>");
                         resultItems.push("<th class='GridHeader'>Town</th>");
                         resultItems.push("<th class='GridHeader'>Licensing wait time</th>");
@@ -76,7 +111,6 @@
                             var DisplayLicenseTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).LicensingTime);
                             var DisplayRegisTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).RegistrationTime);
                               if (town == "Boston") {
-                                //alert("hjgfjhjkhgjkfghkfgjdfkBoston");
                                 hyperLink = "https://www.mass.gov/locations/boston-haymarket-rmv-service-center";
                             }
                             else if (town == "Fall River") {
@@ -98,10 +132,8 @@
                                 hyperLink = "https://www.mass.gov/locations/north-adams-rmv-service-center";
                             }
                             else {
-                                //alert("ndfhjdhg");
                                 hyperLink = "https://www.mass.gov/locations/" + town + "-rmv-service-center";
                             }
-                            //alert(hyperLink);
                              resultItems.push("<tr><td><a target=\"_parent\" href='" + hyperLink + "'>" + town + "</td>");
                             resultItems.push("<td>" + DisplayLicenseTime + "</td>");
                             resultItems.push("<td>" + DisplayRegisTime + "</td>");
@@ -116,51 +148,41 @@
                 }
             });
         });
-
         var displayTime = function (waitTime) {
             var NowMoment = moment();
             var waitTimeUnavailableString = 'Wait time unavailable'; // Used more than once.
             // Default to unavailable.
             var displayTime = waitTimeUnavailableString;
-
             // Closed = 'Closed'.
             if (waitTime === 'Closed') {
                 displayTime = 'Closed';
                 return displayTime;
             }
-
             // 0 = 'No wait time'.
             if (waitTime === '00:00:00') {
                 displayTime = 'No wait time';
                 return displayTime;
             }
-
             // < 1 minute = 'Less than a minute'.
             if (waitTime.startsWith('00:00:')) {
                 displayTime = 'Less than a minute';
                 return displayTime;
             }
-
             // Everything else: format the time string.
-
             // Make sure moment js can work with the waitTime string.
             // moment.duration accepts 'HH:MM:SS'
             // see: https://momentjs.com/docs/#/durations/
             var durationRegex = /^(\d{2}):(\d{2}):(\d{2})$/;
             var waitTimeIsDuration = durationRegex.test(waitTime);
-
             if (!waitTimeIsDuration) {
                 return displayTime; // Wait time unavailable
                 // throw new Error('The wait time is not duration string following "HH:MM:SS".');
             }
-
             // Create a moment duration with the waitTime string.
             var m = moment.duration(waitTime);
-
             // Declare moment formatter template partials.
             var hourTemplate = '';
             var minuteTemplate = '';
-
             // Round minutes up to nearest 15 if there is 1+ hour.
             if (m.hours() >= 1) {
                 if (m.minutes() !== 0) { // Do not round 0 minutes up to 15.
@@ -183,7 +205,6 @@
             if (m.hours() === 1) {
                 hourTemplate = 'hour';
             }
-
             // Set minute template partial.
             if (m.minutes() === 1) {
                 minuteTemplate = 'minute';
@@ -200,10 +221,9 @@
             else if ((hourTemplate == 0) && (minuteTemplate != 0)) {
                 displayTime = m.minutes() + " " + minuteTemplate;
             }
-          
+
             return displayTime;
         };
-
     </script>
     <table class="tblclass" rules="all" align="left"
            border="1" id="myTableNode"
