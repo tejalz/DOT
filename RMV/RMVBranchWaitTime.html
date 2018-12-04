@@ -164,7 +164,8 @@
                 return displayTime;
             }
             // < 1 minute = 'Less than a minute'.
-            if (waitTime.startsWith('00:00:')) {
+            //if (waitTime.startsWith('00:00:')) {
+                if (waitTime.indexOf('00:00:') === 0){
                 displayTime = 'Less than a minute';
                 return displayTime;
             }
