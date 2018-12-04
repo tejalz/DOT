@@ -102,8 +102,14 @@
                         resultItems.push("<th class='GridHeader'>Registration wait time</th>");
                         resultItems.push("</tr>");
                         $.each(Org.towns, function (j, town) {
-                            var DisplayLicenseTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).LicensingTime);
-                            var DisplayRegisTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).RegistrationTime);
+                            //var DisplayLicenseTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).LicensingTime);
+                              var DisplayLicenseTime = displayTime(RMVBranchhWaitTimeData.filter(function (x) {
+                                return x.TownName === town;
+                              })[0].LicensingTime);
+                            //var DisplayRegisTime = displayTime(RMVBranchhWaitTimeData.find(x => x.TownName === town).RegistrationTime);
+                              var DisplayRegisTime = displayTime(RMVBranchhWaitTimeData.filter(function (x) {
+                                return x.TownName === town;
+                              })[0].RegistrationTime);
                               if (town == "Boston") {
                                 hyperLink = "https://www.mass.gov/locations/boston-haymarket-rmv-service-center";
                             }
