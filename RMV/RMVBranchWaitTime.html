@@ -65,6 +65,7 @@
 <body>
     <script id="mapinit" type="text/javascript">
         $(document).ready(function () {
+             setInterval(function () {
             var time = new Date();
             document.getElementById('UpdatedTime').innerHTML = "Updated at " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
             var routeoptions;
@@ -141,6 +142,7 @@
                     alert(err.statusText);
                 }
             });
+                  }, 10000);
         });
         var displayTime = function (waitTime) {
             var NowMoment = moment();
