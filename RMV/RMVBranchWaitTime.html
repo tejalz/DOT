@@ -66,12 +66,12 @@
     <script id="mapinit" type="text/javascript">
         $(document).ready(function () {
             RMVWaitTime();
-            var time = new Date();
-            document.getElementById('UpdatedTime').innerHTML = "Updated at " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
         });
         function RMVWaitTime() {
             // do stuff
             // ...
+            var time = new Date();
+            document.getElementById('UpdatedTime').innerHTML = "Updated at " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
             var routeoptions;
             var routeData;
             var route2Json = '{"organizations": [{"organization": "Greater Boston","towns": ["Boston", "Revere", "Roslindale", "Watertown"]},{"organization": "Northeast Massachusetts","towns": ["Haverhill", "Lowell", "Natick", "Wilmington"]},{"organization": "Southeast Massachusetts","towns": ["Attleboro", "Braintree", "Brockton", "Fall River", "Marthas Vineyard", "Nantucket", "New Bedford", "Plymouth", "Yarmouth", "Taunton"]},{"organization": "Central Massachusetts","towns": ["Leominster", "Milford", "Brockton", "Southbridge", "Worcester"]},{"organization": "Western Massachusetts","towns": ["Chicopee", "East Hampton", "Greenfield", "N Adams", "Pittsfield", "Springfield"]}]}';
