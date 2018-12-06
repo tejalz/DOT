@@ -68,6 +68,8 @@
             RMVWaitTime();
         });
         function RMVWaitTime() {
+            var time = new Date();
+            document.getElementById('UpdatedTime').innerHTML = "Updated at " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
             // do stuff
             // ...
             var routeoptions;
@@ -160,8 +162,7 @@
                     alert(err.statusText);
                 }
             });
-            var time = new Date();
-            document.getElementById('UpdatedTime').innerHTML = "Updated at " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+            
             // and schedule a repeat
             setTimeout(RMVWaitTime, 60000);
         }
