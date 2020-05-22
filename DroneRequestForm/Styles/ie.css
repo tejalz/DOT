@@ -1,0 +1,39 @@
+﻿legend, legend span {
+    float: left !important
+}
+
+.rtl legend, .rtl legend span {
+    float: right !important
+}
+
+.fieldset-content {
+    clear: both
+}
+
+.fsLabelHorizontal .fieldset-content {
+    clear: none;
+    float: left
+}
+
+.rtl .fsLabelHorizontal .fieldset-content {
+    float: right
+}
+
+legend.fsRequiredLabel span span {
+    padding-left: 2px !important;
+    color: #ba0000 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    font-family: Verdana !important;
+    float: none !important
+}
+
+legend.fsRequiredLabel span {
+    padding-left: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    height: inherit;
+    float: inherit
+}
