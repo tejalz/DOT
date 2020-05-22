@@ -1,0 +1,12 @@
+﻿.fsFieldRow INPUT[type=checkbox] {
+    margin-top: 0 !important;
+    margin-left: 3px !important
+}
+
+label.fsOptionLabel {
+    margin-bottom: 1px !important
+}
+
+.fsLabel span {
+    display: inline-block
+}

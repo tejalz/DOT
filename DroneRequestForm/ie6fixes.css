@@ -1,0 +1,23 @@
+﻿.fsSectionRow td.fsRowBody {
+    background-image: none
+}
+
+#fsSubmissionCheckmark {
+    background: url(../../images/3/confirmationCheckmarkIE6.png)
+}
+
+.fsBody .fs1Col .fsFieldCell {
+    width: expression(document.body.clientWidth < 400? "400px": "auto" )
+}
+
+legend, legend span {
+    float: left
+}
+
+.fieldset-content {
+    clear: both
+}
+
+legend {
+    margin-left: -7px !important
+}
