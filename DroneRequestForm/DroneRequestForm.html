@@ -54,7 +54,234 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
+        $('#phone').focusout(function () {
+
+            function phoneFormat() {
+                phone = phone.replace(/[^0-9]/g, '');
+                phone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+                return phone;
+            }
+            var phone = $(this).val();
+            phone = phoneFormat(phone);
+            $(this).val(phone);
+        });
+        var firstNameValidation;
+        var lastNameValidation;
+        var companyValidation;
+        var emailValidation;
+        var phoneValidation;
+        var projectSummaryValidation;
+        var projectLocationValidation;
+        var targetedStartDateValidation;
+        var riskDescriptionValidation;
+
+        var counter = 0;
+
+        $("#submitBtn").click(function (e) {
+            //alert("clicked");
+
+            if (counter <= 0) {
+                //alert('this record does not exists');
+                $('#DroneForm').prepend('<div class="LabelError">Please fill in a valid value for all required fields <br>Fields:  <strong id="lblFirstName"></strong> <strong id="lblLastName"></strong> <strong id="lblCompany"></strong> <strong id="lblEmail"></strong> <strong id="lblPhone"></strong> <strong id="lblProjectSummary"></strong> <strong id="lblProjectLocation"></strong> <strong id="lblProjectStartDate"></strong> <strong id="lblRiskDescription"></strong></div>');
+                counter++;
+            }
+
+            // First Name: (Required)
+            if ($('#first_name').val() == '') {
+                $("#lblFirstName").text('First Name,');  
+                firstNameValidation = false;
+                $('#fsCellFirstName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellFirstName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#first_name').val() != '') {
+                $("#lblFirstName").text('');
+                firstNameValidation = true;
+                $('#fsCellFirstName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellFirstName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Last Name: (Required)
+            if ($('#last_name').val() == '') {
+                //alert("empty");
+                $("#lblLastName").text('Last Name,');  
+                lastNameValidation = false;
+                $('#fsCellLastName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellLastName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#last_name').val() != '') {
+                //alert("not empty");
+                $("#lblLastName").text('');
+                lastNameValidation = true;
+                $('#fsCellLastName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellLastName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Company: (Required)
+            if ($('#company').val() == '') {
+                $("#lblCompany").text('Company,');  
+                companyValidation = false;
+                $('#fsCellCompany').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellCompany').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#company').val() != '') {
+                $("#lblCompany").text('');
+                companyValidation = true;
+                $('#fsCellCompany').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellCompany').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Email: (Required)
+            if ($('#email').val() == '') {
+                $("#lblEmail").text('Email,');  
+                emailValidation = false;
+                $('#fsCellEmail').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellEmail').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#email').val() != '') {
+                    // Check for valid email
+                if ($('#email').val().match(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
+                        $("#lblEmail").text('');
+                        emailValidation = true;
+                        $('#fsCellEmail').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                        $('#fsCellEmail').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                    }
+                else if (!($('#email').val().match(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/))) {
+                        //alert("not matching");
+                        $("#lblEmail").text('Email in valid format,');
+                        emailValidation = false;
+                    $('#fsCellEmail').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                    $('#fsCellEmail').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                    }
+            }
+            // Phone: (Required)
+            if ($('#phone').val() == '') {
+                $("#lblPhone").text('Phone,');  
+                phoneValidation = false;
+                $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#phone').val() != '') {
+                if (!($('#phone').val().match(/[a-z]/i))) {
+                    //alert("no alphabets");
+                    // Check for length
+                    if ($('#phone').val().length == 14) {
+                        // alert("length is 14");
+                        $("#lblPhone").text('');
+                        phoneValidation = true;
+                        $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                        $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                    }
+                    else if ($('#phone').val().length != 14) {
+                        //alert("length is not 14");
+                        $("#lblPhone").text('Phone in valid format,');
+                        phoneValidation = false;
+                        $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                        $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                    }
+                }
+                else if (($('#phone').val().match(/[a-z]/i))) {
+                    //alert("found alphabets");
+                    $("#lblPhone").text('Phone in valid format,');
+                    phoneValidation = false;
+                    $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                    $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                }
+            }
+            // Project Summary: (Required)
+            if ($('#00Nt0000000nu9e').val() == '') {
+                $("#lblProjectSummary").text('Project Summary,');  
+                projectSummaryValidation = false;
+                $('#fsCellProjectSummary').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellProjectSummary').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nt0000000nu9e').val() != '') {
+                $("#lblProjectSummary").text('');
+                projectSummaryValidation = true;
+                $('#fsCellProjectSummary').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellProjectSummary').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Initial Project Location(s): (Required)
+            if ($('#00Nt0000000nu9b').val() == '') {
+                $("#lblProjectLocation").text('Initial Project Location(s),');  
+                projectLocationValidation = false;
+                $('#fsCellProjectLocation').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellProjectLocation').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nt0000000nu9b').val() != '') {
+                $("#lblProjectLocation").text('');
+                projectLocationValidation = true;
+                $('#fsCellProjectLocation').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellProjectLocation').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Project Targeted Start Date: (Required)
+            if ($('#00Nt0000000nu9g').val() == '') {
+                $("#lblProjectStartDate").text('Project Targeted Start Date,'); 
+                targetedStartDateValidation = false;
+                $('#fsCellTargetedStartDate').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellTargetedStartDate').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nt0000000nu9g').val() != '') {
+                var targetStartDateVal = $('#00Nt0000000nu9g').val();
+                if (isDate(targetStartDateVal)) {
+                    $("#lblProjectStartDate").text('');
+                    targetedStartDateValidation = true;
+                    $('#fsCellTargetedStartDate').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                    $('#fsCellTargetedStartDate').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                }
+                else {
+                    targetedStartDateValidation = false;
+                    $("#lblProjectStartDate").text('Project Targeted Start Date in valid format,');
+                    $('#fsCellTargetedStartDate').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                    $('#fsCellTargetedStartDate').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                }
+            }
+            // Risk Description: (Required)
+            if ($('#00Nt0000000nu9j').val() == '') {
+                $("#lblRiskDescription").text('Risk Description,'); 
+                riskDescriptionValidation = false;
+                $('#fsCellRiskDescription').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellRiskDescription').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nt0000000nu9j').val() != '') {
+                $("#lblRiskDescription").text('');
+                riskDescriptionValidation = true;
+                $('#fsCellRiskDescription').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellRiskDescription').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            if (firstNameValidation == false || lastNameValidation == false || companyValidation == false || emailValidation == false ||
+                phoneValidation == false || projectSummaryValidation == false || projectLocationValidation == false || targetedStartDateValidation == false ||
+                riskDescriptionValidation == false)
+            {
+                e.preventDefault();
+            }	 
+        });
     });
+    function isDate(txtDate) {
+        var currVal = txtDate;
+        if (currVal == '')
+            return false;
+
+        var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/; //Declare Regex
+        var dtArray = currVal.match(rxDatePattern); // is format OK?
+
+        if (dtArray == null)
+            return false;
+
+        //Checks for mm/dd/yyyy format.
+        dtMonth = dtArray[1];
+        dtDay = dtArray[3];
+        dtYear = dtArray[5];
+
+        if (dtMonth < 1 || dtMonth > 12)
+            return false;
+        else if (dtDay < 1 || dtDay > 31)
+            return false;
+        else if ((dtMonth == 4 || dtMonth == 6 || dtMonth == 9 || dtMonth == 11) && dtDay == 31)
+            return false;
+        else if (dtMonth == 2) {
+            var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+            if (dtDay > 29 || (dtDay == 29 && !isleap))
+                return false;
+        }
+        return true;
+    }
 </script>
 <html>
 <body>
@@ -67,7 +294,7 @@
             <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="Styles/ie6fixes.css" /><![endif]-->
             <link href="Styles/DroneRequestForm1.css" rel="stylesheet" />
             <link href="Styles/DroneRequestForm2.css" rel="stylesheet" />
-            <form method="post" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" class="fsForm fsSingleColumn" id="fsForm3826398">
+            <form method="post" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" class="fsForm fsSingleColumn" id="DroneForm">
                 <input type=hidden name="oid" value="00D350000008xpC">
                 <input type=hidden name="retURL" value="https://www.mass.gov/orgs/aeronautics-division">
                 <div class="fsPage" id="fsPage3826398-1">
@@ -75,7 +302,7 @@
                     <div class="fsSection fs1Col">
                         <div id="fsRow3826398-1" class="fsRow fsFieldRow fsLastRow">
                             <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627816" lang="en" fs-field-type="select" fs-field-validation-name="Salutation:">
-                                <label id="label90627816" class="fsLabel" for="field90627816">Salutation:                                                    </label>
+                                <label id="label90627816" class="fsLabel" for="field90627816">Salutation: (Required)                                                  </label>
                                 <select id="salutation" name="salutation" size="1" class="fsField">
                                     <option value="--None--">--None--</option>
                                     <option value="Mr.">Mr.</option>
@@ -87,81 +314,81 @@
                             </div>
                         </div>
                         <div id="fsRow3826398-2" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627895" lang="en" fs-field-type="text" fs-field-validation-name="First Name:">
-                                <label id="label90627895" class="fsLabel fsRequiredLabel" for="field90627895">First Name:<span class="fsRequiredMarker">*</span> </label>
-                                <input type="text" id="first_name" name="first_name" size="50" required="" value="" class="fsField fsFormatText fsRequired   " aria-required="true">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellFirstName" lang="en" fs-field-type="text">
+                                <label id="label90627895" class="fsLabel fsRequiredLabel" for="field90627895">First Name: (Required)</label>
+                                <input type="text" id="first_name" name="first_name" size="50" class="fsField fsFormatText fsRequired">
                             </div>
                         </div>
                         <div id="fsRow3826398-3" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627915" lang="en" fs-field-type="text" fs-field-validation-name="Last Name:">
-                                <label id="label90627915" class="fsLabel fsRequiredLabel" for="field90627915">Last Name:<span class="fsRequiredMarker">*</span>                                                    </label>
-                                <input type="text" id="last_name" name="last_name" size="50" required="" value="" class="fsField fsFormatText fsRequired   " aria-required="true">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellLastName" lang="en" fs-field-type="text">
+                                <label id="label90627915" class="fsLabel fsRequiredLabel" for="field90627915">Last Name: (Required)</label>
+                                <input type="text" id="last_name" name="last_name" size="50" class="fsField fsFormatText fsRequired">
                             </div>
                         </div>
                         <div id="fsRow3826398-4" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627922" lang="en" fs-field-type="text" fs-field-validation-name="Company:">
-                                <label id="label90627922" class="fsLabel fsRequiredLabel" for="field90627922">Company:<span class="fsRequiredMarker">*</span>                                                    </label>
-                                <input type="text" id="company" name="company" size="50" required="" value="" class="fsField fsFormatText fsRequired   " aria-required="true">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellCompany" lang="en" fs-field-type="text">
+                                <label id="label90627922" class="fsLabel fsRequiredLabel" for="field90627922">Company: (Required)</label>
+                                <input type="text" id="company" name="company" size="50" class="fsField fsFormatText fsRequired">
                             </div>
                         </div>
                         <div id="fsRow3826398-5" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627954" lang="en" fs-field-type="email" fs-field-validation-name="Email:">
-                                <label id="label90627954" class="fsLabel fsRequiredLabel" for="field90627954">Email:<span class="fsRequiredMarker">*</span>                                                    </label>
-                                <input type="email" id="email" name="email" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellEmail" lang="en" fs-field-type="email">
+                                <label id="label90627954" class="fsLabel fsRequiredLabel" for="field90627954">Email: (Required)</label>
+                                <input type="email" id="email" name="email" size="50" class="fsField fsFormatEmail fsRequired">
                             </div>
                         </div>
                         <div id="fsRow3826398-6" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627960" lang="en" fs-field-type="phone" fs-field-validation-name="Phone:">
-                                <label id="label90627960" class="fsLabel fsRequiredLabel" for="field90627960">Phone:<span class="fsRequiredMarker">*</span>                                                    </label>
-                                <input type="tel" id="phone" name="phone" size="2" required="" value="" class="fsField fsFormatPhoneUS  fsRequired" aria-required="true" data-country="US" data-format="national">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellPhone" lang="en" fs-field-type="phone">
+                                <label id="label90627960" class="fsLabel fsRequiredLabel" for="field90627960">Phone: (Required)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx" size="2" class="fsField fsFormatPhoneUS  fsRequired">
                             </div>
                         </div>
                         <div id="fsRow3826398-7" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627962" lang="en" fs-field-type="phone" fs-field-validation-name="Mobile:">
-                                <label id="label90627962" class="fsLabel" for="field90627962">Mobile:                                                    </label>
-                                <input type="tel" id="mobile" name="mobile" size="2" value="" class="fsField fsFormatPhoneUS " data-country="US" data-format="national">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellMobile" lang="en" fs-field-type="phone">
+                                <label id="label90627962" class="fsLabel" for="field90627962">Mobile:</label>
+                                <input type="tel" id="mobile" name="mobile" size="2" value="" class="fsField fsFormatPhoneUS">
                             </div>
                         </div>
                         <div id="fsRow3826398-8" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627971" lang="en" fs-field-type="textarea" fs-field-validation-name="Project Summary:">
-                                <label id="label90627971" class="fsLabel fsRequiredLabel" for="field90627971">Project Summary:<span class="fsRequiredMarker">*</span>                                                    </label>
-<textarea id="00Nt0000000nu9e" class="fsField fsRequired " name="00Nt0000000nu9e" rows="10" cols="50" required="" aria-required="true"></textarea>
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellProjectSummary" lang="en" fs-field-type="textarea">
+                                <label id="label90627971" class="fsLabel fsRequiredLabel" for="field90627971">Project Summary: (Required)</label>
+                                <textarea id="00Nt0000000nu9e" class="fsField fsRequired " name="00Nt0000000nu9e" rows="10" cols="50"></textarea>
                             </div>
                         </div>
                         <div id="fsRow3826398-9" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90627982" lang="en" fs-field-type="textarea" fs-field-validation-name="Initial Project Location(s):">
-                                <label id="label90627982" class="fsLabel fsRequiredLabel" for="field90627982">Initial Project Location(s):<span class="fsRequiredMarker">*</span>                                                    </label>
-<textarea id="00Nt0000000nu9b" class="fsField fsRequired " name="00Nt0000000nu9b" rows="10" cols="50" required="" aria-required="true"></textarea>
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellProjectLocation" lang="en" fs-field-type="textarea">
+                                <label id="label90627982" class="fsLabel fsRequiredLabel" for="field90627982">Initial Project Location(s): (Required)</label>
+                                <textarea id="00Nt0000000nu9b" class="fsField fsRequired " name="00Nt0000000nu9b" rows="10" cols="50"></textarea>
                             </div>
                         </div>
                         <div id="fsRow3826398-10" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90628078" lang="en" fs-field-type="textarea" fs-field-validation-name="Expected Cost/Benefit:">
-                                <label id="label90628078" class="fsLabel" for="field90628078">Expected Cost/Benefit:                                                    </label>
-<textarea id="00Nt0000000nu9a" class="fsField " name="00Nt0000000nu9a" rows="10" cols="50"></textarea>
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellExpectedCost" lang="en" fs-field-type="textarea">
+                                <label id="label90628078" class="fsLabel" for="field90628078">Expected Cost/Benefit:</label>
+                                <textarea id="00Nt0000000nu9a" class="fsField " name="00Nt0000000nu9a" rows="10" cols="50"></textarea>
                             </div>
                         </div>
                         <div id="fsRow3826398-11" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90628121" lang="en" fs-field-type="text" fs-field-validation-name="Property Owner:">
-                                <label id="label90628121" class="fsLabel" for="field90628121">Property Owner:                                                    </label>
-                                <input type="text" id="00Nt0000000nu9i" name="00Nt0000000nu9i" size="50" value="" class="fsField fsFormatText    ">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellProjectOwner" lang="en" fs-field-type="text">
+                                <label id="label90628121" class="fsLabel" for="field90628121">Property Owner:</label>
+                                <input type="text" id="00Nt0000000nu9i" name="00Nt0000000nu9i" size="50" value="" class="fsField fsFormatText">
                             </div>
                         </div>
                         <div id="fsRow3826398-12" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90628127" lang="en" fs-field-type="textarea" fs-field-validation-name="Key Milestones:">
-                                <label id="label90628127" class="fsLabel" for="field90628127">Key Milestones:                                                    </label>
-<textarea id="00Nt0000000nu9c" class="fsField " name="00Nt0000000nu9c" rows="10" cols="50"></textarea>
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellKeyMilestones" lang="en" fs-field-type="textarea">
+                                <label id="label90628127" class="fsLabel" for="field90628127">Key Milestones:</label>
+                                <textarea id="00Nt0000000nu9c" class="fsField " name="00Nt0000000nu9c" rows="10" cols="50"></textarea>
                             </div>
                         </div>
                         <div id="fsRow3826398-13" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell92982987" lang="en" fs-field-type="text" fs-field-validation-name="Project Targeted Start Date:">
-                                <label id="label92982987" class="fsLabel fsRequiredLabel" for="field92982987">Project Targeted Start Date:<span class="fsRequiredMarker">*</span>                                                    </label>
-                                <input type="text" id="00Nt0000000nu9g" name="00Nt0000000nu9g" size="50" required="" placeholder="MM/DD/YYYY" title="MM/DD/YYYY" value="" class="fsField fsFormatText fsRequired   " aria-required="true">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellTargetedStartDate" lang="en" fs-field-type="text">
+                                <label id="label92982987" class="fsLabel fsRequiredLabel" for="field92982987">Project Targeted Start Date: (Required)</label>
+                                <input type="text" id="00Nt0000000nu9g" name="00Nt0000000nu9g" size="50" placeholder="MM/DD/YYYY" title="MM/DD/YYYY" class="fsField fsFormatText fsRequired">
                             </div>
                         </div>
                         <div id="fsRow3826398-14" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell92983205" lang="en" fs-field-type="text" fs-field-validation-name="Project Targeted End Date:">
-                                <label id="label92983205" class="fsLabel" for="field92983205">Project Targeted End Date:                                                    </label>
-                                <input type="text" id="00Nt0000000nu9f" name="00Nt0000000nu9f" size="50" placeholder="MM/DD/YYYY" title="MM/DD/YYYY" value="" class="fsField fsFormatText    ">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellTargetedEndDate" lang="en" fs-field-type="text">
+                                <label id="label92983205" class="fsLabel" for="field92983205">Project Targeted End Date:</label>
+                                <input type="text" id="00Nt0000000nu9f" name="00Nt0000000nu9f" size="50" title="MM/DD/YYYY" class="fsField fsFormatText">
                             </div>
                         </div>
                         <div class="containerDiv" style="display:none">
@@ -175,9 +402,9 @@
                             </div>
                         </div>
                         <div id="fsRow3826398-15" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell90629117" lang="en" fs-field-type="textarea" fs-field-validation-name="Risk Description:">
-                                <label id="label90629117" class="fsLabel fsRequiredLabel" for="field90629117">Risk Description:<span class="fsRequiredMarker">*</span>                                                    </label>
-<textarea id="00Nt0000000nu9j" class="fsField fsRequired " name="00Nt0000000nu9j" rows="10" cols="50" required="" aria-required="true"></textarea>
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellRiskDescription" lang="en" fs-field-type="textarea">
+                                <label id="label90629117" class="fsLabel fsRequiredLabel" for="field90629117">Risk Description: (Required)</label>
+                                <textarea id="00Nt0000000nu9j" class="fsField fsRequired" name="00Nt0000000nu9j" rows="10" cols="50"></textarea>
                             </div>
                         </div>
                     </div>
@@ -192,4 +419,4 @@
         </div>
     </div>
 </body>
-</html> 
+</html>
