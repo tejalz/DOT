@@ -45,7 +45,6 @@
         }
 
         th {
-            padding-left: 15px !important;
             color: #141414;
             border: none;
             /*font-size: 23.562px;*/
@@ -74,14 +73,16 @@
             border-bottom: 1px solid #F2F2F2;
             vertical-align: top;
         }
-
-        table th, table td, th, td {
-            /*font-size: 18.125px;*/
-            font-size: 1.25rem;
-            padding: 10px 20px 10px 0;
-            text-align: left;
-            /*vertical-align: top;*/
+         table th:first-child, table td:first-child, th:first-child, td:first-child {
+            padding-left: 15px;
         }
+            table th, table td, th, td:first-child {
+                font-size: 18.125px !important;
+                font-size: 1.25rem;
+                padding: 10px 20px 10px 0;
+                text-align: left;
+                /*vertical-align: top;*/
+            }
 
 
 
@@ -107,7 +108,7 @@
             var PortlandCement;
             var SteelPPI;
             $.ajax({
-                url: 'https://dotfeeds-dev.dot.state.ma.us/api/ContractPriceAdjustment',
+                url: 'http://dotfeedapi/api/ContractPriceAdjustment',
                 type: "GET",
                 data: {},
                 dataType: "json",
