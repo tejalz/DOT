@@ -45,7 +45,7 @@
         }
 
         th {
-            padding-left: 15px;
+            padding-left: 15px !important;
             color: #141414;
             border: none;
             /*font-size: 23.562px;*/
@@ -106,7 +106,7 @@
             var PortlandCement;
             var SteelPPI;
             $.ajax({
-                url: 'https://dotfeeds-dev.dot.state.ma.us/api/ContractPriceAdjustment',
+                url: 'http://dotfeedapi/api/ContractPriceAdjustment',
                 type: "GET",
                 data: {},
                 dataType: "json",
@@ -117,7 +117,7 @@
                     var now = new Date();
                     var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
                     var resultItems = [];
-                    resultItems.push("<thead><tr><th>Adjustment Period</th><th>Liquid Asphalt<br>(Ton)</th ><th>Diesel<br>(Gallon)</th ><th>Gasoline<br>(Gallon)</th><th>Portland Cement<br>(Ton)</th><th>Steel<br>PPI</th></tr></thead>");
+                    resultItems.push("<thead><tr><th style=\"width: 212px;\">Adjustment Period</th><th style=\"width: 156px;\">Liquid Asphalt<br>(Ton)</th ><th style=\"width: 100px;\">Diesel<br>(Gallon)</th ><th style=\"width: 109.6px;\">Gasoline<br>(Gallon)</th><th style=\"width: 170.4px;\">Portland Cement<br>(Ton)</th><th style=\"width: 72px;\">Steel<br>PPI</th></tr></thead>");
                     resultItems.push("<tbody>");
                     for (var i = 0; i <= 11; i++) {
                         LiquidAsphalt = "TBD";
