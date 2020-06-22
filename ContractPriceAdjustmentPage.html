@@ -109,7 +109,7 @@
             var cHour = today.getHours();
             var cMin = today.getMinutes();
             var cSec = today.getSeconds();
-            if ((cHour + ":" + cMin + ":" + cSec == "12:00:00") || (cHour + ":" + cMin + ":" + cSec == "17:00:00")) {
+            if ((cHour + ":" + cMin + ":" + cSec != "12:00:00") || (cHour + ":" + cMin + ":" + cSec != "17:00:00")) {
                 alert("Time is either 12 PM or 5 PM");
                 var LiquidAsphalt;
                 var Diesel;
