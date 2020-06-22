@@ -110,14 +110,14 @@
             var cMin = today.getMinutes();
             var cSec = today.getSeconds();
             if ((cHour + ":" + cMin + ":" + cSec == "12:00:00") || (cHour + ":" + cMin + ":" + cSec == "17:00:00")) {
-                //alert("Time is either 12 PM or 5 PM");
+                alert("Time is either 12 PM or 5 PM");
                 var LiquidAsphalt;
                 var Diesel;
                 var Gasoline87;
                 var PortlandCement;
                 var SteelPPI;
                 $.ajax({
-                    url: 'http://dotfeedapi/api/ContractPriceAdjustment',
+                    url: 'https://dotfeeds-dev.dot.state.ma.us/api/ContractPriceAdjustment',
                     type: "GET",
                     data: {},
                     dataType: "json",
@@ -236,7 +236,7 @@
         });
                 }
                 else {
-            //alert("Time is not 12 PM or 5 PM");
+            alert("Time is not 12 PM or 5 PM");
             ModifiedDateTime = localStorage.getItem('LastModifiedTime');
             resultItems = JSON.parse(localStorage.getItem('CommodityPriceData'));
             //alert("2" + resultItems);
