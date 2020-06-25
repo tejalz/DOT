@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="jquery-1.10.2.min.js"></script>
+    <!--<script>
+        $(this).on('scroll', function () {
+            $('table').find('#table_header').css('transform', 'translateY(' + $(this).scrollTop() + 'px)');
+        });
+    </script>-->
     <link href="https://massgov.github.io/DOT/RMV/css/wait-time.scss" rel="stylesheet" />
     <link href="https://massgov.github.io/DOT/RMV/css/ma-container.scss" rel="stylesheet" />
     <link href="https://massgov.github.io/DOT/RMV/css/elements.scss" rel="stylesheet" />
@@ -16,6 +21,22 @@
     <link href="https://massgov.github.io/DOT/RMV/css/base-theme-generated.css" rel="stylesheet" />
     <style type="text/css">
 
+            /*table {
+                position: relative;
+            }
+
+                table:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    display: block;
+                    background: #fff;
+                    opacity: .7;
+                    width: 20px;
+                    pointer-events: none;
+                }*/
 
         body {
             margin: 0;
@@ -24,26 +45,29 @@
             line-height: 1.5;
             color: #141414;
             font-weight: 400;
+            padding: 2rem;
         }
 
-        html {
-            font-family: "Texta","Helvetica","Arial",sans-serif;
-            /*font-size: 14.5px;*/
-        }
+            html {
+                font-family: "Texta","Helvetica","Arial",sans-serif;
+                /*font-size: 14.5px;*/
+            }
 
         table {
             border-collapse: collapse;
             /*width: 100%;*/
+            text-align: left;
+            position: relative;
         }
 
-        thead {
-            background-color: #F2F2F2;
-            border-collapse: collapse;
-            border-spacing: 0;
-            text-align: left;
-            /*-webkit-box-shadow: 0 0 0 2px #dcdcdc;*/
-            box-shadow: 0 0 0 2px #dcdcdc;
-        }
+            thead {
+                background-color: #F2F2F2;
+                border-collapse: collapse;
+                border-spacing: 0;
+                text-align: left;
+                /*-webkit-box-shadow: 0 0 0 2px #dcdcdc;*/
+                box-shadow: 0 0 0 2px #dcdcdc;
+            }
 
         th {
             color: #141414;
@@ -54,60 +78,68 @@
             /*-webkit-box-sizing: border-box;*/
             box-sizing: border-box;
             /*font-size: 16.312px;
-            font-size: 1.125rem;
-            padding: 7.25px;
-            padding: 0.5rem;*/
+                font-size: 1.125rem;
+                padding: 7.25px;
+                padding: 0.5rem;*/
             font-family: "Texta","Helvetica","Arial","sans-serif" !important;
             /*font-size: 26px !important;*/
             font-size: 23px !important;
             font-weight: 700;
+            background: #F2F2F2;
+            position: sticky;
+            top: 0;
+            /*box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);*/
         }
 
-        tbody {
-            border-top: 2px solid #dcdcdc;
-        }
-
-        tr {
-            line-height:33px;
-        }
-
-        td {
-            border-bottom: 1px solid #F2F2F2;
-            vertical-align: top;
-        }
-
-            table th:first-child, table td:first-child, th:first-child, td:first-child {
-                padding-left: 15px;
+            tbody {
+                border-top: 2px solid #dcdcdc;
             }
 
-        table th, table td, th, td {
-            /*font-size: 18.125px !important;*/
-            font-size: 1.25rem;
-            padding: 10px 20px 10px 0;
-            text-align: left;
-            /*vertical-align: top;*/
-        }
+            tr {
+                line-height: 33px;
+            }
 
-        t1 {
-        }
-        /*.ma__table--responsive__wrapper {
-            overflow-x: scroll;
-            width: 100%;
-            position: relative;
-            -ms-overflow-style: none;
-            overflow: -moz-scrollbars-none;
+            td {
+                border-bottom: 1px solid #F2F2F2;
+                vertical-align: top;
+            }
+
+                table th:first-child, table td:first-child, th:first-child, td:first-child {
+                    padding-left: 15px;
+                }
+
+            table th, table td, th, td {
+                /*font-size: 18.125px !important;*/
+                font-size: 1.25rem;
+                padding: 10px 20px 10px 0;
+                text-align: left;
+                /*vertical-align: top;*/
+            }
+
+            t1 {
+            }
+            /*.ma__table--responsive__wrapper {
+        overflow-x: scroll;
+        width: 100%;
+        position: relative;
+        -ms-overflow-style: none;
+        overflow: -moz-scrollbars-none;
         }*/
-        .ma__iframe__container {
-        }
+            .ma__iframe__container {
+            }
     </style>
 </head>
 <body>
     <script id="mapinit" type="text/javascript">
         $(document).ready(function () {
+            //$(this).on('scroll', function () {
+            //    console.log('sfdsd', $('table').find('#table_header'));
+            //    $('table').find('#table_header').css('transform', 'translateY(' + $(this).scrollTop() + 'px)');
+            //});
             var resultItems = [];
 
             //alert(GetMonthName(12));
-            var LiquidAsphalt; 
+            var LiquidAsphalt;
             var Diesel;
             var Gasoline87;
             var PortlandCement;
@@ -126,17 +158,17 @@
                     var monthName = GetMonthName(strLastModified.substring(5, 7));
                     var ampm = "";
                     //if (strLastModified.substring(11, 13) != "00") {
-                        ampm = strLastModified.substring(11, 13) >= 12 ? 'pm' : 'am';
+                    ampm = strLastModified.substring(11, 13) >= 12 ? 'pm' : 'am';
                     //}
                     //alert(ampm);
                     //$('#LastModified').text("Please Note That This Page Has Been Updated on " + monthName + " " + strLastModified.substring(8, 10) + ", "
-                     //   + strLastModified.substring(0, 4) + " at " + strLastModified.substring(11, 13) + ":" + strLastModified.substring(14, 16));
-                     $('#LastModified').text("Please Note That This Page Has Been Updated on " + monthName + " " + strLastModified.substring(8, 10) + ", "
+                    //   + strLastModified.substring(0, 4) + " at " + strLastModified.substring(11, 13) + ":" + strLastModified.substring(14, 16));
+                    $('#LastModified').text("Please Note That This Page Has Been Updated on " + monthName + " " + strLastModified.substring(8, 10) + ", "
                         + strLastModified.substring(0, 4));
                     var now = new Date();
                     var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-                   
-                    resultItems.push("<thead><tr><th style=\"width: 212px;\">Adjustment Period</th><th style=\"width: 156px;\">Liquid Asphalt<br>(Ton)</th ><th style=\"width: 100px;\">Diesel<br>(Gallon)</th ><th style=\"width: 109.6px;\">Gasoline<br>(Gallon)</th><th style=\"width: 170.4px;\">Portland Cement<br>(Ton)</th><th style=\"width: 72px;\">Steel<br>PPI</th></tr></thead>");
+
+                    resultItems.push("<thead id='table_header'><tr><th style=\"width: 212px;\">Adjustment Period</th><th style=\"width: 156px;\">Liquid Asphalt<br>(Ton)</th ><th style=\"width: 100px;\">Diesel<br>(Gallon)</th ><th style=\"width: 109.6px;\">Gasoline<br>(Gallon)</th><th style=\"width: 170.4px;\">Portland Cement<br>(Ton)</th><th style=\"width: 72px;\">Steel<br>PPI</th></tr></thead>");
                     resultItems.push("<tbody>");
 
                     for (var i = 0; i <= 11; i++) {
@@ -233,13 +265,27 @@
         function GetMonthName(monthNumber) {
             var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             return months[monthNumber - 1];
-        }
-    </script>
+        }</script>
     <h2 class="ma__comp-heading" tabindex="-1">Most recent period prices</h2>
     <p id="LastModified"></p>
-    
-    <div class="sticky-thead-wrapper">
+
+    <div class="ma__table--responsive__wrapper" id="5ef3efa4a8b0a">
         <table id="myTableNode" class="sticky-enabled" style="width: 794px; margin: 0px;"></table>
+
+        <h3>Steel Producer Price Index from the Bureau of Labor Statistics website</h3>
+        <p>PPI Commodity data for Metals and metal products - Semifinished steel mill products, not seasonally adjusted</p>
+        <p><strong>NOTE: </strong>PPI is the final published data</p>
+        <p>PPI Commodity data for Metals and metal products - Semifinished steel mill products, not seasonally adjusted</p>
+        <p><strong>NOTE: </strong>PPI is the final published data</p>
+        <p>PPI Commodity data for Metals and metal products - Semifinished steel mill products, not seasonally adjusted</p>
+        <p><strong>NOTE: </strong>PPI is the final published data</p>
+        <p>PPI Commodity data for Metals and metal products - Semifinished steel mill products, not seasonally adjusted</p>
+        <p><strong>NOTE: </strong>PPI is the final published data</p>
+        <p>PPI Commodity data for Metals and metal products - Semifinished steel mill products, not seasonally adjusted</p>
+        <p>PPI Commodity data for Metals and metal products - Semifinished steel mill products, not seasonally adjusted</p>
+        <p><strong>NOTE: </strong>PPI is the final published data</p>
+
+        <p><strong>NOTE: </strong>PPI is the final published data</p>
     </div>
 </body>
 </html>
