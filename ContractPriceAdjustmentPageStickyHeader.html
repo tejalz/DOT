@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                //alert(1 - $(window).scrollTop() / 700);
+                $('.sticky-thead').css("opacity", "1")
+            })
+        })
+    </script>
     <link href="https://massgov.github.io/DOT/RMV/css/wait-time.scss" rel="stylesheet" />
     <link href="https://massgov.github.io/DOT/RMV/css/ma-container.scss" rel="stylesheet" />
     <link href="https://massgov.github.io/DOT/RMV/css/elements.scss" rel="stylesheet" />
@@ -296,7 +304,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="sticky-thead" style="position: fixed; left: 30px; top: 0px; opacity: 1; height: 122px; width: 820px;">
+                                    <div class="sticky-thead" style="position: fixed; left: 30px; top: 0px; opacity: 0; height: 122px; width: 820px;">
                                         <div class="sticky-thead-wrapper">
                                             <table style="width: 730.556px; margin: 0px;" class="sticky-enabled">
                                                 <thead>
