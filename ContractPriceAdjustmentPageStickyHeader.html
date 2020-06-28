@@ -6,11 +6,18 @@
     <script src="jquery-1.10.2.min.js"></script>
     <script>
         $(document).ready(function () {
-            alert("1");
-            $(window).scroll(function () {
+            //$(window).scroll(function () {
+            //    //alert(1 - $(window).scrollTop() / 700);
+            //    $('.sticky-thead').css("opacity", "1")
+            //})
+            var calendarDiv = document.getElementsByClassName("ma__iframe__container js-ma-responsive-iframe")[0];
+            var iFrame = calendarDiv.getElementsByTagName("iframe")[0];
+            $(iFrame).scroll(function () {
+                alert("scroll");
                 //alert(1 - $(window).scrollTop() / 700);
                 $('.sticky-thead').css("opacity", "1")
             })
+
         })
     </script>
     <link href="https://massgov.github.io/DOT/RMV/css/wait-time.scss" rel="stylesheet" />
