@@ -10,8 +10,10 @@
             //    //alert(1 - $(window).scrollTop() / 700);
             //    $('.sticky-thead').css("opacity", "1")
             //})
-            var calendarDiv = document.getElementsByClassName("ma__iframe__container js-ma-responsive-iframe")[0];
-            var iFrame = calendarDiv.getElementsByTagName("iframe")[0];
+            var calendarDiv = document.getElementsByClassName("ma__iframe__container js-ma-responsive-iframe");
+            alert(calendarDiv);
+            var iFrame = calendarDiv.getElementsByTagName("iframe");
+             alert(iFrame);
             $(iFrame).scroll(function () {
                 alert("scroll");
                 //alert(1 - $(window).scrollTop() / 700);
