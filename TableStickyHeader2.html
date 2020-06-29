@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            padding: 22px 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            max-width: 100%;
+            position: relative;
+            margin: 0;
+        }
+
+        thead {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        tfoot {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+            thead th, tfoot th {
+                background: #ddd;
+            }
+
+        td, th {
+            border: 1px #ccc solid;
+            padding: 1px;
+            width: 40px;
+        }
+    </style>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+                $(document).ready(function () {
+               
+                    $(function () {
+                        var $table = $('#TestTable');
+                        var $thead = $table.find('thead');
+                        var $tbody = $table.find('tbody');
+                        var $tfoot = $table.find('tfoot');
+
+                        if (!$thead.length)
+                            $thead = $('<thead />').prependTo($table);
+                        if (!$tbody.length)
+                            $tbody = $('<tbody />').insertAfter($thead);
+                        if (!$tfoot.length)
+                            $tfoot = $('<tfoot />').insertAfter($tbody);
+
+                        var $hrow = $('<tr />').appendTo($thead);
+                        var $frow = $('<tr />').appendTo($tfoot);
+
+                        for (var row = 0; row < 200; row++)
+                            $tbody.append($('<tr />'));
+
+                        var $brow = $tbody.find('tr');
+
+                        for (var col = 0; col < 10; col++) {
+                            $('<th />').html('Hdr' + col)
+                                .appendTo($hrow);
+                            $('<td />').html('Val' + col)
+                                .appendTo($brow);
+                            //$('<th />').html('Ftr' + col)
+                            //    .appendTo($frow);
+                        }
+
+                        $brow.each(function (ix, el) {
+                            $(el).children().first().html('R:' + ix);
+                        });
+
+                    });
+                })
+    </script>
+</head>
+<body>
+    <div class="scrollable-table-wrapper">
+        <table id="TestTable">
+            <thead></thead>
+            <tbody></tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+</body>
+</html>
