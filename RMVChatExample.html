@@ -3,57 +3,56 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <style type="text/css">
-        .five9-chat-button {
-            font-size: 24px !important;
-        }
-
-            .five9-chat-button:after {
-                content: " Now" !important;
-            }
-
-        #five9-popout-button {
-            float: right;
-        }
+   <style type="text/css">
+  .five9-chat-button {
+  font-size: 24px !important;
+  }
+  .five9-chat-button:after {
+  content: " Now" !important;
+  }
+  #five9-popout-button {
+  float: right;
+} 
     </style>
+                  
 
-    <script src="https://app.five9.com/consoles/SocialWidget/five9-social-widget.min.js"></script>
-    <script>
-        var options = {
-            "rootUrl": "https://app.five9.com/consoles/",
-            "type": "chat",
-            "title": "Test",
-            "tenant": "Commonwealth of MA – DOT",
-            "profiles": "Test_Chat",
-            "showProfiles": true,
-            "theme": "default-theme.css",
-            "surveyOptions": {
-                "showComment": true,
-                "requireComment": false
-            },
-            "fields": {
-                "name": {
-                    "value": "",
-                    "show": true,
-                    "label": "Name"
-                },
-                "email": {
-                    "value": "",
-                    "show": true,
-                    "label": "Email"
-                }
-            },
-            "playSoundOnMessage": true,
-            "allowCustomerToControlSoundPlay": false,
-            "showEmailButton": true,
-            "hideDuringAfterHours": false,
-            "useBusinessHours": false,
-            "showPrintButton": false,
-            "allowUsabilityMenu": false
-        };
-        Five9SocialWidget.addWidget(options);
+   <script src="https://app.five9.com/consoles/SocialWidget/five9-social-widget.min.js"></script>
+<script>
+var options = {
+	"rootUrl": "https://app.five9.com/consoles/",
+	"type": "chat",
+	"title": "Test",
+	"tenant": "Commonwealth of MA - DOT",
+	"profiles": "Test_Chat",
+	"showProfiles": true,
+	"theme": "default-theme.css",
+	"surveyOptions": {
+		"showComment": true,
+		"requireComment": false
+	},
+	"fields": {
+		"name": {
+			"value": "",
+			"show": true,
+			"label": "Name"
+		},
+		"email": {
+			"value": "",
+			"show": true,
+			"label": "Email"
+		}
+	},
+	"playSoundOnMessage": true,
+	"allowCustomerToControlSoundPlay": false,
+	"showEmailButton": true,
+	"hideDuringAfterHours": false,
+	"useBusinessHours": false,
+	"showPrintButton": false,
+	"allowUsabilityMenu": false
+};
+Five9SocialWidget.addWidget(options);
 
-    </script>
+</script>
 </head>
 <body>
 
