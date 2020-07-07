@@ -115,7 +115,7 @@
                 type: "GET",
                 data: {},
                 dataType: "json",
-                async: true,
+                async: false,
                 success: function (contractpriceData) {
                     var contractData = JSON.parse(contractpriceData);
                     var newData = contractData.commodityPrices;
@@ -128,7 +128,6 @@
                    
                     resultItems.push("<thead><tr><th style=\"width: 212px;\">Adjustment Period</th><th style=\"width: 156px;\">Liquid Asphalt<br>(Ton)</th ><th style=\"width: 100px;\">Diesel<br>(Gallon)</th ><th style=\"width: 109.6px;\">Gasoline<br>(Gallon)</th><th style=\"width: 170.4px;\">Portland Cement<br>(Ton)</th><th style=\"width: 72px;\">Steel<br>PPI</th></tr></thead>");
                     resultItems.push("<tbody>");
-
                     for (var i = 0; i <= 11; i++) {
                         LiquidAsphalt = "TBD";
                         Diesel = "TBD";
@@ -208,7 +207,8 @@
             });
         });
         function getMonthInt(monthStr) {
-            return new Date(monthStr + '-1-01').getMonth() + 1
+            return new Date(Date.parse(monthStr + " 1, 2012")).getMonth() + 1
+            //return new Date(monthStr + '-1-01').getMonth() + 1
         }
         function financial(x, number) {
             return parseFloat(x).toFixed(number);
