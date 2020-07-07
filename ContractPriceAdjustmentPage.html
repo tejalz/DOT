@@ -128,14 +128,50 @@
                    
                     resultItems.push("<thead><tr><th style=\"width: 212px;\">Adjustment Period</th><th style=\"width: 156px;\">Liquid Asphalt<br>(Ton)</th ><th style=\"width: 100px;\">Diesel<br>(Gallon)</th ><th style=\"width: 109.6px;\">Gasoline<br>(Gallon)</th><th style=\"width: 170.4px;\">Portland Cement<br>(Ton)</th><th style=\"width: 72px;\">Steel<br>PPI</th></tr></thead>");
                     resultItems.push("<tbody>");
-
+                    var currentMonthInt;
                     for (var i = 0; i <= 11; i++) {
                         LiquidAsphalt = "TBD";
                         Diesel = "TBD";
                         Gasoline87 = "TBD";
                         PortlandCement = "TBD";
                         SteelPPI = "TBD";
-                        var currentMonthInt = getMonthInt(months[now.getMonth()]);
+                        //var currentMonthInt = getMonthInt(months[now.getMonth()]);
+                        if (i == 0) {
+                            currentMonthInt = 7;
+                        }
+                        if (i == 1) {
+                            currentMonthInt = 6;
+                        }
+                        if (i == 2) {
+                            currentMonthInt = 5;
+                        }
+                        if (i == 3) {
+                            currentMonthInt = 4;
+                        }
+                        if (i == 4) {
+                            currentMonthInt = 3;
+                        }
+                        if (i == 5) {
+                            currentMonthInt = 2;
+                        }
+                        if (i == 6) {
+                            currentMonthInt = 1;
+                        }
+                        if (i == 7) {
+                            currentMonthInt = 12;
+                        }
+                        if (i == 8) {
+                            currentMonthInt = 11;
+                        }
+                        if (i == 9) {
+                            currentMonthInt = 10;
+                        }
+                        if (i == 10) {
+                            currentMonthInt = 9;
+                        }
+                        if (i == 11) {
+                            currentMonthInt = 8;
+                        }
                         resultItems.push("<tr>");
                         resultItems.push("<td>" + months[now.getMonth()] + " " + now.getFullYear() + "</td>");
                         newData.map(function (value) {
