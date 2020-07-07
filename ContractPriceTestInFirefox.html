@@ -117,7 +117,7 @@
                 data: {},
                 dataType: "json",
                 async: false,
-                success: function (contractpriceData) {
+                done: function (contractpriceData) {
                     var contractData = JSON.parse(contractpriceData);
                     var newData = contractData.commodityPrices;
                     var strLastModified = contractData.lastUpdatedDate;
