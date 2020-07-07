@@ -111,13 +111,12 @@
             var PortlandCement;
             var SteelPPI;
             $.ajax({
-                async: true,
                 url: 'https://dotfeeds.state.ma.us/api/ContractPriceAdjustment',
                 type: "GET",
                 data: {},
                 dataType: "json",
-                async: false,
-                done: function (contractpriceData) {
+                async: true,
+                success: function (contractpriceData) {
                     var contractData = JSON.parse(contractpriceData);
                     var newData = contractData.commodityPrices;
                     var strLastModified = contractData.lastUpdatedDate;
