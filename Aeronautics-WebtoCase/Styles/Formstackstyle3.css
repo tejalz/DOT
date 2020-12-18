@@ -1,0 +1,10 @@
+﻿.fsForm div.fsError {
+    background-color: #fee !important;
+    color: #000000 !important;
+    margin-left: -6px !important;
+}
+
+.fsValidationError {
+    background-color: #fee !important;
+    -webkit-box-shadow: 0 0 0 calc(5px - 1px) #fae9e9, 0 0 0 5px red !important;
+}
