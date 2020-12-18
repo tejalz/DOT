@@ -8,9 +8,8 @@
     /*font-family: 'Lato', sans-serif;*/
     /*font-family: 'Noto Sans', sans-serif;*/
     font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
-    /*font-size: 22px;*/
+    font-size: 22px;
     /*font-size: 1.375rem;*/
-    font-size: 18.3333px;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -51,8 +50,8 @@
     font-weight: 500;
     margin-bottom: 0.5rem;
     display: block;
-    font-size: 22px;
-    font-size: 1.2rem;
+    font-size: 18.3333px;
+    /*font-size: 1.2rem;*/
     line-height: 1.5;
 }
     /*.fsBody .fsForm .fsRequiredMarker {
