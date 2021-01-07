@@ -157,7 +157,9 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Gasoline-87")) {
+                                alert(value.price_American);
                                 Gasoline87 = financial(value.price_American, 3);
+                                alert(Gasoline87);
                                 if (value.isPricePreliminary == "true") {
                                     Gasoline87 = Gasoline87 + "(P)";
                                 }
