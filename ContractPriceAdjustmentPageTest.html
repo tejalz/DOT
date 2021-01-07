@@ -218,7 +218,8 @@
             //return new Date(monthStr + '-1-01').getMonth() + 1
         }
         function financial(x, number) {
-            return parseFloat(x).toFixed(number);
+            //return parseFloat(x).toFixed(number);
+            return x.toFixed(number)
         }
         function GetMonthName(monthNumber) {
             var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
