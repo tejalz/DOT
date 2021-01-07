@@ -157,15 +157,20 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Gasoline-87")) {
-                                alert(value.price_American);
+                                //alert(value.price_American);
                                 Gasoline87 = financial(value.price_American, 3);
-                                alert(Gasoline87);
+                                //alert(Gasoline87);
                                 if (value.isPricePreliminary == "true") {
                                     Gasoline87 = Gasoline87 + "(P)";
                                 }
                                 if (Gasoline87 != "TBD") {
                                     Gasoline87 = "$" + Gasoline87;
                                 }
+                            }
+                             if ((value.periodYear == '2020') && (value.periodMonth == '12') && (value.commodityName == "Gasoline-87")) {
+                                alert(value.price_American);
+                                Gasoline87 = financial(value.price_American, 3);
+                                alert(Gasoline87);
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Portland Cement")) {
                                 PortlandCement = financial(value.price_American, 2);
