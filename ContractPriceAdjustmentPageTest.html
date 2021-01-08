@@ -139,7 +139,8 @@
                         resultItems.push("<td>" + months[now.getMonth()] + " " + now.getFullYear() + "</td>");
                         newData.map(function (value) {
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Liquid Asphalt")) {
-                                LiquidAsphalt = financial(value.price_American, 2);
+                                //LiquidAsphalt = financial(value.price_American, 2);
+                                LiquidAsphalt = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     LiquidAsphalt = LiquidAsphalt + "(P)";
                                 }
@@ -148,7 +149,8 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Diesel")) {
-                                Diesel = financial(value.price_American, 3);
+                                //Diesel = financial(value.price_American, 3);
+                                Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     Diesel = Diesel + "(P)";
                                 }
@@ -156,14 +158,15 @@
                                     Diesel = "$" + Diesel;
                                 }
                             }
-                             if ((value.periodYear == '2020') && (value.periodMonth == '12') && (value.commodityName == "Diesel")) {
-                                alert("Diesel1  "  + value.price_American);
-                                Diesel = financial(value.price_American, 3);
-                                alert("Diesel1  "  + Diesel);
-                            }
+                            // if ((value.periodYear == '2020') && (value.periodMonth == '12') && (value.commodityName == "Diesel")) {
+                              //  alert("Diesel1  "  + value.price_American);
+                             //   Diesel = financial(value.price_American, 3);
+                             //   alert("Diesel1  "  + Diesel);
+                            //}
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Gasoline-87")) {
                                 //alert(value.price_American);
-                                Gasoline87 = financial(value.price_American, 3);
+                                //Gasoline87 = financial(value.price_American, 3);
+                                Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
                                 //alert(Gasoline87);
                                 if (value.isPricePreliminary == "true") {
                                     Gasoline87 = Gasoline87 + "(P)";
@@ -172,13 +175,14 @@
                                     Gasoline87 = "$" + Gasoline87;
                                 }
                             }
-                             if ((value.periodYear == '2020') && (value.periodMonth == '12') && (value.commodityName == "Gasoline-87")) {
-                                alert("Gas1    " + value.price_American);
-                                Gasoline87 = financial(value.price_American, 3);
-                                alert("Gas1   " + Gasoline87);
-                            }
+                            // if ((value.periodYear == '2020') && (value.periodMonth == '12') && (value.commodityName == "Gasoline-87")) {
+                             //   alert("Gas1    " + value.price_American);
+                             //   Gasoline87 = financial(value.price_American, 3);
+                               // alert("Gas1   " + Gasoline87);
+                           // }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Portland Cement")) {
-                                PortlandCement = financial(value.price_American, 2);
+                                //PortlandCement = financial(value.price_American, 2);
+                                PortlandCement = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     PortlandCement = PortlandCement + "(P)";
                                 }
@@ -187,7 +191,8 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Steel PPI")) {
-                                SteelPPI = financial(value.price_American, 1);
+                                //SteelPPI = financial(value.price_American, 1);
+                                SteelPPI = value.price_American.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     SteelPPI = SteelPPI + "(P)";
                                 }
