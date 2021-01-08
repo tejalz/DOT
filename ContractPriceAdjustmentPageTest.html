@@ -139,8 +139,8 @@
                         resultItems.push("<td>" + months[now.getMonth()] + " " + now.getFullYear() + "</td>");
                         newData.map(function (value) {
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Liquid Asphalt")) {
-                                //LiquidAsphalt = financial(value.price_American, 2);
-                                LiquidAsphalt = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+                                LiquidAsphalt = financial(value.price_American, 2);
+                                //LiquidAsphalt = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     LiquidAsphalt = LiquidAsphalt + "(P)";
                                 }
@@ -181,8 +181,8 @@
                                // alert("Gas1   " + Gasoline87);
                            // }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Portland Cement")) {
-                                //PortlandCement = financial(value.price_American, 2);
-                                PortlandCement = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+                                  PortlandCement = financial(value.price_American, 2);
+                                //PortlandCement = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     PortlandCement = PortlandCement + "(P)";
                                 }
@@ -191,8 +191,8 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Steel PPI")) {
-                                //SteelPPI = financial(value.price_American, 1);
-                                SteelPPI = value.price_American.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0]
+                                  SteelPPI = financial(value.price_American, 1);
+                                //SteelPPI = value.price_American.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     SteelPPI = SteelPPI + "(P)";
                                 }
