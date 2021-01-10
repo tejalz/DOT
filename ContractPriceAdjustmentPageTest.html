@@ -68,7 +68,7 @@
         }
 
         tr {
-            line-height:33px;
+            line-height: 33px;
         }
 
         td {
@@ -105,7 +105,7 @@
     <script id="mapinit" type="text/javascript">
         $(document).ready(function () {
             var resultItems = [];
-            var LiquidAsphalt; 
+            var LiquidAsphalt;
             var Diesel;
             var Gasoline87;
             var PortlandCement;
@@ -121,11 +121,11 @@
                     var newData = contractData.commodityPrices;
                     var strLastModified = contractData.lastUpdatedDate;
                     var monthName = GetMonthName(strLastModified.substring(5, 7));
-                     $('#LastModified').text("Please Note That This Page Has Been Updated on " + monthName + " " + strLastModified.substring(8, 10) + ", "
+                    $('#LastModified').text("Please Note That This Page Has Been Updated on " + monthName + " " + strLastModified.substring(8, 10) + ", "
                         + strLastModified.substring(0, 4));
                     var now = new Date();
                     var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-                   
+
                     resultItems.push("<thead><tr><th style=\"width: 212px;\">Adjustment Period</th><th style=\"width: 156px;\">Liquid Asphalt<br>(Ton)</th ><th style=\"width: 100px;\">Diesel<br>(Gallon)</th ><th style=\"width: 109.6px;\">Gasoline<br>(Gallon)</th><th style=\"width: 170.4px;\">Portland Cement<br>(Ton)</th><th style=\"width: 72px;\">Steel<br>PPI</th></tr></thead>");
                     resultItems.push("<tbody>");
                     for (var i = 0; i <= 11; i++) {
@@ -140,7 +140,6 @@
                         newData.map(function (value) {
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Liquid Asphalt")) {
                                 LiquidAsphalt = financial(value.price_American, 2);
-                                //LiquidAsphalt = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
                                 if (value.isPricePreliminary == "true") {
                                     LiquidAsphalt = LiquidAsphalt + "(P)";
                                 }
@@ -150,7 +149,8 @@
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Diesel")) {
                                 //Diesel = financial(value.price_American, 3);
-                                Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                                //Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                                Diesel = Math.round(value.price_American * 1000) / 1000;
                                 if (value.isPricePreliminary == "true") {
                                     Diesel = Diesel + "(P)";
                                 }
@@ -158,16 +158,10 @@
                                     Diesel = "$" + Diesel;
                                 }
                             }
-                            // if ((value.periodYear == '2020') && (value.periodMonth == '12') && (value.commodityName == "Diesel")) {
-                              //  alert("Diesel1  "  + value.price_American);
-                             //   Diesel = financial(value.price_American, 3);
-                             //   alert("Diesel1  "  + Diesel);
-                            //}
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Gasoline-87")) {
-                                //alert(value.price_American);
                                 //Gasoline87 = financial(value.price_American, 3);
-                                Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
-                                //alert(Gasoline87);
+                                //Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                                Gasoline87 = Math.round(value.price_American * 1000) / 1000;
                                 if (value.isPricePreliminary == "true") {
                                     Gasoline87 = Gasoline87 + "(P)";
                                 }
@@ -175,14 +169,8 @@
                                     Gasoline87 = "$" + Gasoline87;
                                 }
                             }
-                            // if ((value.periodYear == '2020') && (value.periodMonth == '12') && (value.commodityName == "Gasoline-87")) {
-                             //   alert("Gas1    " + value.price_American);
-                             //   Gasoline87 = financial(value.price_American, 3);
-                               // alert("Gas1   " + Gasoline87);
-                           // }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Portland Cement")) {
-                                  PortlandCement = financial(value.price_American, 2);
-                                //PortlandCement = value.price_American.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+                                PortlandCement = financial(value.price_American, 2);
                                 if (value.isPricePreliminary == "true") {
                                     PortlandCement = PortlandCement + "(P)";
                                 }
@@ -191,8 +179,7 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Steel PPI")) {
-                                  SteelPPI = financial(value.price_American, 1);
-                                //SteelPPI = value.price_American.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0]
+                                SteelPPI = financial(value.price_American, 1);
                                 if (value.isPricePreliminary == "true") {
                                     SteelPPI = SteelPPI + "(P)";
                                 }
@@ -228,8 +215,11 @@
             //return new Date(monthStr + '-1-01').getMonth() + 1
         }
         function financial(x, number) {
-            //return parseFloat(x).toFixed(number);
-            return x.toFixed(number)
+            return parseFloat(x).toFixed(number);
+        }
+        var countDecimals = function (value) {
+            if (Math.floor(value) === value) return 0;
+            return value.toString().split(".")[1].length || 0;
         }
         function GetMonthName(monthNumber) {
             var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
