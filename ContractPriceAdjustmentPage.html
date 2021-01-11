@@ -68,7 +68,7 @@
         }
 
         tr {
-            line-height:33px;
+            line-height: 33px;
         }
 
         td {
@@ -105,7 +105,7 @@
     <script id="mapinit" type="text/javascript">
         $(document).ready(function () {
             var resultItems = [];
-            var LiquidAsphalt; 
+            var LiquidAsphalt;
             var Diesel;
             var Gasoline87;
             var PortlandCement;
@@ -121,11 +121,11 @@
                     var newData = contractData.commodityPrices;
                     var strLastModified = contractData.lastUpdatedDate;
                     var monthName = GetMonthName(strLastModified.substring(5, 7));
-                     $('#LastModified').text("Please Note That This Page Has Been Updated on " + monthName + " " + strLastModified.substring(8, 10) + ", "
+                    $('#LastModified').text("Please Note That This Page Has Been Updated on " + monthName + " " + strLastModified.substring(8, 10) + ", "
                         + strLastModified.substring(0, 4));
                     var now = new Date();
                     var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-                   
+
                     resultItems.push("<thead><tr><th style=\"width: 212px;\">Adjustment Period</th><th style=\"width: 156px;\">Liquid Asphalt<br>(Ton)</th ><th style=\"width: 100px;\">Diesel<br>(Gallon)</th ><th style=\"width: 109.6px;\">Gasoline<br>(Gallon)</th><th style=\"width: 170.4px;\">Portland Cement<br>(Ton)</th><th style=\"width: 72px;\">Steel<br>PPI</th></tr></thead>");
                     resultItems.push("<tbody>");
                     for (var i = 0; i <= 11; i++) {
@@ -148,22 +148,38 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Diesel")) {
-                                //Diesel = financial(value.price_American, 3);
-                                Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
-                                if (value.isPricePreliminary == "true") {
-                                    Diesel = Diesel + "(P)";
-                                }
-                                if (Diesel != "TBD") {
+                                
+                                if (value.price_American != "TBD") {
+                                    //Diesel = financial(value.price_American, 3);
+                                    //Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                                    Diesel = Math.round(value.price_American * 1000) / 1000;
+                                    if (countDecimals(Diesel) == 1) {
+                                        Diesel = Diesel + "00";
+                                    }
+                                    if (countDecimals(Diesel) == 2) {
+                                        Diesel = Diesel + "0";
+                                    }
+                                    if (value.isPricePreliminary == "true") {
+                                        Diesel = Diesel + "(P)";
+                                    }
                                     Diesel = "$" + Diesel;
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Gasoline-87")) {
-                                //Gasoline87 = financial(value.price_American, 3);
-                                Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
-                                if (value.isPricePreliminary == "true") {
-                                    Gasoline87 = Gasoline87 + "(P)";
-                                }
-                                if (Gasoline87 != "TBD") {
+                                
+                                if (value.price_American != "TBD") {
+                                    //Gasoline87 = financial(value.price_American, 3);
+                                    //Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                                    Gasoline87 = Math.round(value.price_American * 1000) / 1000;
+                                    if (countDecimals(Gasoline87) == 1) {
+                                        Gasoline87 = Gasoline87 + "00";
+                                    }
+                                    if (countDecimals(Gasoline87) == 2) {
+                                        Gasoline87 = Gasoline87 + "0";
+                                    }
+                                    if (value.isPricePreliminary == "true") {
+                                        Gasoline87 = Gasoline87 + "(P)";
+                                    }
                                     Gasoline87 = "$" + Gasoline87;
                                 }
                             }
@@ -214,6 +230,10 @@
         }
         function financial(x, number) {
             return parseFloat(x).toFixed(number);
+        }
+        var countDecimals = function (value) {
+            if (Math.floor(value) === value) return 0;
+            return value.toString().split(".")[1].length || 0;
         }
         function GetMonthName(monthNumber) {
             var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
