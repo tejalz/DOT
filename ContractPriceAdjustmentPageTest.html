@@ -149,7 +149,7 @@
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Diesel")) {
                                 
-                                if (Diesel != "TBD") {
+                                if (value.price_American != "TBD") {
                                     //Diesel = financial(value.price_American, 3);
                                     //Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
                                     Diesel = Math.round(value.price_American * 1000) / 1000;
@@ -167,7 +167,7 @@
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Gasoline-87")) {
                                 
-                                if (Gasoline87 != "TBD") {
+                                if (value.price_American != "TBD") {
                                     //Gasoline87 = financial(value.price_American, 3);
                                     //Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
                                     Gasoline87 = Math.round(value.price_American * 1000) / 1000;
