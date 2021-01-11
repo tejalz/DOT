@@ -148,36 +148,38 @@
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Diesel")) {
-                                //Diesel = financial(value.price_American, 3);
-                                //Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
-                                Diesel = Math.round(value.price_American * 1000) / 1000;
-                                if (countDecimals(Diesel) == 1) {
-                                    Diesel = Diesel + "00";
-                                }
-                                if (countDecimals(Diesel) == 2) {
-                                    Diesel = Diesel + "0";
-                                }
-                                if (value.isPricePreliminary == "true") {
-                                    Diesel = Diesel + "(P)";
-                                }
+                                
                                 if (Diesel != "TBD") {
+                                    //Diesel = financial(value.price_American, 3);
+                                    //Diesel = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                                    Diesel = Math.round(value.price_American * 1000) / 1000;
+                                    if (countDecimals(Diesel) == 1) {
+                                        Diesel = Diesel + "00";
+                                    }
+                                    if (countDecimals(Diesel) == 2) {
+                                        Diesel = Diesel + "0";
+                                    }
+                                    if (value.isPricePreliminary == "true") {
+                                        Diesel = Diesel + "(P)";
+                                    }
                                     Diesel = "$" + Diesel;
                                 }
                             }
                             if ((value.periodYear == now.getFullYear()) && (value.periodMonth == currentMonthInt) && (value.commodityName == "Gasoline-87")) {
-                                //Gasoline87 = financial(value.price_American, 3);
-                                //Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
-                                Gasoline87 = Math.round(value.price_American * 1000) / 1000;
-                                if (countDecimals(Gasoline87) == 1) {
-                                    Gasoline87 = Gasoline87 + "00";
-                                }
-                                if (countDecimals(Gasoline87) == 2) {
-                                    Gasoline87 = Gasoline87 + "0";
-                                }
-                                if (value.isPricePreliminary == "true") {
-                                    Gasoline87 = Gasoline87 + "(P)";
-                                }
+                                
                                 if (Gasoline87 != "TBD") {
+                                    //Gasoline87 = financial(value.price_American, 3);
+                                    //Gasoline87 = value.price_American.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                                    Gasoline87 = Math.round(value.price_American * 1000) / 1000;
+                                    if (countDecimals(Gasoline87) == 1) {
+                                        Gasoline87 = Gasoline87 + "00";
+                                    }
+                                    if (countDecimals(Gasoline87) == 2) {
+                                        Gasoline87 = Gasoline87 + "0";
+                                    }
+                                    if (value.isPricePreliminary == "true") {
+                                        Gasoline87 = Gasoline87 + "(P)";
+                                    }
                                     Gasoline87 = "$" + Gasoline87;
                                 }
                             }
