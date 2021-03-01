@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<head>
+    <!-- DEPLOYMENT IDENTIFIER: 5de8915e8ef7d140c31e9dc0ade8e3225978737f -->
+    <meta charset="utf-8">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/themes/custom/mass_theme/favicon.ico" type="image/png">
+    <title>Aeronautics Form</title>
+    <!--[if lte IE 8]>
+    <script src="/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+    <![endif]-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<style type="text/css">
+    .fsForm div.fsError {
+        background-color: #fee !important;
+        color: #000000 !important;
+        /*// margin-left: -2px !important;*/
+    }
+
+    .fsValidationError {
+        background-color: #fee !important;
+        -webkit-box-shadow: 0 0 0 calc(5px - 1px) #fae9e9, 0 0 0 5px red !important;
+    }
+
+    .fsBody .fsForm .fsLabel:not(.fsRequiredLabel):after {
+        content: none;
+    }
+
+    .fsPage .fsValidationError .fsLabel, .fsValidationError .fsLabel span, div.fsValidationError label.fsLabel {
+        color: #000000 !important;
+    }
+
+    .fsError {
+        display: none;
+    }
+
+    .LabelError {
+        font-weight: bold;
+        margin: 0 0 20px 0;
+        padding: 10px;
+        border: 1px solid #ce5f6d;
+        float: none !important;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        clear: both;
+        color: #000000;
+        background-color: #fee;
+    }
+
+    .EmailInfo {
+        font-weight: 500;
+        display: block;
+        font-size: 22px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+</style>
+<script src="https://massgov.github.io/DOT/Aeronautics-WebtoCase/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var vendornameValidation;
+        var addressValidation;
+        var phoneValidation;
+        var commentsValidation;
+        var pilotvalidation;
+        var counter = 0;
+        $("#submit").click(function (e) {
+            if (counter <= 0) {
+                //alert('this record does not exists');
+                $('#web2case').prepend('<div class="LabelError">Please fill in a valid value for all required fields <br>Fields:  <strong id="lblVendorName"></strong> <strong id="lblAddress"></strong> <strong id="lblPhone"></strong> <strong id="lblComments"></strong> <strong id="lblListOfPilots"></strong> </div>');
+                counter++;
+            }
+            // Vendor Name: (Required)
+            if ($('#00Nr0000003RzgI').val() == '') {
+                $("#lblVendorName").text('Vendor Name,');
+                vendornameValidation = false;
+                $('#fsCellVendorName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellVendorName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003RzgI').val() != '') {
+                $("#lblVendorName").text('');
+                vendornameValidation = true;
+                $('#fsCellVendorName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellVendorName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Address: (Required)
+            if ($('#00Nr0000003RzjC').val() == '') {
+                $("#lblAddress").text('Address,');
+                addressValidation = false;
+                $('#fsCellAddress').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellAddress').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003RzjC').val() != '') {
+                $("#lblAddress").text('');
+                addressValidation = true;
+                $('#fsCellAddress').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellAddress').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Phone: (Required)
+            if ($('#00Nr0000003SQYB').val() == '') {
+                $("#lblPhone").text('Phone,');
+                phoneValidation = false;
+                $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQYB').val() != '') {
+                if (!($('#00Nr0000003SQYB').val().match(/[a-z]/i))) {
+                    //alert("no alphabets");
+                    // Check for length
+                    if ($('#00Nr0000003SQYB').val().length == 14) {
+                        // alert("length is 14");
+                        $("#lblPhone").text('');
+                        phoneValidation = true;
+                        $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                        $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                    }
+                    else if ($('#00Nr0000003SQYB').val().length != 14) {
+                        //alert("length is not 14");
+                        $("#lblPhone").text('Phone in valid format,');
+                        phoneValidation = false;
+                        $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                        $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                    }
+                }
+                else if (($('#00Nr0000003SQYB').val().match(/[a-z]/i))) {
+                    //alert("found alphabets");
+                    $("#lblPhone").text('Phone in valid format,');
+                    phoneValidation = false;
+                    $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                    $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                }
+            }
+            // Comments: (Required)
+            if ($('#00Nr0000003SQYG').val() == '') {
+                $("#lblComments").text('Comments,');
+                commentsValidation = false;
+                $('#fsCellComments').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellComments').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQYG').val() != '') {
+                $("#lblComments").text('');
+                commentsValidation = true;
+                $('#fsCellComments').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellComments').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // List of Pilots: (Required)
+            if ($('#00Nr0000003SQYL').val() == '') {
+                $("#lblListOfPilots").text('List of Pilots,');
+                pilotvalidation = false;
+                $('#fsCellPilots').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellPilots').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQYL').val() != '') {
+                $("#lblListOfPilots").text('');
+                pilotvalidation = true;
+                $('#fsCellPilots').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellPilots').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            if (vendornameValidation == false || addressValidation == false ||
+                phoneValidation == false || commentsValidation == false || pilotvalidation == false) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+<html>
+<body>
+    <div aria-live="polite" aria-relevant="all" class="form_embed feedback" style="margin-top:-64px;">
+        <div class="fsBody fsEmbed">
+            <!--[if IE]>
+                <link rel="stylesheet" type="text/css" media="all" href="Styles/ie.css?20140508" />
+            <![endif]-->
+            <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="Styles/ie7.css" /><![endif]-->
+            <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="Styles/ie6fixes.css" /><![endif]-->
+            <link href="Styles/Formstackstyle1.css" rel="stylesheet" />
+            <link href="Styles/Formstackstyle2.css" rel="stylesheet" />
+            <!--<link href="Styles/Notostyle1.css" rel="stylesheet" />
+                <link href="Styles/Notostyle2.css" rel="stylesheet" />-->
+            <form method="post" id="web2case" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" target="_parent"
+                  class="fsForm fsSingleColumn">
+                <input type=hidden name="oid" value="00Dr00000002Xm9">
+                <input type=hidden name="retURL" value="http://mass.gov">
+                <div class="fsPage" id="fsPage3826398-1">
+                    <div id="ReactContainer" style="display:none" class="FsReactContainerInitApp" data-fs-react-app-id="web2lead"></div>
+                    <div class="fsSection fs1Col">
+                        <div id="RowName" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellVendorName" lang="en" fs-field-type="text">
+                                <label id="labelName" class="fsLabel fsRequiredLabel" for="fieldName">Vendor Name: (Required)</label>
+                                <input type="text" id="00Nr0000003RzgI" name="00Nr0000003RzgI" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowAddress" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellAddress" lang="en" fs-field-type="textarea">
+                                <label id="labelAddress" class="fsLabel fsRequiredLabel">Address: (Required)</label>
+                                <textarea id="00Nr0000003RzjC" class="fsField fsRequired" name="00Nr0000003RzjC" rows="10" cols="50"></textarea>
+                            </div>
+                        </div>
+                        <!--<div id="fsRow3832377-4" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell106509404" lang="en" fs-field-type="textarea" fs-field-validation-name="Address: (Required)">
+                                <label id="label106509404" class="fsLabel fsRequiredLabel" for="field106509404">Address: (Required)<span class="fsRequiredMarker">*</span>                                                    </label>
+                       <textarea id="field106509404" class="fsField fsRequired " name="field106509404" rows="10" cols="50" required="" aria-required="true"></textarea>
+                            </div>
+                        </div>-->
+                        <div id="RowPhone" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellPhone" lang="en" fs-field-type="phone">
+                                <label id="labelPhone" class="fsLabel fsRequiredLabel" for="fieldPhone">Phone: (Required)</label>
+                                <input type="tel" id="00Nr0000003SQYB" name="00Nr0000003SQYB" placeholder="(xxx) xxx-xxxx" size="2" class="fsField fsFormatPhoneUS  fsRequired">
+                                <div id="fsSupporting91323353" class="fsSupporting">Phone NUmber format should be (xxx) xxx-xxxx</div>
+                            </div>
+                        </div>
+                        <div id="RowComments" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellComments" lang="en" fs-field-type="textarea">
+                                <label id="labelComments" class="fsLabel fsRequiredLabel" for="fieldComments">Comments: (Required)</label>
+                                <textarea id="00Nr0000003SQYG" class="fsField fsRequired" name="00Nr0000003SQYG" rows="10" cols="50"></textarea>
+                            </div>
+                        </div>
+                        <div id="RowPilots" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellPilots" lang="en" fs-field-type="text">
+                                <label id="labePilots" class="fsLabel fsRequiredLabel" for="fieldName">List of Pilots: (Required)</label>
+                                <input type="text" id="00Nr0000003SQYL" name="00Nr0000003SQYL" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <input type="hidden" id="external" name="external" value="1" /><br>
+                        <div id="fsSubmitDiv" class="fsSubmit fsPagination">
+                            <input id="submit" name="submit" class="fsSubmitButton" style="" type="submit" value="Submit Form">
+                            <div class="clear"></div>
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+               
+            </form>
+                </div>
+        </div>
+</body>
+</html>
