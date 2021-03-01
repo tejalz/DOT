@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
     <!-- DEPLOYMENT IDENTIFIER: 5de8915e8ef7d140c31e9dc0ade8e3225978737f -->
     <meta charset="utf-8">
@@ -106,39 +106,52 @@
                 $('#fsCellAddress').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
             }
             // Phone: (Required)
-            if ($('#00Nr0000003SQYB').val() == '') {
-                $("#lblPhone").text('Phone,');
+            if ($('#phone').val() == '') {
+                $("#lblPhone").text('Vendor Name,');
                 phoneValidation = false;
                 $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
                 $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
             }
-            if ($('#00Nr0000003SQYB').val() != '') {
-                if (!($('#00Nr0000003SQYB').val().match(/[a-z]/i))) {
-                    //alert("no alphabets");
-                    // Check for length
-                    if ($('#00Nr0000003SQYB').val().length == 14) {
-                        // alert("length is 14");
-                        $("#lblPhone").text('');
-                        phoneValidation = true;
-                        $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
-                        $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
-                    }
-                    else if ($('#00Nr0000003SQYB').val().length != 14) {
-                        //alert("length is not 14");
-                        $("#lblPhone").text('Phone in valid format,');
-                        phoneValidation = false;
-                        $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
-                        $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
-                    }
-                }
-                else if (($('#00Nr0000003SQYB').val().match(/[a-z]/i))) {
-                    //alert("found alphabets");
-                    $("#lblPhone").text('Phone in valid format,');
-                    phoneValidation = false;
-                    $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
-                    $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
-                }
+            if ($('#phone').val() != '') {
+                $("#lblPhone").text('');
+                phoneValidation = true;
+                $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
             }
+            //// Phone: (Required)
+            //if ($('#00Nr0000003SQYB').val() == '') {
+            //    $("#lblPhone").text('Phone,');
+            //    phoneValidation = false;
+            //    $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            //    $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            //}
+            //if ($('#00Nr0000003SQYB').val() != '') {
+            //    if (!($('#00Nr0000003SQYB').val().match(/[a-z]/i))) {
+            //        //alert("no alphabets");
+            //        // Check for length
+            //        if ($('#00Nr0000003SQYB').val().length == 14) {
+            //            // alert("length is 14");
+            //            $("#lblPhone").text('');
+            //            phoneValidation = true;
+            //            $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            //            $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            //        }
+            //        else if ($('#00Nr0000003SQYB').val().length != 14) {
+            //            //alert("length is not 14");
+            //            $("#lblPhone").text('Phone in valid format,');
+            //            phoneValidation = false;
+            //            $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            //            $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            //        }
+            //    }
+            //    else if (($('#00Nr0000003SQYB').val().match(/[a-z]/i))) {
+            //        //alert("found alphabets");
+            //        $("#lblPhone").text('Phone in valid format,');
+            //        phoneValidation = false;
+            //        $('#fsCellPhone').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            //        $('#fsCellPhone').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            //    }
+            //}
             // Comments: (Required)
             if ($('#00Nr0000003SQYG').val() == '') {
                 $("#lblComments").text('Comments,');
@@ -204,17 +217,17 @@
                                 <textarea id="00Nr0000003RzjC" class="fsField fsRequired" name="00Nr0000003RzjC" rows="10" cols="50"></textarea>
                             </div>
                         </div>
-                        <!--<div id="fsRow3832377-4" class="fsRow fsFieldRow fsLastRow">
-                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell106509404" lang="en" fs-field-type="textarea" fs-field-validation-name="Address: (Required)">
-                                <label id="label106509404" class="fsLabel fsRequiredLabel" for="field106509404">Address: (Required)<span class="fsRequiredMarker">*</span>                                                    </label>
-                       <textarea id="field106509404" class="fsField fsRequired " name="field106509404" rows="10" cols="50" required="" aria-required="true"></textarea>
+                        <!--<div id="RowPhone" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellPhone" lang="en" fs-field-type="phone">
+                                <label id="labelPhone" class="fsLabel fsRequiredLabel" for="fieldPhone">Phone: (Required)</label>
+                                <input type="tel" id="00Nr0000003SQYB" name="00Nr0000003SQYB" placeholder="(xxx) xxx-xxxx" size="2" class="fsField fsFormatPhoneUS  fsRequired">
+                                <div id="fsSupporting91323353" class="fsSupporting">Phone NUmber format should be (xxx) xxx-xxxx</div>
                             </div>
                         </div>-->
                         <div id="RowPhone" class="fsRow fsFieldRow fsLastRow">
                             <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellPhone" lang="en" fs-field-type="phone">
                                 <label id="labelPhone" class="fsLabel fsRequiredLabel" for="fieldPhone">Phone: (Required)</label>
-                                <input type="tel" id="00Nr0000003SQYB" name="00Nr0000003SQYB" placeholder="(xxx) xxx-xxxx" size="2" class="fsField fsFormatPhoneUS  fsRequired">
-                                <div id="fsSupporting91323353" class="fsSupporting">Phone NUmber format should be (xxx) xxx-xxxx</div>
+                                <input type="text" id="phone" name="phone" size="2" class="fsField fsFormatPhoneUS  fsRequired">
                             </div>
                         </div>
                         <div id="RowComments" class="fsRow fsFieldRow fsLastRow">
@@ -237,10 +250,10 @@
                             </div>
                         </div>
                     </div>
-                    </div>
-               
-            </form>
                 </div>
+
+            </form>
         </div>
+    </div>
 </body>
 </html>
