@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<head>
+    <!-- DEPLOYMENT IDENTIFIER: 5de8915e8ef7d140c31e9dc0ade8e3225978737f -->
+    <meta charset="utf-8">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/themes/custom/mass_theme/favicon.ico" type="image/png">
+    <title>Aeronautics Form</title>
+    <!--[if lte IE 8]>
+    <script src="/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+    <![endif]-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<style type="text/css">
+    .fsForm div.fsError {
+        background-color: #fee !important;
+        color: #000000 !important;
+        /*// margin-left: -2px !important;*/
+    }
+
+    .fsValidationError {
+        background-color: #fee !important;
+        -webkit-box-shadow: 0 0 0 calc(5px - 1px) #fae9e9, 0 0 0 5px red !important;
+    }
+
+    .fsBody .fsForm .fsLabel:not(.fsRequiredLabel):after {
+        content: none;
+    }
+
+    .fsPage .fsValidationError .fsLabel, .fsValidationError .fsLabel span, div.fsValidationError label.fsLabel {
+        color: #000000 !important;
+    }
+
+    .fsError {
+        display: none;
+    }
+
+    .LabelError {
+        font-weight: bold;
+        margin: 0 0 20px 0;
+        padding: 10px;
+        border: 1px solid #ce5f6d;
+        float: none !important;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        clear: both;
+        color: #000000;
+        background-color: #fee;
+    }
+
+    .EmailInfo {
+        font-weight: 500;
+        display: block;
+        font-size: 22px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+</style>
+<script src="https://massgov.github.io/DOT/Aeronautics-WebtoCase/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var vendornameValidation;
+        var HighwayProjectNumberValidation;
+        var UseCaseValidation;
+        var ProposedflightdateValidation;
+        var AlternativeflightdatesValidation;
+        var RPIC_additionalpersonnelValidation;
+        var TypeofartifactbeingproducedValidation;
+        var MainHighway_MBTAPOCValidation;
+        var FlightLocationValidation;
+        var NumberofflightsValidation;
+        var UAStobeutilizedValidation;
+        var AuthorizationAirspaceWaiverValidation;
+        var SensortobeutilizedValidation;
+        var counter = 0;
+        $("#submit").click(function (e) {
+            if (counter <= 0) {
+                //alert('this record does not exists');
+                $('#web2case').prepend('<div class="LabelError">Please fill in a valid value for all required fields <br>Fields:  <strong id="lblVendorName"></strong> <strong id="lblHighwayProjectNumber"></strong> <strong id="lblUseCase"></strong> <strong id="lblProposedflightdate"></strong> <strong id="lblAlternativeflightdates"></strong> <strong id = "lblRPIC_additionalpersonnel" ></strong> <strong id="lblTypeofartifactbeingproduced"></strong> <strong id="lblMainHighway_MBTAPOC"></strong> <strong id="lblFlightLocation"></strong> <strong id="lblNumberofflights"></strong> <strong id="lblUAStobeutilized"></strong> <strong id="lblAuthorizationAirspaceWaiver"></strong> <strong id="lblSensortobeutilized"></strong></div >');
+                counter++;
+            }
+            // Vendor Name: (Required)
+            if ($('#00Nr0000003SQS3').val() == '') {
+                $("#lblVendorName").text('Vendor Name,');
+                vendornameValidation = false;
+                $('#fsCellVendorName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellVendorName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQS3').val() != '') {
+                $("#lblVendorName").text('');
+                vendornameValidation = true;
+                $('#fsCellVendorName').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellVendorName').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Highway Project Number: (Required)
+            if ($('#00Nr0000003SQSD').val() == '') {
+                $("#lblHighwayProjectNumber").text('Highway Project Number,');
+                HighwayProjectNumberValidation = false;
+                $('#fsCellHighwayProjectNumber').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellHighwayProjectNumber').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQSD').val() != '') {
+                $("#lblHighwayProjectNumber").text('');
+                HighwayProjectNumberValidation = true;
+                $('#fsCellHighwayProjectNumber').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellHighwayProjectNumber').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Use Case: (Required)
+            if ($('#00Nr0000003SQSh').val() == '') {
+                $("#lblUseCase").text('Use Case,');
+                UseCaseValidation = false;
+                $('#fsCellUseCase').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellUseCase').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQSh').val() != '') {
+                $("#lblUseCase").text('');
+                UseCaseValidation = true;
+                $('#fsCellUseCase').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellUseCase').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Proposed flight date: (Required)
+            if ($('#00Nr0000003SQT6').val() == '') {
+                $("#lblProposedflightdate").text('Proposed flight date,');
+                ProposedflightdateValidation = false;
+                $('#fsCellProposedflightdate').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellProposedflightdate').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQT6').val() != '') {
+                $("#lblProposedflightdate").text('');
+                ProposedflightdateValidation = true;
+                $('#fsCellProposedflightdate').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellProposedflightdate').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Alternative flight dates: (Required)
+            if ($('#00Nr0000003SQTa').val() == '') {
+                $("#lblAlternativeflightdates").text('Alternative flight dates,');
+                AlternativeflightdatesValidation = false;
+                $('#fsCellAlternativeflightdates').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellAlternativeflightdates').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQTa').val() != '') {
+                $("#lblAlternativeflightdates").text('');
+                AlternativeflightdatesValidation = true;
+                $('#fsCellAlternativeflightdates').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellAlternativeflightdates').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // RPIC and additional personnel: (Required)
+            if ($('#00Nr0000003SQUn').val() == '') {
+                $("#lblRPIC_additionalpersonnel").text('RPIC and additional personnel,');
+                RPIC_additionalpersonnelValidation = false;
+                $('#fsCellRPIC_additionalpersonnel').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellRPIC_additionalpersonnel').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQUn').val() != '') {
+                $("#lblRPIC_additionalpersonnel").text('');
+                RPIC_additionalpersonnelValidation = true;
+                $('#fsCellRPIC_additionalpersonnel').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellRPIC_additionalpersonnel').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Type of artifact being produced: (Required)
+            if ($('#00Nr0000003SQWK').val() == '') {
+                $("#lblTypeofartifactbeingproduced").text('Type of artifact being produced,');
+                TypeofartifactbeingproducedValidation = false;
+                $('#fsCellTypeofartifactbeingproduced').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellTypeofartifactbeingproduced').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQWK').val() != '') {
+                $("#lblTypeofartifactbeingproduced").text('');
+                TypeofartifactbeingproducedValidation = true;
+                $('#fsCellTypeofartifactbeingproduced').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellTypeofartifactbeingproduced').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Main Highway/MBTA POC: (Required)
+            if ($('#00Nr0000003SQWP').val() == '') {
+                $("#lblMainHighway_MBTAPOC").text('Main Highway/MBTA POC,');
+                MainHighway_MBTAPOCValidation = false;
+                $('#fsCellMainHighway_MBTAPOC').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellMainHighway_MBTAPOC').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQWP').val() != '') {
+                $("#lblMainHighway_MBTAPOC").text('');
+                MainHighway_MBTAPOCValidation = true;
+                $('#fsCellMainHighway_MBTAPOC').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellMainHighway_MBTAPOC').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Flight Location: (Required)
+            if ($('#00Nr0000003SQWU').val() == '') {
+                $("#lblFlightLocation").text('Flight Location,');
+                FlightLocationValidation = false;
+                $('#fsCellFlightLocation').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellFlightLocation').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQWU').val() != '') {
+                $("#lblFlightLocation").text('');
+                FlightLocationValidation = true;
+                $('#fsCellFlightLocation').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellFlightLocation').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Number of flights: (Required)
+            if ($('#00Nr0000003SQWZ').val() == '') {
+                $("#lblNumberofflights").text('Number of flights,');
+                NumberofflightsValidation = false;
+                $('#fsCellNumberofflights').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellNumberofflights').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQWZ').val() != '') {
+                $("#lblNumberofflights").text('');
+                NumberofflightsValidation = true;
+                $('#fsCellNumberofflights').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellNumberofflights').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // UAS to be utilized: (Required)
+            if ($('#00Nr0000003SQWe').val() == '') {
+                $("#lblUAStobeutilized").text('UAS to be utilized,');
+                UAStobeutilizedValidation = false;
+                $('#fsCellUAStobeutilized').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellUAStobeutilized').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQWe').val() != '') {
+                $("#lblUAStobeutilized").text('');
+                UAStobeutilizedValidation = true;
+                $('#fsCellUAStobeutilized').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellUAStobeutilized').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Authorization and Airspace Waiver DropDown Validation
+            var strSelectedAuthorization_AirspaceWaiver = $("#00Nr0000003SQX3 option:selected").text();
+            if (strSelectedAuthorization_AirspaceWaiver == '--None--') {
+                $("#lblAuthorizationAirspaceWaiver").text('Authorization and Airspace Waiver,');
+                AuthorizationAirspaceWaiverValidation = false;
+                $('#fsCellAuthorization_AirspaceWaiver').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellAuthorization_AirspaceWaiver').addClass('fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if (strSelectedAuthorization_AirspaceWaiver != '--None--') {
+                $("#lblAuthorizationAirspaceWaiver").text('');
+                AuthorizationAirspaceWaiverValidation = true;
+                $('#fsCellAuthorization_AirspaceWaiver').removeClass('fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellAuthorization_AirspaceWaiver').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+            // Sensor to be utilized: (Required)
+            if ($('#00Nr0000003SQWo').val() == '') {
+                $("#lblSensortobeutilized").text('Sensor to be utilized,');
+                SensortobeutilizedValidation = false;
+                $('#fsCellSensortobeutilized').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+                $('#fsCellSensortobeutilized').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+            }
+            if ($('#00Nr0000003SQWo').val() != '') {
+                $("#lblSensortobeutilized").text('');
+                SensortobeutilizedValidation = true;
+                $('#fsCellSensortobeutilized').removeClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100 fsValidationError');
+                $('#fsCellSensortobeutilized').addClass('fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100');
+            }
+
+            if (vendornameValidation == false || HighwayProjectNumberValidation == false || UseCaseValidation == false ||
+                ProposedflightdateValidation == false || AlternativeflightdatesValidation == false || RPIC_additionalpersonnelValidation == false ||
+                TypeofartifactbeingproducedValidation == false || MainHighway_MBTAPOCValidation == false || FlightLocationValidation == false ||
+                NumberofflightsValidation == false || UAStobeutilizedValidation == false || AuthorizationAirspaceWaiverValidation == false || SensortobeutilizedValidation == false) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+<html>
+<body>
+    <div aria-live="polite" aria-relevant="all" class="form_embed feedback" style="margin-top:-64px;">
+        <div class="fsBody fsEmbed">
+            <!--[if IE]>
+                <link rel="stylesheet" type="text/css" media="all" href="Styles/ie.css?20140508" />
+            <![endif]-->
+            <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="Styles/ie7.css" /><![endif]-->
+            <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="Styles/ie6fixes.css" /><![endif]-->
+            <link href="Styles/Formstackstyle1.css" rel="stylesheet" />
+            <link href="Styles/Formstackstyle2.css" rel="stylesheet" />
+            <!--<link href="Styles/Notostyle1.css" rel="stylesheet" />
+                <link href="Styles/Notostyle2.css" rel="stylesheet" />-->
+            <form method="post" id="web2case" action="https://madot--dronedev.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" target="_parent"
+                  class="fsForm fsSingleColumn">
+                <input type=hidden name="orgid" value="00Dr00000002Xm9">
+                <input type=hidden name="retURL" value="http://mass.gov">
+                <div class="fsPage" id="fsPage3826398-1">
+                    <div id="ReactContainer" style="display:none" class="FsReactContainerInitApp" data-fs-react-app-id="web2lead"></div>
+                    <div class="fsSection fs1Col">
+                        <div id="RowVendorName" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellVendorName" lang="en" fs-field-type="text">
+                                <label id="labelVendorName" class="fsLabel fsRequiredLabel" for="fieldVendorName">Vendor Name: (Required)</label>
+                                <input type="text" id="00Nr0000003SQS3" name="00Nr0000003SQS3" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowHighwayProjectNumber" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellHighwayProjectNumber" lang="en" fs-field-type="text">
+                                <label id="labelHighwayProjectNumber" class="fsLabel fsRequiredLabel" for="fieldHighwayProjectNumber">Highway Project Number: (Required)</label>
+                                <input type="text" id="00Nr0000003SQSD" name="00Nr0000003SQSD" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowUseCase" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellUseCase" lang="en" fs-field-type="text">
+                                <label id="labelUseCase" class="fsLabel fsRequiredLabel" for="fieldUseCase">Use Case: (Required)</label>
+                                <input type="text" id="00Nr0000003SQSh" name="00Nr0000003SQSh" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowProposedflightdate" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellProposedflightdate" lang="en" fs-field-type="text">
+                                <label id="labelProposedflightdate" class="fsLabel fsRequiredLabel" for="fieldProposedflightdate">Proposed flight date: (Required)</label>
+                                <input type="text" id="00Nr0000003SQT6" name="00Nr0000003SQT6" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowAlternativeflightdates" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellAlternativeflightdates" lang="en" fs-field-type="text">
+                                <label id="labelAlternativeflightdates" class="fsLabel fsRequiredLabel" for="fieldAlternativeflightdates">Alternative flight dates: (Required)</label>
+                                <input type="text" id="00Nr0000003SQTa" name="00Nr0000003SQTa" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowRPIC_additionalpersonnel" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellRPIC_additionalpersonnel" lang="en" fs-field-type="text">
+                                <label id="labelRPIC_additionalpersonnel" class="fsLabel fsRequiredLabel" for="fieldRPIC_additionalpersonnel">RPIC and additional personnel: (Required)</label>
+                                <input type="text" id="00Nr0000003SQUn" name="00Nr0000003SQUn" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowTypeofartifactbeingproduced" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellTypeofartifactbeingproduced" lang="en" fs-field-type="text">
+                                <label id="labelTypeofartifactbeingproduced" class="fsLabel fsRequiredLabel" for="fieldTypeofartifactbeingproduced">Type of artifact being produced: (Required)</label>
+                                <input type="text" id="00Nr0000003SQWK" name="00Nr0000003SQWK" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowMainHighway/MBTAPOC" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellMainHighway_MBTAPOC" lang="en" fs-field-type="text">
+                                <label id="labelMainHighway/MBTAPOC" class="fsLabel fsRequiredLabel" for="fieldMainHighway/MBTAPOC">Main Highway/MBTA POC: (Required)</label>
+                                <input type="text" id="00Nr0000003SQWP" name="00Nr0000003SQWP" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowFlightLocation" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellFlightLocation" lang="en" fs-field-type="text">
+                                <label id="labelFlightLocation" class="fsLabel fsRequiredLabel" for="fieldFlightLocation">Flight Location: (Required)</label>
+                                <input type="text" id="00Nr0000003SQWU" name="00Nr0000003SQWU" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowNumberofflights" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellNumberofflights" lang="en" fs-field-type="text">
+                                <label id="labelNumberofflights" class="fsLabel fsRequiredLabel" for="fieldNumberofflights">Number of flights: (Required)</label>
+                                <input type="text" id="00Nr0000003SQWZ" name="00Nr0000003SQWZ" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowUAStobeutilized" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellUAStobeutilized" lang="en" fs-field-type="text">
+                                <label id="labelUAStobeutilized" class="fsLabel fsRequiredLabel" for="fieldUAStobeutilized">UAS to be utilized: (Required)</label>
+                                <input type="text" id="00Nr0000003SQWe" name="00Nr0000003SQWe" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <div id="RowAuthorization_AirspaceWaiver" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellAuthorization_AirspaceWaiver" lang="en" fs-field-type="select" fs-field-validation-name="Authorization and Airspace Waiver (Required)">
+                                <label id="labelAuthorization_AirspaceWaiver" class="fsLabel fsRequiredLabel" for="fieldAuthorization_AirspaceWaiver">Authorization and Airspace Waiver: (Required)
+                                </label>
+                                <select id="00Nr0000003SQX3" name="00Nr0000003SQX3" size="1" required="" class="fsField fsRequired" aria-required="true">
+                                    <option value="--None--">--None--</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="RowSensortobeutilized" class="fsRow fsFieldRow fsLastRow">
+                            <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCellSensortobeutilized" lang="en" fs-field-type="text">
+                                <label id="labelSensortobeutilized" class="fsLabel fsRequiredLabel" for="fieldSensortobeutilized">Sensor to be utilized: (Required)</label>
+                                <input type="text" id="00Nr0000003SQWo" name="00Nr0000003SQWo" size="50" class="fsField fsFormatText fsRequired">
+                            </div>
+                        </div>
+                        <input type="hidden" id="external" name="external" value="1" /><br>
+                        <div id="fsSubmitDiv" class="fsSubmit fsPagination">
+                            <input id="submit" name="submit" class="fsSubmitButton" style="" type="submit" value="Submit Form">
+                            <div class="clear"></div>
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
