@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <style>
+        td {
+            text-align:left;
+            font-weight:400;
+            line-height:18px;
+            font-family: Verdana, Arial, Helvetica, sans-serif; 
+            font-size: 13px;
+            height: 36px;
+            font-stretch:100%;
+        }
+    </style>
+	<script src="https://massgov.github.io/DOT/MassDOTTrafficmap/js/jquery.min.js"></script>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<div class="result">></div>
+	<script id="mapinit" type="text/javascript">
+		var TrafficCastData;
+		var TrafficLanddata;
+		var ERSdata;
+
+		$.ajax({
+		    url: 'https://dotfeeds.state.ma.us/api/RealTimeTrafficAccessiblePage/Index',
+			type: "GET",
+			data: {},
+			dataType: "text",
+			async: false,
+			success: function (data) {
+				ERSdata = data;
+				//alert(JSON.stringify(data));
+				$(".result").html(data);
+			},
+			error: function (err) {
+				alert(err.statusText);
+			}
+		});
+
+	</script>
+</body>
+</html>
