@@ -83,7 +83,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         }
 
 
-        var isCurrent = (smarker["EventCategory"] == "Unplanned Event");
+        var isCurrent = (smarker["EventCategory"] == "Current Event");
         var startDate = smarker.EventStartDate;
         var endDate = smarker.EventEndDate;
         var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
@@ -122,7 +122,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
     $.each(ers_markers, function (i, value)
     {
         var
-            isCurrent = value["EventCategory"] == "Unplanned Event",
+            isCurrent = value["EventCategory"] == "Current Event",
             image = options["imagesFolder"] + (isCurrent ? options["currentImage"] : options["plannedImage"]),
             myLatLng = new google.maps.LatLng(value.PrimaryLatitude, value.PrimaryLongitude),
             marker = new google.maps.Marker({
