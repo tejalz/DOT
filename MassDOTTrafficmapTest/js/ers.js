@@ -100,6 +100,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         addRow("Type:", eventType);
         if (isCurrent)
         {
+            alert(startDate);
             addRow("Date&nbsp;Reported:", startDate);
         }
         else
