@@ -84,7 +84,8 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
 
         var isCurrent = (smarker["EventCategory"] == "Current Event");
-        var startDate = smarker.EventStartDate;
+        //var startDate = smarker.EventStartDate;
+        var startDate = smarker.EventCreatedDate;
         var endDate = smarker.EventEndDate;
         var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
         var location = smarker.LocationDescription;
