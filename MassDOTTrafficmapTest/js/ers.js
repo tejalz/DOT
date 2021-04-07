@@ -70,7 +70,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
     function getinfoWindowHtml(smarker)
     {
-        alert("@@@@@@ getinfo  " + smarker.EventStartDate);
+        alert("@@@@@@ getinfo  " + smarker.EventCreatedDate);
         var newRowColor = "white";
 
         function addRow(colname, data)
