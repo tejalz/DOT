@@ -99,9 +99,12 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         var table = "<div style=\"\" class=\"clearfix\">";
         table += header;
         addRow("Type:", eventType);
+        var date = new Date(startDate);
+        
         if (isCurrent)
         {
-            alert("@@@@@@ iscurrent  " + startDate);
+            alert(((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear());
+            //alert("@@@@@@ iscurrent  " + startDate);
             addRow("Date&nbsp;Reported:", startDate);
         }
         else
