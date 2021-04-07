@@ -70,7 +70,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
     function getinfoWindowHtml(smarker)
     {
-        alert("****  " + smarker.EventStartDate);
+        alert("****  getinfoWindowHtml  " + smarker.EventStartDate);
         var newRowColor = "white";
 
         function addRow(colname, data)
@@ -100,7 +100,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         addRow("Type:", eventType);
         if (isCurrent)
         {
-            alert("****  " + startDate);
+            alert("**** iscurrent " + startDate);
             addRow("Date&nbsp;Reported:", startDate);
         }
         else
@@ -123,6 +123,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
     $.each(ers_markers, function (i, value)
     {
+        alert("***** ers_markersvalue  " + value["EventStartDate"]);
         var
             isCurrent = value["EventCategory"] == "Current Event",
             image = options["imagesFolder"] + (isCurrent ? options["currentImage"] : options["plannedImage"]),
