@@ -70,7 +70,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
     function getinfoWindowHtml(smarker)
     {
-        alert("****  " + smarker.EventStartDate);
+        alert("@@@@@@  " + smarker.EventStartDate);
         var newRowColor = "white";
 
         function addRow(colname, data)
@@ -101,7 +101,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         addRow("Type:", eventType);
         if (isCurrent)
         {
-            //alert(startDate);
+            alert("@@@@@@  " + startDate);
             addRow("Date&nbsp;Reported:", startDate);
         }
         else
