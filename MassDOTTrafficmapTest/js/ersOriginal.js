@@ -70,7 +70,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
     function getinfoWindowHtml(smarker)
     {
-        alert("****  getinfoWindowHtml  " + smarker.EventStartDate);
+        //alert("****  getinfoWindowHtml  " + smarker.EventStartDate);
         var newRowColor = "white";
 
         function addRow(colname, data)
@@ -123,7 +123,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
     $.each(ers_markers, function (i, value)
     {
-        alert("***** ers_markersvalue  " + value["EventStartDate"]);
+        //alert("***** ers_markersvalue  " + value["EventStartDate"]);
         var
             isCurrent = value["EventCategory"] == "Current Event",
             image = options["imagesFolder"] + (isCurrent ? options["currentImage"] : options["plannedImage"]),
