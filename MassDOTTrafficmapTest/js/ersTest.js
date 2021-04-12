@@ -100,7 +100,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         table += header;
         addRow("Type:", eventType);
         var date = new Date(startDate);
-        var datePlanned = new Date(startDatePlanned);
+        //var datePlanned = new Date(startDatePlanned);
         if (isCurrent)
         {
             //alert(((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear());
@@ -110,7 +110,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         }
         else
         {
-            addRow("Start&nbsp;Date:", datePlanned);
+            addRow("Start&nbsp;Date:", startDatePlanned);
             addRow("End&nbsp;Date:", endDate);
             addRow("Days/Times:", days);
         }
