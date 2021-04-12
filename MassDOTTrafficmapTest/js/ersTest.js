@@ -110,6 +110,8 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         }
         else
         {
+            alert(startDatePlanned);
+            alert(endDate);
             addRow("Start&nbsp;Date:", startDatePlanned);
             addRow("End&nbsp;Date:", endDate);
             addRow("Days/Times:", days);
