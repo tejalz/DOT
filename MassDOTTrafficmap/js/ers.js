@@ -91,8 +91,9 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
         var plannedEndDate1 = (smarker.EventEndDate).split("at")[0];
         var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
-		var date = new Date(startDate);
-        var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
+        var date = new Date(startDate);
+        //var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
+	var days = smarker.RecurrenceDescription.replace(" T","<br/>T").replace(" W","<br/>W").replace(" Th","<br/>Th").replace(" F","<br/>F").replace(" Sa","<br/>Sa").replace(" Su","<br/>Su");
         var location = smarker.LocationDescription;
         var header = "<h2 style=\"color:black !important;vertical-align:top;text-align:center;margin:0 0 10px 0\">&nbsp;";
         //header += smarker.EventType;
