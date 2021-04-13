@@ -108,7 +108,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         {
             //addRow("Start&nbsp;Date:", startDate);
             //addRow("End&nbsp;Date:", endDate);
-			alert(smarker.EventStartDate);
+			//alert(smarker.EventStartDate);
 			var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
 			//var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
 			var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1]);
