@@ -85,17 +85,6 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
         var isCurrent = (smarker["EventCategory"] == "Current Event");
 	    var startDate = smarker.EventCreatedDate;
-		
-	    var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
-        //var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
-		alert(smarker.EventStartDate);
-	    var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1]);
-	    //alert(plannedStartDate2);
-        var plannedStartDate3 = ((plannedStartDate2).split("/")[1]);
-        var plannedEndDate1 = (smarker.EventEndDate).split("at")[0];
-        //var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
-	    var plannedEndDate2 = ((smarker.EventEndDate).split("at")[1]);
-	    var plannedEndDate3 = ((plannedEndDate2).split("/")[1]);
         var date = new Date(startDate);
         //var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
 	    var days = smarker.RecurrenceDescription.replace(" T","<br/>T").replace(" W","<br/>W").replace(" Th","<br/>Th").replace(" F","<br/>F").replace(" Sa","<br/>Sa").replace(" Su","<br/>Su");
@@ -119,7 +108,17 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         {
             //addRow("Start&nbsp;Date:", startDate);
             //addRow("End&nbsp;Date:", endDate);
-	    addRow("Start&nbsp;Date:", plannedStartDate3 + "/" + plannedStartDate1);
+			alert(smarker.EventStartDate);
+			var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
+			//var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
+			var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1]);
+			//alert(plannedStartDate2);
+			var plannedStartDate3 = ((plannedStartDate2).split("/")[1]);
+			var plannedEndDate1 = (smarker.EventEndDate).split("at")[0];
+			//var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
+			var plannedEndDate2 = ((smarker.EventEndDate).split("at")[1]);
+			var plannedEndDate3 = ((plannedEndDate2).split("/")[1]);
+	        addRow("Start&nbsp;Date:", plannedStartDate3 + "/" + plannedStartDate1);
             addRow("End&nbsp;Date:", plannedEndDate3 + "/" + plannedEndDate1);
             addRow("Days/Times:", days);
         }
