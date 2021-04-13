@@ -85,9 +85,9 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
         var isCurrent = (smarker["EventCategory"] == "Current Event");
         //var startDate = smarker.EventStartDate;
-		var startDate = smarker.EventCreatedDate;
+	var startDate = smarker.EventCreatedDate;
         //var endDate = smarker.EventEndDate;
-		var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
+	var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
         var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
         var plannedEndDate1 = (smarker.EventEndDate).split("at")[0];
         var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
@@ -106,9 +106,9 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         addRow("Type:", eventType);
         if (isCurrent)
         {
-			var startDateFormat = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
+	    var startDateFormat = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
             //addRow("Date&nbsp;Reported:", startDate);
-			addRow("Date&nbsp;Reported:", startDateFormat);
+	    addRow("Date&nbsp;Reported:", startDateFormat);
         }
         else
         {
