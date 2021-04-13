@@ -84,8 +84,14 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
 
         var isCurrent = (smarker["EventCategory"] == "Current Event");
-        var startDate = smarker.EventStartDate;
-        var endDate = smarker.EventEndDate;
+        //var startDate = smarker.EventStartDate;
+		var startDate = smarker.EventCreatedDate;
+        //var endDate = smarker.EventEndDate;
+		var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
+        var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
+        var plannedEndDate1 = (smarker.EventEndDate).split("at")[0];
+        var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
+		var date = new Date(startDate);
         var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
         var location = smarker.LocationDescription;
         var header = "<h2 style=\"color:black !important;vertical-align:top;text-align:center;margin:0 0 10px 0\">&nbsp;";
@@ -99,12 +105,16 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         addRow("Type:", eventType);
         if (isCurrent)
         {
-            addRow("Date&nbsp;Reported:", startDate);
+			var startDateFormat = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
+            //addRow("Date&nbsp;Reported:", startDate);
+			addRow("Date&nbsp;Reported:", startDateFormat);
         }
         else
         {
-            addRow("Start&nbsp;Date:", startDate);
-            addRow("End&nbsp;Date:", endDate);
+            //addRow("Start&nbsp;Date:", startDate);
+            //addRow("End&nbsp;Date:", endDate);
+			addRow("Start&nbsp;Date:", plannedStartDate2 + "/" + plannedStartDate1);
+            addRow("End&nbsp;Date:", plannedEndDate2 + "/" + plannedEndDate1);
             addRow("Days/Times:", days);
         }
         addRow("Location:", location);
