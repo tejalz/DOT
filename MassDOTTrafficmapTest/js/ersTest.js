@@ -85,10 +85,12 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
 
         var isCurrent = (smarker["EventCategory"] == "Current Event");
-        var startDatePlanned = smarker.EventStartDate;
-        //alert("smarkerstartdt  " + smarker.EventStartDate);
+        var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
+        var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1].split("/")[1]);
+        var plannedEndDate = smarker.EventEndDate;
+        alert("plannedStartDate2  " + "/" + plannedStartDate1);
         var startDate = smarker.EventCreatedDate;
-        var endDate = smarker.EventEndDate;
+        
         //alert("smarkerEnddt  " + smarker.EventEndDate);
         var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
         var location = smarker.LocationDescription;
