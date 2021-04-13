@@ -86,9 +86,9 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
         var isCurrent = (smarker["EventCategory"] == "Current Event");
         var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
-        var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1].split("/")[1]);
+        var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1]).split("/")[1]);
         var plannedEndDate = smarker.EventEndDate;
-        alert("plannedStartDate2  " + "/" + plannedStartDate1);
+        alert("plannedStartDate2" + "/" + plannedStartDate1);
         var startDate = smarker.EventCreatedDate;
         
         //alert("smarkerEnddt  " + smarker.EventEndDate);
@@ -116,8 +116,8 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         {
             //alert(startDatePlanned);
             //alert(endDate);
-            addRow("Start&nbsp;Date:", startDatePlanned);
-            addRow("End&nbsp;Date:", endDate);
+           // addRow("Start&nbsp;Date:", startDatePlanned);
+            addRow("End&nbsp;Date:", plannedEndDate);
             addRow("Days/Times:", days);
         }
         addRow("Location:", location);
