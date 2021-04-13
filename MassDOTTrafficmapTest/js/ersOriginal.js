@@ -84,21 +84,21 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 
 
         var isCurrent = (smarker["EventCategory"] == "Current Event");
-        //var startDate = smarker.EventStartDate;
-	var startDate = smarker.EventCreatedDate;
-        //var endDate = smarker.EventEndDate;
-	var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
+	    var startDate = smarker.EventCreatedDate;
+		
+	    var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
         //var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
-	var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1]);
-	    alert(plannedStartDate2);
+		alert(smarker.EventStartDate);
+	    var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1]);
+	    //alert(plannedStartDate2);
         var plannedStartDate3 = ((plannedStartDate2).split("/")[1]);
         var plannedEndDate1 = (smarker.EventEndDate).split("at")[0];
         //var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
-	var plannedEndDate2 = ((smarker.EventEndDate).split("at")[1]);
-	var plannedEndDate3 = ((plannedEndDate2).split("/")[1]);
+	    var plannedEndDate2 = ((smarker.EventEndDate).split("at")[1]);
+	    var plannedEndDate3 = ((plannedEndDate2).split("/")[1]);
         var date = new Date(startDate);
         //var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
-	var days = smarker.RecurrenceDescription.replace(" T","<br/>T").replace(" W","<br/>W").replace(" Th","<br/>Th").replace(" F","<br/>F").replace(" Sa","<br/>Sa").replace(" Su","<br/>Su");
+	    var days = smarker.RecurrenceDescription.replace(" T","<br/>T").replace(" W","<br/>W").replace(" Th","<br/>Th").replace(" F","<br/>F").replace(" Sa","<br/>Sa").replace(" Su","<br/>Su");
         var location = smarker.LocationDescription;
         var header = "<h2 style=\"color:black !important;vertical-align:top;text-align:center;margin:0 0 10px 0\">&nbsp;";
         //header += smarker.EventType;
