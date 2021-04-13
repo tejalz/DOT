@@ -90,6 +90,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 	var plannedStartDate1 = (smarker.EventStartDate).split("at")[0];
         //var plannedStartDate2 = (((smarker.EventStartDate).split("at")[1]).split("/")[1]);
 	var plannedStartDate2 = ((smarker.EventStartDate).split("at")[1]);
+	    alert(plannedStartDate2);
         var plannedStartDate3 = ((plannedStartDate2).split("/")[1]);
         var plannedEndDate1 = (smarker.EventEndDate).split("at")[0];
         //var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
