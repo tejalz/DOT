@@ -118,8 +118,8 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
 			//var plannedEndDate2 = (((smarker.EventEndDate).split("at")[1]).split("/")[1]);
 			var plannedEndDate2 = ((smarker.EventEndDate).split("at")[1]);
 			var plannedEndDate3 = ((plannedEndDate2).split("/")[1]);
-	        addRow("Start&nbsp;Date:", plannedStartDate3 + "/" + plannedStartDate1);
-            addRow("End&nbsp;Date:", plannedEndDate3 + "/" + plannedEndDate1);
+	        addRow("Start&nbsp;Date:", plannedStartDate1.replace(" ","") + "/" + plannedStartDate3);
+            addRow("End&nbsp;Date:", plannedEndDate1.replace(" ","") + "/" + plannedEndDate3);
             addRow("Days/Times:", days);
         }
         addRow("Location:", location);
