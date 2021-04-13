@@ -97,7 +97,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         
         //alert("smarkerEnddt  " + smarker.EventEndDate);
         //alert(smarker.RecurrenceDescription.replace(" T","<br/>"));
-        var days = smarker.RecurrenceDescription.replace(" T","<br/>T").replace(" W","<br/>W").replace(" F","<br/>F");
+        var days = smarker.RecurrenceDescription.replace(" T","<br/>T").replace(" W","<br/>W").replace(" Th","<br/>Th").replace(" F","<br/>F").replace(" Sa","<br/>Sa").replace(" Su","<br/>Su");
         var location = smarker.LocationDescription;
         var header = "<h2 style=\"color:black !important;vertical-align:top;text-align:center;margin:0 0 10px 0\">&nbsp;";
         //header += smarker.EventType;
