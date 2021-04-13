@@ -87,6 +87,7 @@ mdot["maps"]["plugins"]["ers"]["Incidents"] = mdot["maps"]["plugins"]["ers"]["In
         var isCurrent = (smarker["EventCategory"] == "Current Event");
         var startDate = smarker.EventStartDate;
         var endDate = smarker.EventEndDate;
+        alert(smarker.RecurrenceDescription);
         var days = smarker.RecurrenceDescription.replace(/\n/g, "<br/>");
         var location = smarker.LocationDescription;
         var header = "<h2 style=\"color:black !important;vertical-align:top;text-align:center;margin:0 0 10px 0\">&nbsp;";
