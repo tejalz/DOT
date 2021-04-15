@@ -796,7 +796,7 @@ img.fsCreditCardLogo {
 }
 
 .fsForm .fsSubmit {
-    margin-top: 40px;
+    margin-top: -40px;
     padding: 20px 0;
 }
 
