@@ -61,7 +61,7 @@
                 var i = $("#TownsList option:selected").val();
                 $('#townName').html($("#TownsList option:selected").text());
                 $('#DistCode').html("Highway District " + exceljson[i].DistrictCode);
-                $('#totalAmt').html("Total amount apportioned for fiscal years 2000 to 2019: " + "<strong>" + exceljson[i].FY2000_2019 + "</strong>");
+                $('#totalAmt').html("Total amount apportioned for fiscal years 2000 to 2020: " + "<strong>" + exceljson[i].FY2000_2020 + "</strong>");
                 if (exceljson.length > 0) {
                     BindTable(exceljson);
                     //$('#person-list').append(JSON.stringify(exceljson));
